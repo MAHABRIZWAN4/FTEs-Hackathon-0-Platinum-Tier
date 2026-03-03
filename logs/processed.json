@@ -44,6 +44,816 @@
       "filename": "new_test.md",
       "processed_at": "2026-02-28 18:26:06",
       "plan_created": "Plan_new_test.md"
+    },
+    {
+      "filename": "email_20260302_154048.md",
+      "processed_at": "2026-03-03 10:09:06",
+      "plan_created": "Plan_email_20260302_154048.md"
+    },
+    {
+      "filename": "email_20260302_154055.md",
+      "processed_at": "2026-03-03 10:09:06",
+      "plan_created": "Plan_email_20260302_154055.md"
+    },
+    {
+      "filename": "email_20260302_154102.md",
+      "processed_at": "2026-03-03 10:09:06",
+      "plan_created": "Plan_email_20260302_154102.md"
+    },
+    {
+      "filename": "email_20260302_154109.md",
+      "processed_at": "2026-03-03 10:09:06",
+      "plan_created": "Plan_email_20260302_154109.md"
+    },
+    {
+      "filename": "email_20260302_154116.md",
+      "processed_at": "2026-03-03 10:09:07",
+      "plan_created": "Plan_email_20260302_154116.md"
+    },
+    {
+      "filename": "email_20260302_153318.md",
+      "processed_at": "2026-03-03 10:09:07",
+      "plan_created": "Plan_email_20260302_153318.md"
+    },
+    {
+      "filename": "email_20260302_153325.md",
+      "processed_at": "2026-03-03 10:09:07",
+      "plan_created": "Plan_email_20260302_153325.md"
+    },
+    {
+      "filename": "email_20260302_153332.md",
+      "processed_at": "2026-03-03 10:09:07",
+      "plan_created": "Plan_email_20260302_153332.md"
+    },
+    {
+      "filename": "email_20260302_153340.md",
+      "processed_at": "2026-03-03 10:09:07",
+      "plan_created": "Plan_email_20260302_153340.md"
+    },
+    {
+      "filename": "email_20260302_153347.md",
+      "processed_at": "2026-03-03 10:09:07",
+      "plan_created": "Plan_email_20260302_153347.md"
+    },
+    {
+      "filename": "email_20260302_153354.md",
+      "processed_at": "2026-03-03 10:09:07",
+      "plan_created": "Plan_email_20260302_153354.md"
+    },
+    {
+      "filename": "email_20260302_153401.md",
+      "processed_at": "2026-03-03 10:09:07",
+      "plan_created": "Plan_email_20260302_153401.md"
+    },
+    {
+      "filename": "email_20260302_153408.md",
+      "processed_at": "2026-03-03 10:09:07",
+      "plan_created": "Plan_email_20260302_153408.md"
+    },
+    {
+      "filename": "email_20260302_153416.md",
+      "processed_at": "2026-03-03 10:09:07",
+      "plan_created": "Plan_email_20260302_153416.md"
+    },
+    {
+      "filename": "email_20260302_153422.md",
+      "processed_at": "2026-03-03 10:09:08",
+      "plan_created": "Plan_email_20260302_153422.md"
+    },
+    {
+      "filename": "email_20260302_153430.md",
+      "processed_at": "2026-03-03 10:09:09",
+      "plan_created": "Plan_email_20260302_153430.md"
+    },
+    {
+      "filename": "email_20260302_153437.md",
+      "processed_at": "2026-03-03 10:09:09",
+      "plan_created": "Plan_email_20260302_153437.md"
+    },
+    {
+      "filename": "email_20260302_153444.md",
+      "processed_at": "2026-03-03 10:09:10",
+      "plan_created": "Plan_email_20260302_153444.md"
+    },
+    {
+      "filename": "email_20260302_153451.md",
+      "processed_at": "2026-03-03 10:09:10",
+      "plan_created": "Plan_email_20260302_153451.md"
+    },
+    {
+      "filename": "email_20260302_153458.md",
+      "processed_at": "2026-03-03 10:09:10",
+      "plan_created": "Plan_email_20260302_153458.md"
+    },
+    {
+      "filename": "email_20260302_153505.md",
+      "processed_at": "2026-03-03 10:09:10",
+      "plan_created": "Plan_email_20260302_153505.md"
+    },
+    {
+      "filename": "email_20260302_153512.md",
+      "processed_at": "2026-03-03 10:09:10",
+      "plan_created": "Plan_email_20260302_153512.md"
+    },
+    {
+      "filename": "email_20260302_153519.md",
+      "processed_at": "2026-03-03 10:09:10",
+      "plan_created": "Plan_email_20260302_153519.md"
+    },
+    {
+      "filename": "email_20260302_153527.md",
+      "processed_at": "2026-03-03 10:09:10",
+      "plan_created": "Plan_email_20260302_153527.md"
+    },
+    {
+      "filename": "email_20260302_153534.md",
+      "processed_at": "2026-03-03 10:09:10",
+      "plan_created": "Plan_email_20260302_153534.md"
+    },
+    {
+      "filename": "email_20260302_153541.md",
+      "processed_at": "2026-03-03 10:09:10",
+      "plan_created": "Plan_email_20260302_153541.md"
+    },
+    {
+      "filename": "email_20260302_153548.md",
+      "processed_at": "2026-03-03 10:09:10",
+      "plan_created": "Plan_email_20260302_153548.md"
+    },
+    {
+      "filename": "email_20260302_153555.md",
+      "processed_at": "2026-03-03 10:09:11",
+      "plan_created": "Plan_email_20260302_153555.md"
+    },
+    {
+      "filename": "email_20260302_153601.md",
+      "processed_at": "2026-03-03 10:09:11",
+      "plan_created": "Plan_email_20260302_153601.md"
+    },
+    {
+      "filename": "email_20260302_153608.md",
+      "processed_at": "2026-03-03 10:09:11",
+      "plan_created": "Plan_email_20260302_153608.md"
+    },
+    {
+      "filename": "email_20260302_153616.md",
+      "processed_at": "2026-03-03 10:09:11",
+      "plan_created": "Plan_email_20260302_153616.md"
+    },
+    {
+      "filename": "email_20260302_153623.md",
+      "processed_at": "2026-03-03 10:09:11",
+      "plan_created": "Plan_email_20260302_153623.md"
+    },
+    {
+      "filename": "email_20260302_153629.md",
+      "processed_at": "2026-03-03 10:09:11",
+      "plan_created": "Plan_email_20260302_153629.md"
+    },
+    {
+      "filename": "email_20260302_153636.md",
+      "processed_at": "2026-03-03 10:09:11",
+      "plan_created": "Plan_email_20260302_153636.md"
+    },
+    {
+      "filename": "email_20260302_153642.md",
+      "processed_at": "2026-03-03 10:09:11",
+      "plan_created": "Plan_email_20260302_153642.md"
+    },
+    {
+      "filename": "email_20260302_153649.md",
+      "processed_at": "2026-03-03 10:09:11",
+      "plan_created": "Plan_email_20260302_153649.md"
+    },
+    {
+      "filename": "email_20260302_153656.md",
+      "processed_at": "2026-03-03 10:09:11",
+      "plan_created": "Plan_email_20260302_153656.md"
+    },
+    {
+      "filename": "email_20260302_153703.md",
+      "processed_at": "2026-03-03 10:09:12",
+      "plan_created": "Plan_email_20260302_153703.md"
+    },
+    {
+      "filename": "email_20260302_153710.md",
+      "processed_at": "2026-03-03 10:09:12",
+      "plan_created": "Plan_email_20260302_153710.md"
+    },
+    {
+      "filename": "email_20260302_153717.md",
+      "processed_at": "2026-03-03 10:09:12",
+      "plan_created": "Plan_email_20260302_153717.md"
+    },
+    {
+      "filename": "email_20260302_153724.md",
+      "processed_at": "2026-03-03 10:09:12",
+      "plan_created": "Plan_email_20260302_153724.md"
+    },
+    {
+      "filename": "email_20260302_153731.md",
+      "processed_at": "2026-03-03 10:09:12",
+      "plan_created": "Plan_email_20260302_153731.md"
+    },
+    {
+      "filename": "email_20260302_153738.md",
+      "processed_at": "2026-03-03 10:09:12",
+      "plan_created": "Plan_email_20260302_153738.md"
+    },
+    {
+      "filename": "email_20260302_153746.md",
+      "processed_at": "2026-03-03 10:09:12",
+      "plan_created": "Plan_email_20260302_153746.md"
+    },
+    {
+      "filename": "email_20260302_153753.md",
+      "processed_at": "2026-03-03 10:09:12",
+      "plan_created": "Plan_email_20260302_153753.md"
+    },
+    {
+      "filename": "email_20260302_153800.md",
+      "processed_at": "2026-03-03 10:09:12",
+      "plan_created": "Plan_email_20260302_153800.md"
+    },
+    {
+      "filename": "email_20260302_153807.md",
+      "processed_at": "2026-03-03 10:09:13",
+      "plan_created": "Plan_email_20260302_153807.md"
+    },
+    {
+      "filename": "email_20260302_153815.md",
+      "processed_at": "2026-03-03 10:09:13",
+      "plan_created": "Plan_email_20260302_153815.md"
+    },
+    {
+      "filename": "email_20260302_153822.md",
+      "processed_at": "2026-03-03 10:09:13",
+      "plan_created": "Plan_email_20260302_153822.md"
+    },
+    {
+      "filename": "email_20260302_153828.md",
+      "processed_at": "2026-03-03 10:09:13",
+      "plan_created": "Plan_email_20260302_153828.md"
+    },
+    {
+      "filename": "email_20260302_153835.md",
+      "processed_at": "2026-03-03 10:09:13",
+      "plan_created": "Plan_email_20260302_153835.md"
+    },
+    {
+      "filename": "email_20260302_153843.md",
+      "processed_at": "2026-03-03 10:09:14",
+      "plan_created": "Plan_email_20260302_153843.md"
+    },
+    {
+      "filename": "email_20260302_153850.md",
+      "processed_at": "2026-03-03 10:09:14",
+      "plan_created": "Plan_email_20260302_153850.md"
+    },
+    {
+      "filename": "email_20260302_153857.md",
+      "processed_at": "2026-03-03 10:09:14",
+      "plan_created": "Plan_email_20260302_153857.md"
+    },
+    {
+      "filename": "email_20260302_153904.md",
+      "processed_at": "2026-03-03 10:09:14",
+      "plan_created": "Plan_email_20260302_153904.md"
+    },
+    {
+      "filename": "email_20260302_153910.md",
+      "processed_at": "2026-03-03 10:09:14",
+      "plan_created": "Plan_email_20260302_153910.md"
+    },
+    {
+      "filename": "email_20260302_153918.md",
+      "processed_at": "2026-03-03 10:09:14",
+      "plan_created": "Plan_email_20260302_153918.md"
+    },
+    {
+      "filename": "email_20260302_153925.md",
+      "processed_at": "2026-03-03 10:09:14",
+      "plan_created": "Plan_email_20260302_153925.md"
+    },
+    {
+      "filename": "email_20260302_153931.md",
+      "processed_at": "2026-03-03 10:09:14",
+      "plan_created": "Plan_email_20260302_153931.md"
+    },
+    {
+      "filename": "email_20260302_153938.md",
+      "processed_at": "2026-03-03 10:09:14",
+      "plan_created": "Plan_email_20260302_153938.md"
+    },
+    {
+      "filename": "email_20260302_153945.md",
+      "processed_at": "2026-03-03 10:09:14",
+      "plan_created": "Plan_email_20260302_153945.md"
+    },
+    {
+      "filename": "email_20260302_153952.md",
+      "processed_at": "2026-03-03 10:09:14",
+      "plan_created": "Plan_email_20260302_153952.md"
+    },
+    {
+      "filename": "email_20260302_153959.md",
+      "processed_at": "2026-03-03 10:09:15",
+      "plan_created": "Plan_email_20260302_153959.md"
+    },
+    {
+      "filename": "email_20260302_154006.md",
+      "processed_at": "2026-03-03 10:09:15",
+      "plan_created": "Plan_email_20260302_154006.md"
+    },
+    {
+      "filename": "email_20260302_154013.md",
+      "processed_at": "2026-03-03 10:09:15",
+      "plan_created": "Plan_email_20260302_154013.md"
+    },
+    {
+      "filename": "email_20260302_154020.md",
+      "processed_at": "2026-03-03 10:09:15",
+      "plan_created": "Plan_email_20260302_154020.md"
+    },
+    {
+      "filename": "email_20260302_154027.md",
+      "processed_at": "2026-03-03 10:09:15",
+      "plan_created": "Plan_email_20260302_154027.md"
+    },
+    {
+      "filename": "email_20260302_154034.md",
+      "processed_at": "2026-03-03 10:09:15",
+      "plan_created": "Plan_email_20260302_154034.md"
+    },
+    {
+      "filename": "email_20260302_154041.md",
+      "processed_at": "2026-03-03 10:09:15",
+      "plan_created": "Plan_email_20260302_154041.md"
+    },
+    {
+      "filename": "email_20260302_154124.md",
+      "processed_at": "2026-03-03 10:09:15",
+      "plan_created": "Plan_email_20260302_154124.md"
+    },
+    {
+      "filename": "email_20260302_154131.md",
+      "processed_at": "2026-03-03 10:09:15",
+      "plan_created": "Plan_email_20260302_154131.md"
+    },
+    {
+      "filename": "email_20260302_154138.md",
+      "processed_at": "2026-03-03 10:09:15",
+      "plan_created": "Plan_email_20260302_154138.md"
+    },
+    {
+      "filename": "email_20260302_154144.md",
+      "processed_at": "2026-03-03 10:09:15",
+      "plan_created": "Plan_email_20260302_154144.md"
+    },
+    {
+      "filename": "email_20260302_154151.md",
+      "processed_at": "2026-03-03 10:09:16",
+      "plan_created": "Plan_email_20260302_154151.md"
+    },
+    {
+      "filename": "email_20260302_154158.md",
+      "processed_at": "2026-03-03 10:09:16",
+      "plan_created": "Plan_email_20260302_154158.md"
+    },
+    {
+      "filename": "email_20260302_154205.md",
+      "processed_at": "2026-03-03 10:09:16",
+      "plan_created": "Plan_email_20260302_154205.md"
+    },
+    {
+      "filename": "email_20260302_154212.md",
+      "processed_at": "2026-03-03 10:09:16",
+      "plan_created": "Plan_email_20260302_154212.md"
+    },
+    {
+      "filename": "email_20260302_154219.md",
+      "processed_at": "2026-03-03 10:09:16",
+      "plan_created": "Plan_email_20260302_154219.md"
+    },
+    {
+      "filename": "email_20260302_154226.md",
+      "processed_at": "2026-03-03 10:09:16",
+      "plan_created": "Plan_email_20260302_154226.md"
+    },
+    {
+      "filename": "email_20260302_154233.md",
+      "processed_at": "2026-03-03 10:09:16",
+      "plan_created": "Plan_email_20260302_154233.md"
+    },
+    {
+      "filename": "email_20260302_154240.md",
+      "processed_at": "2026-03-03 10:09:16",
+      "plan_created": "Plan_email_20260302_154240.md"
+    },
+    {
+      "filename": "email_20260302_154247.md",
+      "processed_at": "2026-03-03 10:09:16",
+      "plan_created": "Plan_email_20260302_154247.md"
+    },
+    {
+      "filename": "email_20260302_154254.md",
+      "processed_at": "2026-03-03 10:09:16",
+      "plan_created": "Plan_email_20260302_154254.md"
+    },
+    {
+      "filename": "email_20260302_160217.md",
+      "processed_at": "2026-03-03 10:09:16",
+      "plan_created": "Plan_email_20260302_160217.md"
+    },
+    {
+      "filename": "email_20260302_160226.md",
+      "processed_at": "2026-03-03 10:09:16",
+      "plan_created": "Plan_email_20260302_160226.md"
+    },
+    {
+      "filename": "email_20260302_160236.md",
+      "processed_at": "2026-03-03 10:09:17",
+      "plan_created": "Plan_email_20260302_160236.md"
+    },
+    {
+      "filename": "email_20260302_160244.md",
+      "processed_at": "2026-03-03 10:09:17",
+      "plan_created": "Plan_email_20260302_160244.md"
+    },
+    {
+      "filename": "email_20260302_160251.md",
+      "processed_at": "2026-03-03 10:09:17",
+      "plan_created": "Plan_email_20260302_160251.md"
+    },
+    {
+      "filename": "email_20260302_160259.md",
+      "processed_at": "2026-03-03 10:09:17",
+      "plan_created": "Plan_email_20260302_160259.md"
+    },
+    {
+      "filename": "email_20260302_160306.md",
+      "processed_at": "2026-03-03 10:09:17",
+      "plan_created": "Plan_email_20260302_160306.md"
+    },
+    {
+      "filename": "email_20260302_160314.md",
+      "processed_at": "2026-03-03 10:09:17",
+      "plan_created": "Plan_email_20260302_160314.md"
+    },
+    {
+      "filename": "email_20260302_160321.md",
+      "processed_at": "2026-03-03 10:09:17",
+      "plan_created": "Plan_email_20260302_160321.md"
+    },
+    {
+      "filename": "email_20260302_160328.md",
+      "processed_at": "2026-03-03 10:09:17",
+      "plan_created": "Plan_email_20260302_160328.md"
+    },
+    {
+      "filename": "email_20260302_160335.md",
+      "processed_at": "2026-03-03 10:09:17",
+      "plan_created": "Plan_email_20260302_160335.md"
+    },
+    {
+      "filename": "email_20260302_160342.md",
+      "processed_at": "2026-03-03 10:09:17",
+      "plan_created": "Plan_email_20260302_160342.md"
+    },
+    {
+      "filename": "email_20260302_160349.md",
+      "processed_at": "2026-03-03 10:09:18",
+      "plan_created": "Plan_email_20260302_160349.md"
+    },
+    {
+      "filename": "email_20260302_160357.md",
+      "processed_at": "2026-03-03 10:09:18",
+      "plan_created": "Plan_email_20260302_160357.md"
+    },
+    {
+      "filename": "email_20260302_160406.md",
+      "processed_at": "2026-03-03 10:09:18",
+      "plan_created": "Plan_email_20260302_160406.md"
+    },
+    {
+      "filename": "email_20260302_160413.md",
+      "processed_at": "2026-03-03 10:09:18",
+      "plan_created": "Plan_email_20260302_160413.md"
+    },
+    {
+      "filename": "email_20260302_160421.md",
+      "processed_at": "2026-03-03 10:09:18",
+      "plan_created": "Plan_email_20260302_160421.md"
+    },
+    {
+      "filename": "email_20260302_160428.md",
+      "processed_at": "2026-03-03 10:09:18",
+      "plan_created": "Plan_email_20260302_160428.md"
+    },
+    {
+      "filename": "email_20260302_160436.md",
+      "processed_at": "2026-03-03 10:09:18",
+      "plan_created": "Plan_email_20260302_160436.md"
+    },
+    {
+      "filename": "email_20260302_160443.md",
+      "processed_at": "2026-03-03 10:09:18",
+      "plan_created": "Plan_email_20260302_160443.md"
+    },
+    {
+      "filename": "email_20260302_160451.md",
+      "processed_at": "2026-03-03 10:09:18",
+      "plan_created": "Plan_email_20260302_160451.md"
+    },
+    {
+      "filename": "email_20260302_160458.md",
+      "processed_at": "2026-03-03 10:09:18",
+      "plan_created": "Plan_email_20260302_160458.md"
+    },
+    {
+      "filename": "email_20260302_160505.md",
+      "processed_at": "2026-03-03 10:09:18",
+      "plan_created": "Plan_email_20260302_160505.md"
+    },
+    {
+      "filename": "email_20260302_160512.md",
+      "processed_at": "2026-03-03 10:09:19",
+      "plan_created": "Plan_email_20260302_160512.md"
+    },
+    {
+      "filename": "email_20260302_160519.md",
+      "processed_at": "2026-03-03 10:09:19",
+      "plan_created": "Plan_email_20260302_160519.md"
+    },
+    {
+      "filename": "email_20260302_160526.md",
+      "processed_at": "2026-03-03 10:09:19",
+      "plan_created": "Plan_email_20260302_160526.md"
+    },
+    {
+      "filename": "email_20260302_160534.md",
+      "processed_at": "2026-03-03 10:09:19",
+      "plan_created": "Plan_email_20260302_160534.md"
+    },
+    {
+      "filename": "email_20260302_160543.md",
+      "processed_at": "2026-03-03 10:09:19",
+      "plan_created": "Plan_email_20260302_160543.md"
+    },
+    {
+      "filename": "email_20260302_160549.md",
+      "processed_at": "2026-03-03 10:09:19",
+      "plan_created": "Plan_email_20260302_160549.md"
+    },
+    {
+      "filename": "email_20260302_160557.md",
+      "processed_at": "2026-03-03 10:09:19",
+      "plan_created": "Plan_email_20260302_160557.md"
+    },
+    {
+      "filename": "email_20260302_160604.md",
+      "processed_at": "2026-03-03 10:09:20",
+      "plan_created": "Plan_email_20260302_160604.md"
+    },
+    {
+      "filename": "email_20260302_160612.md",
+      "processed_at": "2026-03-03 10:09:20",
+      "plan_created": "Plan_email_20260302_160612.md"
+    },
+    {
+      "filename": "email_20260302_160619.md",
+      "processed_at": "2026-03-03 10:09:20",
+      "plan_created": "Plan_email_20260302_160619.md"
+    },
+    {
+      "filename": "email_20260302_160626.md",
+      "processed_at": "2026-03-03 10:09:20",
+      "plan_created": "Plan_email_20260302_160626.md"
+    },
+    {
+      "filename": "email_20260302_160633.md",
+      "processed_at": "2026-03-03 10:09:20",
+      "plan_created": "Plan_email_20260302_160633.md"
+    },
+    {
+      "filename": "email_20260302_160640.md",
+      "processed_at": "2026-03-03 10:09:20",
+      "plan_created": "Plan_email_20260302_160640.md"
+    },
+    {
+      "filename": "email_20260302_160646.md",
+      "processed_at": "2026-03-03 10:09:20",
+      "plan_created": "Plan_email_20260302_160646.md"
+    },
+    {
+      "filename": "email_20260302_160654.md",
+      "processed_at": "2026-03-03 10:09:21",
+      "plan_created": "Plan_email_20260302_160654.md"
+    },
+    {
+      "filename": "email_20260302_160701.md",
+      "processed_at": "2026-03-03 10:09:21",
+      "plan_created": "Plan_email_20260302_160701.md"
+    },
+    {
+      "filename": "email_20260302_160708.md",
+      "processed_at": "2026-03-03 10:09:21",
+      "plan_created": "Plan_email_20260302_160708.md"
+    },
+    {
+      "filename": "email_20260302_160715.md",
+      "processed_at": "2026-03-03 10:09:21",
+      "plan_created": "Plan_email_20260302_160715.md"
+    },
+    {
+      "filename": "email_20260302_160724.md",
+      "processed_at": "2026-03-03 10:09:21",
+      "plan_created": "Plan_email_20260302_160724.md"
+    },
+    {
+      "filename": "email_20260302_160731.md",
+      "processed_at": "2026-03-03 10:09:21",
+      "plan_created": "Plan_email_20260302_160731.md"
+    },
+    {
+      "filename": "email_20260302_160739.md",
+      "processed_at": "2026-03-03 10:09:21",
+      "plan_created": "Plan_email_20260302_160739.md"
+    },
+    {
+      "filename": "email_20260302_160746.md",
+      "processed_at": "2026-03-03 10:09:21",
+      "plan_created": "Plan_email_20260302_160746.md"
+    },
+    {
+      "filename": "email_20260302_160754.md",
+      "processed_at": "2026-03-03 10:09:21",
+      "plan_created": "Plan_email_20260302_160754.md"
+    },
+    {
+      "filename": "email_20260302_160801.md",
+      "processed_at": "2026-03-03 10:09:21",
+      "plan_created": "Plan_email_20260302_160801.md"
+    },
+    {
+      "filename": "email_20260302_160809.md",
+      "processed_at": "2026-03-03 10:09:21",
+      "plan_created": "Plan_email_20260302_160809.md"
+    },
+    {
+      "filename": "email_20260302_160816.md",
+      "processed_at": "2026-03-03 10:09:22",
+      "plan_created": "Plan_email_20260302_160816.md"
+    },
+    {
+      "filename": "email_20260302_160824.md",
+      "processed_at": "2026-03-03 10:09:22",
+      "plan_created": "Plan_email_20260302_160824.md"
+    },
+    {
+      "filename": "email_20260302_160831.md",
+      "processed_at": "2026-03-03 10:09:22",
+      "plan_created": "Plan_email_20260302_160831.md"
+    },
+    {
+      "filename": "email_20260302_160839.md",
+      "processed_at": "2026-03-03 10:09:22",
+      "plan_created": "Plan_email_20260302_160839.md"
+    },
+    {
+      "filename": "email_20260302_160846.md",
+      "processed_at": "2026-03-03 10:09:22",
+      "plan_created": "Plan_email_20260302_160846.md"
+    },
+    {
+      "filename": "email_20260302_160853.md",
+      "processed_at": "2026-03-03 10:09:22",
+      "plan_created": "Plan_email_20260302_160853.md"
+    },
+    {
+      "filename": "email_20260302_160900.md",
+      "processed_at": "2026-03-03 10:09:22",
+      "plan_created": "Plan_email_20260302_160900.md"
+    },
+    {
+      "filename": "email_20260302_160908.md",
+      "processed_at": "2026-03-03 10:09:22",
+      "plan_created": "Plan_email_20260302_160908.md"
+    },
+    {
+      "filename": "email_20260302_160915.md",
+      "processed_at": "2026-03-03 10:09:22",
+      "plan_created": "Plan_email_20260302_160915.md"
+    },
+    {
+      "filename": "email_20260302_160923.md",
+      "processed_at": "2026-03-03 10:09:22",
+      "plan_created": "Plan_email_20260302_160923.md"
+    },
+    {
+      "filename": "email_20260302_160929.md",
+      "processed_at": "2026-03-03 10:09:22",
+      "plan_created": "Plan_email_20260302_160929.md"
+    },
+    {
+      "filename": "email_20260302_160937.md",
+      "processed_at": "2026-03-03 10:09:23",
+      "plan_created": "Plan_email_20260302_160937.md"
+    },
+    {
+      "filename": "email_20260302_160944.md",
+      "processed_at": "2026-03-03 10:09:23",
+      "plan_created": "Plan_email_20260302_160944.md"
+    },
+    {
+      "filename": "email_20260302_160952.md",
+      "processed_at": "2026-03-03 10:09:23",
+      "plan_created": "Plan_email_20260302_160952.md"
+    },
+    {
+      "filename": "email_20260302_160959.md",
+      "processed_at": "2026-03-03 10:09:23",
+      "plan_created": "Plan_email_20260302_160959.md"
+    },
+    {
+      "filename": "email_20260302_161007.md",
+      "processed_at": "2026-03-03 10:09:24",
+      "plan_created": "Plan_email_20260302_161007.md"
+    },
+    {
+      "filename": "email_20260302_161014.md",
+      "processed_at": "2026-03-03 10:09:24",
+      "plan_created": "Plan_email_20260302_161014.md"
+    },
+    {
+      "filename": "email_20260302_161021.md",
+      "processed_at": "2026-03-03 10:09:24",
+      "plan_created": "Plan_email_20260302_161021.md"
+    },
+    {
+      "filename": "email_20260302_161029.md",
+      "processed_at": "2026-03-03 10:09:24",
+      "plan_created": "Plan_email_20260302_161029.md"
+    },
+    {
+      "filename": "email_20260302_161035.md",
+      "processed_at": "2026-03-03 10:09:24",
+      "plan_created": "Plan_email_20260302_161035.md"
+    },
+    {
+      "filename": "email_20260302_161043.md",
+      "processed_at": "2026-03-03 10:09:24",
+      "plan_created": "Plan_email_20260302_161043.md"
+    },
+    {
+      "filename": "email_20260302_161050.md",
+      "processed_at": "2026-03-03 10:09:24",
+      "plan_created": "Plan_email_20260302_161050.md"
+    },
+    {
+      "filename": "email_20260302_161058.md",
+      "processed_at": "2026-03-03 10:09:24",
+      "plan_created": "Plan_email_20260302_161058.md"
+    },
+    {
+      "filename": "email_20260302_161105.md",
+      "processed_at": "2026-03-03 10:09:24",
+      "plan_created": "Plan_email_20260302_161105.md"
+    },
+    {
+      "filename": "email_20260303_085200.md",
+      "processed_at": "2026-03-03 10:09:25",
+      "plan_created": "Plan_email_20260303_085200.md"
+    },
+    {
+      "filename": "email_20260303_102103.md",
+      "processed_at": "2026-03-03 10:26:24",
+      "plan_created": "Plan_email_20260303_102103.md"
+    },
+    {
+      "filename": "email_20260303_102111.md",
+      "processed_at": "2026-03-03 10:26:25",
+      "plan_created": "Plan_email_20260303_102111.md"
+    },
+    {
+      "filename": "email_20260303_102119.md",
+      "processed_at": "2026-03-03 10:26:25",
+      "plan_created": "Plan_email_20260303_102119.md"
+    },
+    {
+      "filename": "email_20260303_102228.md",
+      "processed_at": "2026-03-03 10:26:25",
+      "plan_created": "Plan_email_20260303_102228.md"
+    },
+    {
+      "filename": "email_20260303_102234.md",
+      "processed_at": "2026-03-03 10:26:25",
+      "plan_created": "Plan_email_20260303_102234.md"
+    },
+    {
+      "filename": "email_20260303_102241.md",
+      "processed_at": "2026-03-03 10:26:25",
+      "plan_created": "Plan_email_20260303_102241.md"
     }
   ]
 }
