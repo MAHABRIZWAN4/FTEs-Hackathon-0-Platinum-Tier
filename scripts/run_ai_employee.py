@@ -29,6 +29,18 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional, Dict, List
 
+# Rich library for beautiful terminal output
+try:
+    from rich.console import Console
+    from rich.panel import Panel
+    from rich.table import Table
+    from rich import print as rprint
+    RICH_AVAILABLE = True
+    console = Console()
+except ImportError:
+    RICH_AVAILABLE = False
+    console = None
+
 
 # Configuration
 INBOX_FOLDER = os.path.join("AI_Employee_Vault", "Inbox")
@@ -84,9 +96,26 @@ class AIEmployeeScheduler:
         try:
             with open(LOG_FILE, "a", encoding="utf-8") as f:
                 f.write(log_entry)
-            print(f"[{level}] {message}")
+
+            # Cyber-Silver Professional console output
+            if RICH_AVAILABLE:
+                if level == "ERROR" or level == "CRITICAL":
+                    console.print(f"[bold red]🚫 FAIL:[/] [red]{message}[/red]")
+                elif level == "SUCCESS":
+                    console.print(f"[bold green]✅ DONE:[/] [green]{message}[/green]")
+                elif level == "WARNING":
+                    console.print(f"[bold yellow]🔍 SCAN:[/] [yellow]{message}[/yellow]")
+                elif level == "STATS":
+                    console.print(f"[bold cyan]⚡ EXEC:[/] [bright_white]{message}[/bright_white]")
+                else:
+                    console.print(f"[bold cyan]⚡ EXEC:[/] [cyan]{message}[/cyan]")
+            else:
+                print(f"[{level}] {message}")
         except Exception as e:
-            print(f"[ERROR] Failed to write to log: {e}")
+            if RICH_AVAILABLE:
+                console.print(f"[bold red]🚫 FAIL:[/] Failed to write to log: {e}")
+            else:
+                print(f"[ERROR] Failed to write to log: {e}")
 
     def check_log_size_and_rotate(self):
         """
@@ -345,6 +374,21 @@ class AIEmployeeScheduler:
             f"Processed: {self.session_processed} this session, {total_processed} total"
         )
 
+        # Beautiful table for statistics
+        if RICH_AVAILABLE:
+            table = Table(title="📊 System Statistics", border_style="cyan", show_header=True, header_style="bold bright_white")
+            table.add_column("Metric", style="cyan", justify="left")
+            table.add_column("Value", style="bright_white", justify="center")
+
+            table.add_row("📥 New Files", f"[bold green]{len(new_files)}[/bold green]")
+            table.add_row("📁 Total Inbox", f"[cyan]{len(inbox_files)}[/cyan]")
+            table.add_row("⚡ Active Tasks", f"[yellow]{active_tasks}[/yellow]")
+            table.add_row("✅ Session Processed", f"[green]{self.session_processed}[/green]")
+            table.add_row("📊 Total Processed", f"[bold cyan]{total_processed}[/bold cyan]")
+
+            console.print(table)
+            console.print()
+
         self.log(stats, "STATS")
 
     def process_cycle(self):
@@ -387,6 +431,20 @@ class AIEmployeeScheduler:
         """
         Run a single processing cycle and exit.
         """
+        # Cyber-Silver Professional Header
+        if RICH_AVAILABLE:
+            console.print()
+            console.print(Panel.fit(
+                "[bold cyan]★ ════════════════════════════════════════ ★[/bold cyan]\n"
+                "[bold bright_white]🤖 SILVER SCHEDULER AGENT[/bold bright_white]\n"
+                "[dim cyan]AI Employee Orchestrator[/dim cyan]\n"
+                "[yellow]Mode:[/yellow] [bright_white]Single Execution[/bright_white]\n"
+                "[bold cyan]★ ════════════════════════════════════════ ★[/bold cyan]",
+                border_style="bold cyan",
+                padding=(1, 2)
+            ))
+            console.print()
+
         self.log(f"AI Employee started (mode=once)", "INFO")
 
         # Create lock file
@@ -412,6 +470,20 @@ class AIEmployeeScheduler:
         """
         Run continuously in daemon mode.
         """
+        # Cyber-Silver Professional Header
+        if RICH_AVAILABLE:
+            console.print()
+            console.print(Panel.fit(
+                "[bold cyan]★ ════════════════════════════════════════ ★[/bold cyan]\n"
+                "[bold bright_white]🤖 SILVER SCHEDULER AGENT[/bold bright_white]\n"
+                "[dim cyan]AI Employee Orchestrator[/dim cyan]\n"
+                f"[yellow]Mode:[/yellow] [bright_white]Daemon (Interval: {self.interval}s)[/bright_white]\n"
+                "[bold cyan]★ ════════════════════════════════════════ ★[/bold cyan]",
+                border_style="bold cyan",
+                padding=(1, 2)
+            ))
+            console.print()
+
         self.log(f"AI Employee started (mode=daemon, interval={self.interval}s)", "INFO")
 
         # Create lock file
@@ -449,6 +521,22 @@ class AIEmployeeScheduler:
 
         finally:
             self.remove_lock_file()
+
+            # Beautiful session summary
+            if RICH_AVAILABLE:
+                console.print()
+                console.print(Panel(
+                    "[bold cyan]★ ═══════════════════════════════════ ★[/bold cyan]\n"
+                    "[bold bright_white]📊 Session Summary[/bold bright_white]\n"
+                    f"[yellow]Cycles:[/yellow] [bright_white]{cycle_count}[/bright_white]\n"
+                    f"[green]Processed:[/green] [bright_white]{self.session_processed}[/bright_white]\n"
+                    f"[red]Errors:[/red] [bright_white]{self.session_errors}[/bright_white]\n"
+                    "[bold cyan]★ ═══════════════════════════════════ ★[/bold cyan]",
+                    border_style="bold cyan",
+                    padding=(1, 2)
+                ))
+                console.print()
+
             self.log(
                 f"Session ended - Cycles: {cycle_count}, Processed: {self.session_processed}, Errors: {self.session_errors}",
                 "INFO"
@@ -470,7 +558,12 @@ def signal_handler(signum, frame):
     """
     global shutdown_requested
     shutdown_requested = True
-    print("\n[INFO] Shutdown signal received, finishing current cycle...")
+
+    if RICH_AVAILABLE:
+        console.print()
+        console.print("[bold yellow]⚠️  Shutdown signal received, finishing current cycle...[/bold yellow]")
+    else:
+        print("\n[INFO] Shutdown signal received, finishing current cycle...")
 
 
 def main():
@@ -517,10 +610,24 @@ def main():
         success = scheduler.run()
         sys.exit(0 if success else 1)
     except KeyboardInterrupt:
-        print("\n[INFO] Interrupted by user")
+        if RICH_AVAILABLE:
+            console.print()
+            console.print("[bold yellow]⚠️  Interrupted by user[/bold yellow]")
+        else:
+            print("\n[INFO] Interrupted by user")
         sys.exit(0)
     except Exception as e:
-        print(f"\n[CRITICAL] Fatal error: {e}")
+        if RICH_AVAILABLE:
+            console.print()
+            console.print(Panel(
+                f"[bold red]🚫 FAIL: Fatal error[/bold red]\n"
+                f"[red]{e}[/red]",
+                border_style="red",
+                padding=(1, 2)
+            ))
+            console.print()
+        else:
+            print(f"\n[CRITICAL] Fatal error: {e}")
         sys.exit(1)
 
 

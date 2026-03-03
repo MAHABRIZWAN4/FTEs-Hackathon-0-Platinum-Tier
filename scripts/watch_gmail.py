@@ -17,6 +17,18 @@ from pathlib import Path
 import sys
 from dotenv import load_dotenv
 
+# Rich library for beautiful terminal output
+try:
+    from rich.console import Console
+    from rich.panel import Panel
+    from rich.table import Table
+    from rich import print as rprint
+    RICH_AVAILABLE = True
+    console = Console()
+except ImportError:
+    RICH_AVAILABLE = False
+    console = None
+
 # Load environment variables
 load_dotenv()
 
@@ -44,16 +56,34 @@ def log_message(message, level="INFO"):
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     log_entry = f"[{timestamp}] [{level}] {message}"
 
-    print(log_entry)
-
     # Ensure log directory exists
     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    # Cyber-Silver Professional console output
+    if RICH_AVAILABLE:
+        if level == "ERROR":
+            console.print(f"[bold red]🚫 FAIL:[/] [red]{message}[/red]")
+        elif level == "SUCCESS":
+            console.print(f"[bold green]✅ DONE:[/] [green]{message}[/green]")
+        elif level == "WARNING":
+            console.print(f"[bold yellow]🔍 SCAN:[/] [yellow]{message}[/yellow]")
+        elif level in ["GMAIL", "HEARTBEAT"]:
+            console.print(f"[bold blue]⚡ EXEC:[/] [bold cyan]{message}[/bold cyan]")
+        elif level in ["DETECTED", "SAVED", "REPLY", "MARKED"]:
+            console.print(f"[bold green]✅ DONE:[/] [bright_white]{message}[/bright_white]")
+        else:
+            console.print(f"[bold cyan]⚡ EXEC:[/] [cyan]{message}[/cyan]")
+    else:
+        print(log_entry)
 
     try:
         with open(LOG_PATH, 'a', encoding='utf-8') as f:
             f.write(log_entry + '\n')
     except Exception as e:
-        print(f"Warning: Could not write to log file: {e}")
+        if RICH_AVAILABLE:
+            console.print(f"[bold red]🚫 FAIL:[/] Could not write to log file: {e}")
+        else:
+            print(f"Warning: Could not write to log file: {e}")
 
 
 def validate_credentials():
@@ -292,11 +322,28 @@ def check_inbox():
 
 def main():
     """Main loop: continuously monitor Gmail inbox."""
-    log_message("=" * 60, "INFO")
-    log_message("Gmail Watcher Agent Skill Started", "GMAIL")
+    # Cyber-Silver Professional Header Panel
+    if RICH_AVAILABLE:
+        console.print()
+        console.print(Panel.fit(
+            "[bold cyan]★ ════════════════════════════════════════ ★[/bold cyan]\n"
+            "[bold bright_white]📧 GMAIL WATCHER AGENT[/bold bright_white]\n"
+            "[dim cyan]Silver Tier AI Employee[/dim cyan]\n"
+            "[bold cyan]★ ════════════════════════════════════════ ★[/bold cyan]",
+            border_style="bold cyan",
+            padding=(1, 2)
+        ))
+        console.print()
+    else:
+        log_message("=" * 60, "INFO")
+        log_message("Gmail Watcher Agent Skill Started", "GMAIL")
+        log_message(f"Monitoring: {EMAIL_ADDRESS}", "GMAIL")
+        log_message(f"Check interval: {CHECK_INTERVAL} seconds", "GMAIL")
+        log_message("=" * 60, "INFO")
+        return
+
     log_message(f"Monitoring: {EMAIL_ADDRESS}", "GMAIL")
     log_message(f"Check interval: {CHECK_INTERVAL} seconds", "GMAIL")
-    log_message("=" * 60, "INFO")
 
     # Validate credentials
     if not validate_credentials():
@@ -339,10 +386,22 @@ def main():
             time.sleep(CHECK_INTERVAL)
 
     except KeyboardInterrupt:
-        log_message("=" * 60, "INFO")
-        log_message("Gmail Watcher stopped by user", "GMAIL")
-        log_message(f"Total emails processed: {total_processed}", "GMAIL")
-        log_message("=" * 60, "INFO")
+        if RICH_AVAILABLE:
+            console.print()
+            console.print(Panel(
+                "[bold cyan]★ ═══════════════════════════════════ ★[/bold cyan]\n"
+                "[bold yellow]⚠️  Gmail Watcher Stopped[/bold yellow]\n"
+                f"[cyan]Total emails processed:[/cyan] [bright_white]{total_processed}[/bright_white]\n"
+                "[bold cyan]★ ═══════════════════════════════════ ★[/bold cyan]",
+                border_style="bold yellow",
+                padding=(1, 2)
+            ))
+            console.print()
+        else:
+            log_message("=" * 60, "INFO")
+            log_message("Gmail Watcher stopped by user", "GMAIL")
+            log_message(f"Total emails processed: {total_processed}", "GMAIL")
+            log_message("=" * 60, "INFO")
         sys.exit(0)
     except Exception as e:
         log_message(f"Unexpected error: {e}", "ERROR")
