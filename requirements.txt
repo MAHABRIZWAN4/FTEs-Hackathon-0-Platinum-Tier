@@ -1,7 +1,9 @@
 # Core dependencies for colorful terminal UI
 rich>=13.0.0
 
+# Environment variable management
+python-dotenv>=1.0.0
+
 # LinkedIn automation dependencies (optional)
 # Install with: pip install -r requirements_linkedin.txt
 # playwright>=1.40.0
-# python-dotenv>=1.0.0
