@@ -4,6 +4,9 @@ Business MCP Server - Gold Tier AI Employee
 This MCP server exposes business automation actions as tools:
 - send_email: Send emails via SMTP
 - post_linkedin: Post content to LinkedIn
+- post_twitter: Post tweets to Twitter/X
+- post_facebook: Post to Facebook Pages
+- post_instagram: Post images to Instagram
 - log_activity: Log business activities
 
 Wraps existing scripts without duplication.
@@ -34,9 +37,12 @@ except ImportError:
 try:
     from scripts.send_email import send_email as email_send_func, load_email_config, validate_config
     from scripts.post_linkedin import LinkedInPoster
+    from scripts.post_twitter import post_tweet
+    from scripts.post_facebook import post_facebook
+    from scripts.post_instagram import post_instagram
 except ImportError as e:
     print(f"[ERROR] Failed to import business scripts: {e}")
-    print("Ensure scripts/send_email.py and scripts/post_linkedin.py exist")
+    print("Ensure all social media posting scripts exist in scripts/")
     sys.exit(1)
 
 # Configuration
@@ -127,6 +133,61 @@ async def list_tools() -> list[Tool]:
             }
         ),
         Tool(
+            name="post_twitter",
+            description="Post a tweet to Twitter/X using API v2. Requires TWITTER_API_KEY, TWITTER_API_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET, and TWITTER_BEARER_TOKEN in .env file. Supports threads for long content.",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "Tweet content (max 280 chars, or use thread for longer)"
+                    },
+                    "thread": {
+                        "type": "boolean",
+                        "description": "Create thread if content > 280 chars (default: false)",
+                        "default": False
+                    }
+                },
+                "required": ["content"]
+            }
+        ),
+        Tool(
+            name="post_facebook",
+            description="Post content to Facebook Page using Meta Graph API. Requires FACEBOOK_ACCESS_TOKEN and FACEBOOK_PAGE_ID in .env file.",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "Post content/message"
+                    },
+                    "link": {
+                        "type": "string",
+                        "description": "Optional URL to share"
+                    }
+                },
+                "required": ["content"]
+            }
+        ),
+        Tool(
+            name="post_instagram",
+            description="Post image to Instagram Business account using Meta Graph API. Requires FACEBOOK_ACCESS_TOKEN and INSTAGRAM_ACCOUNT_ID in .env file. Image must be publicly accessible URL.",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "caption": {
+                        "type": "string",
+                        "description": "Post caption (max 2200 chars)"
+                    },
+                    "image_url": {
+                        "type": "string",
+                        "description": "Publicly accessible image URL"
+                    }
+                },
+                "required": ["caption", "image_url"]
+            }
+        ),
+        Tool(
             name="log_activity",
             description="Log a business activity message to vault/logs/business.log with timestamp and level.",
             inputSchema={
@@ -159,6 +220,12 @@ async def call_tool(name: str, arguments: dict) -> list[TextContent]:
             return await handle_send_email(arguments)
         elif name == "post_linkedin":
             return await handle_post_linkedin(arguments)
+        elif name == "post_twitter":
+            return await handle_post_twitter(arguments)
+        elif name == "post_facebook":
+            return await handle_post_facebook(arguments)
+        elif name == "post_instagram":
+            return await handle_post_instagram(arguments)
         elif name == "log_activity":
             return await handle_log_activity(arguments)
         else:
@@ -266,6 +333,102 @@ async def handle_log_activity(args: dict) -> list[TextContent]:
         return [TextContent(
             type="text",
             text="✗ Failed to log activity"
+        )]
+
+
+async def handle_post_twitter(args: dict) -> list[TextContent]:
+    """
+    Handle post_twitter tool execution.
+    """
+    content = args.get("content")
+    thread = args.get("thread", False)
+
+    if not content:
+        return [TextContent(
+            type="text",
+            text="Error: Missing required parameter 'content'"
+        )]
+
+    log_activity(f"Posting to Twitter: {content[:50]}...", "INFO")
+
+    # Call post_tweet function
+    result = post_tweet(content, thread=thread)
+
+    if result["status"] == "success":
+        log_activity("Twitter post published successfully", "SUCCESS")
+        return [TextContent(
+            type="text",
+            text=f"✓ {result['message']}\nURL: {result.get('url', 'N/A')}"
+        )]
+    else:
+        log_activity(f"Failed to publish Twitter post: {result['message']}", "ERROR")
+        return [TextContent(
+            type="text",
+            text=f"✗ {result['message']}"
+        )]
+
+
+async def handle_post_facebook(args: dict) -> list[TextContent]:
+    """
+    Handle post_facebook tool execution.
+    """
+    content = args.get("content")
+    link = args.get("link")
+
+    if not content:
+        return [TextContent(
+            type="text",
+            text="Error: Missing required parameter 'content'"
+        )]
+
+    log_activity(f"Posting to Facebook: {content[:50]}...", "INFO")
+
+    # Call post_facebook function
+    result = post_facebook(content, link=link)
+
+    if result["status"] == "success":
+        log_activity("Facebook post published successfully", "SUCCESS")
+        return [TextContent(
+            type="text",
+            text=f"✓ {result['message']}\nURL: {result.get('url', 'N/A')}"
+        )]
+    else:
+        log_activity(f"Failed to publish Facebook post: {result['message']}", "ERROR")
+        return [TextContent(
+            type="text",
+            text=f"✗ {result['message']}"
+        )]
+
+
+async def handle_post_instagram(args: dict) -> list[TextContent]:
+    """
+    Handle post_instagram tool execution.
+    """
+    caption = args.get("caption")
+    image_url = args.get("image_url")
+
+    if not caption or not image_url:
+        return [TextContent(
+            type="text",
+            text="Error: Missing required parameters 'caption' and 'image_url'"
+        )]
+
+    log_activity(f"Posting to Instagram: {caption[:50]}...", "INFO")
+
+    # Call post_instagram function
+    result = post_instagram(caption, image_url)
+
+    if result["status"] == "success":
+        log_activity("Instagram post published successfully", "SUCCESS")
+        return [TextContent(
+            type="text",
+            text=f"✓ {result['message']}\nURL: {result.get('url', 'N/A')}"
+        )]
+    else:
+        log_activity(f"Failed to publish Instagram post: {result['message']}", "ERROR")
+        return [TextContent(
+            type="text",
+            text=f"✗ {result['message']}"
         )]
 
 

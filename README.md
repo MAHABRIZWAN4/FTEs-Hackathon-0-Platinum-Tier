@@ -224,6 +224,9 @@ F:\FTEs\Gold Tier\
 │   ├── watch_gmail.py           # Gmail inbox monitor with auto-reply
 │   ├── send_email.py            # Email sender via SMTP
 │   ├── post_linkedin.py         # LinkedIn automation
+│   ├── post_twitter.py          # Twitter/X posting (Gold Tier)
+│   ├── post_facebook.py         # Facebook posting (Gold Tier)
+│   ├── post_instagram.py        # Instagram posting (Gold Tier)
 │   ├── accounting_manager.py    # Financial tracking system
 │   ├── ceo_briefing.py          # Weekly executive reports
 │   ├── ceo_briefing_scheduler.py # CEO briefing automation
@@ -739,10 +742,10 @@ TWITTER_BEARER_TOKEN=your-bearer-token
 **Usage**:
 ```bash
 # Post a tweet
-python scripts/twitter_post.py "Just shipped a new feature! 🚀"
+python scripts/post_twitter.py "Just shipped a new feature! 🚀"
 
 # Post a thread (auto-splits if > 280 chars)
-python scripts/twitter_post.py "Long content that will be split into multiple tweets..." --thread
+python scripts/post_twitter.py "Long content that will be split into multiple tweets..." --thread
 ```
 
 **Features**:
@@ -757,32 +760,47 @@ python scripts/twitter_post.py "Long content that will be split into multiple tw
 
 **Purpose**: Automate posting to Facebook and Instagram.
 
-**Setup**:
+**Facebook Setup**:
+```bash
+# Install dependencies
+pip install requests python-dotenv
+
+# Configure credentials in .env
+FACEBOOK_ACCESS_TOKEN=your-long-lived-access-token
+FACEBOOK_PAGE_ID=your-facebook-page-id
+```
+
+**Facebook Usage**:
+```bash
+# Post to Facebook
+python scripts/post_facebook.py "Check out our latest update! 🚀"
+
+# Post with link
+python scripts/post_facebook.py "Read our blog" --link "https://example.com/blog"
+```
+
+**Instagram Setup**:
 ```bash
 # Install dependencies
 pip install requests python-dotenv pillow
 
 # Configure credentials in .env
-META_ACCESS_TOKEN=your-long-lived-access-token
-FACEBOOK_PAGE_ID=your-facebook-page-id
+FACEBOOK_ACCESS_TOKEN=your-long-lived-access-token
 INSTAGRAM_ACCOUNT_ID=your-instagram-business-account-id
 ```
 
-**Usage**:
+**Instagram Usage**:
 ```bash
-# Post to Facebook
-python scripts/social_meta.py facebook "Check out our latest update! 🚀"
-
-# Post to Instagram (requires image)
-python scripts/social_meta.py instagram "Beautiful sunset! 🌅 #nature" sunset.jpg
+# Post to Instagram (requires publicly accessible image URL)
+python scripts/post_instagram.py "Beautiful sunset! 🌅 #nature" "https://cdn.example.com/sunset.jpg"
 ```
 
 **Features**:
-- Facebook Page posting
-- Instagram Business account posting
-- Image and text support
+- Facebook Page posting with text and links
+- Instagram Business account posting with images
 - Meta Graph API integration
-- Comprehensive logging
+- Comprehensive logging to logs/social.log
+- Automatic social summary tracking
 
 ### 9. Accounting Manager Agent (Gold Tier NEW!)
 
@@ -2363,9 +2381,14 @@ python scripts/post_linkedin.py "My post content"
 
 # Social media (Gold Tier)
 python scripts/post_linkedin.py "LinkedIn post"
-python scripts/twitter_post.py "Tweet content"
-python scripts/social_meta.py facebook "Facebook post"
-python scripts/social_meta.py instagram "Caption" image.jpg
+python scripts/post_twitter.py "Tweet content"
+python scripts/post_facebook.py "Facebook post"
+python scripts/post_instagram.py "Caption" "https://image-url.com/image.jpg"
+
+# Social media with options
+python scripts/post_twitter.py "Long content..." --thread  # Auto-create thread
+python scripts/post_facebook.py "Post" --link "https://example.com"  # With link
+python scripts/post_linkedin.py "Test" --headless=false  # Visible browser
 
 # Financial management (Gold Tier)
 python scripts/accounting_manager.py add --date 2026-03-04 --title "Payment" --type income --amount 5000 --description "Client payment"
