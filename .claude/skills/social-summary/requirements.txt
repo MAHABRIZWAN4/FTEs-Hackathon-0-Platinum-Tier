@@ -1,0 +1,11 @@
+# Social Summary Skill - No external dependencies required
+# Uses Python standard library only
+
+# Python 3.7+
+# Standard library modules used:
+# - os
+# - sys
+# - pathlib
+# - datetime
+# - typing
+# - argparse

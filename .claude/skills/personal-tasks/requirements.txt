@@ -1,0 +1,15 @@
+# Personal Task Handler - No external dependencies required
+# Uses Python standard library only
+
+# Python 3.7+
+# Standard library modules used:
+# - os
+# - sys
+# - json
+# - datetime
+# - pathlib
+# - typing
+# - argparse
+
+# Optional dependencies:
+# - python-dotenv (for .env file support)

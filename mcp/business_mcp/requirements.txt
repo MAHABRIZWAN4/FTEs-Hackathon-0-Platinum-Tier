@@ -1,0 +1,13 @@
+# Business MCP Server Dependencies
+
+# MCP SDK
+mcp>=0.1.0
+
+# Email functionality
+python-dotenv>=1.0.0
+
+# LinkedIn automation
+playwright>=1.40.0
+
+# Optional: Rich terminal output (used by wrapped scripts)
+rich>=13.0.0

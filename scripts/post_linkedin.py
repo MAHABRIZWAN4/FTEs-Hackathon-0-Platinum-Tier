@@ -42,6 +42,14 @@ except ImportError:
     print("[ERROR] python-dotenv not installed. Run: pip install python-dotenv")
     sys.exit(1)
 
+# Social Summary integration
+try:
+    sys.path.insert(0, str(Path(__file__).parent.parent / ".claude" / "skills" / "social-summary"))
+    from social_summary import log_social_post
+    SOCIAL_SUMMARY_AVAILABLE = True
+except ImportError:
+    SOCIAL_SUMMARY_AVAILABLE = False
+
 # Rich library for beautiful terminal output
 try:
     from rich.console import Console
@@ -569,6 +577,18 @@ class LinkedInPoster:
 
                 # Success!
                 await self.cleanup()
+
+                # Log to Social Summary
+                if SOCIAL_SUMMARY_AVAILABLE:
+                    try:
+                        log_social_post(
+                            platform="LinkedIn",
+                            content=content,
+                            metadata={"character_count": len(content)}
+                        )
+                    except Exception as e:
+                        self.log_action(f"Failed to log to Social Summary: {str(e)}", "WARNING")
+
                 return True
 
             except Exception as e:
