@@ -7,14 +7,21 @@
 
 ## Summary
 
-- **Total Income:** $1,000.00
+- **Total Income:** $6,000.00
 - **Total Expenses:** $150.00
-- **Net Profit:** $850.00
+- **Net Profit:** $5,850.00
 
 ---
 
 ## Transactions
 
+
+### 2026-03-04 | Client Payment
+**Type:** Income
+**Amount:** $5,000.00
+**Description:** Website project payment
+
+---
 
 ### 2026-03-03 | Test Expense - Office Supplies
 **Type:** Expense
@@ -39,4 +46,4 @@
 
 ---
 
-*Last updated: 2026-03-03 15:43:00*
+*Last updated: 2026-03-04 10:07:49*
