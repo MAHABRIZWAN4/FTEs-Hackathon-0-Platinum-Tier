@@ -13,6 +13,7 @@ import os
 import sys
 import asyncio
 import json
+import argparse
 from datetime import datetime
 from pathlib import Path
 from typing import Optional, Dict, List, Any
@@ -55,7 +56,7 @@ ODOO_USERNAME = os.getenv("ODOO_USERNAME")
 ODOO_PASSWORD = os.getenv("ODOO_PASSWORD")
 
 # Initialize MCP server
-app = Server("odoo-mcp")
+app = Server("odoo-mcp", version="1.0.0")
 
 
 def log_activity(message: str, level: str = "INFO") -> bool:
@@ -369,6 +370,10 @@ async def handle_create_invoice(args: dict) -> list[TextContent]:
         # Create invoice
         invoice_id = client.call("account.move", "create", [[invoice_data]])
 
+        # Ensure invoice_id is an integer (Odoo might return a list)
+        if isinstance(invoice_id, list):
+            invoice_id = invoice_id[0]
+
         # Get invoice details
         invoice = client.call("account.move", "read", [[invoice_id]], {"fields": ["name", "amount_total", "state"]})
 
@@ -378,19 +383,19 @@ async def handle_create_invoice(args: dict) -> list[TextContent]:
 
             return [TextContent(
                 type="text",
-                text=f"✓ Invoice created successfully\n\nInvoice ID: {invoice_id}\nReference: {invoice_info['name']}\nTotal: {invoice_info['amount_total']}\nStatus: {invoice_info['state']}"
+                text=f"[OK] Invoice created successfully\n\nInvoice ID: {invoice_id}\nReference: {invoice_info['name']}\nTotal: {invoice_info['amount_total']}\nStatus: {invoice_info['state']}"
             )]
         else:
             return [TextContent(
                 type="text",
-                text=f"✓ Invoice created with ID: {invoice_id}"
+                text=f"[OK] Invoice created with ID: {invoice_id}"
             )]
 
     except Exception as e:
         log_activity(f"Failed to create invoice: {str(e)}", "ERROR")
         return [TextContent(
             type="text",
-            text=f"✗ Failed to create invoice: {str(e)}"
+            text=f"[FAIL] Failed to create invoice: {str(e)}"
         )]
 
 
@@ -434,7 +439,7 @@ async def handle_list_invoices(args: dict) -> list[TextContent]:
             )]
 
         # Format results
-        result_text = f"✓ Found {len(invoices)} invoice(s):\n\n"
+        result_text = f"[OK] Found {len(invoices)} invoice(s):\n\n"
         for inv in invoices:
             result_text += f"ID: {inv['id']}\n"
             result_text += f"Reference: {inv['name']}\n"
@@ -452,7 +457,7 @@ async def handle_list_invoices(args: dict) -> list[TextContent]:
         log_activity(f"Failed to list invoices: {str(e)}", "ERROR")
         return [TextContent(
             type="text",
-            text=f"✗ Failed to list invoices: {str(e)}"
+            text=f"[FAIL] Failed to list invoices: {str(e)}"
         )]
 
 
@@ -482,7 +487,7 @@ async def handle_record_payment(args: dict) -> list[TextContent]:
         if not invoice:
             return [TextContent(
                 type="text",
-                text=f"✗ Invoice {invoice_id} not found"
+                text=f"[FAIL] Invoice {invoice_id} not found"
             )]
 
         invoice_info = invoice[0]
@@ -513,37 +518,126 @@ async def handle_record_payment(args: dict) -> list[TextContent]:
 
         return [TextContent(
             type="text",
-            text=f"✓ Payment recorded successfully\n\nPayment ID: {payment_id}\nInvoice: {invoice_info['name']}\nAmount: {amount}\nDate: {payment_date}\nRemaining: {invoice_info['amount_residual'] - amount}"
+            text=f"[OK] Payment recorded successfully\n\nPayment ID: {payment_id}\nInvoice: {invoice_info['name']}\nAmount: {amount}\nDate: {payment_date}\nRemaining: {invoice_info['amount_residual'] - amount}"
         )]
 
     except Exception as e:
         log_activity(f"Failed to record payment: {str(e)}", "ERROR")
         return [TextContent(
             type="text",
-            text=f"✗ Failed to record payment: {str(e)}"
+            text=f"[FAIL] Failed to record payment: {str(e)}"
         )]
+
+
+async def run_test_mode():
+    """
+    Test mode: Connect to Odoo, create a test invoice, and list invoices.
+    """
+    print("\n" + "="*60)
+    print("ODOO MCP SERVER - TEST MODE")
+    print("="*60 + "\n")
+
+    try:
+        # Test 1: Authentication
+        print("Test 1: Authenticating with Odoo...")
+        client = get_odoo_client()
+
+        if not client.authenticate():
+            print("[FAIL] Authentication failed!")
+            return False
+
+        print(f"[OK] Authenticated successfully (User ID: {client.uid})\n")
+
+        # Test 2: List existing invoices
+        print("Test 2: Listing existing invoices...")
+        result = await handle_list_invoices({"limit": 5})
+        result_text = result[0].text
+        print(result_text)
+        if "[FAIL]" in result_text:
+            return False
+        print()
+
+        # Test 3: Create a test invoice
+        print("Test 3: Creating a test invoice...")
+        test_invoice_args = {
+            "partner_id": 1,  # Usually the first partner/customer
+            "invoice_lines": [
+                {
+                    "name": "Test Product - MCP Server Test",
+                    "quantity": 1,
+                    "price_unit": 100.00
+                }
+            ],
+            "invoice_date": datetime.now().strftime("%Y-%m-%d")
+        }
+
+        result = await handle_create_invoice(test_invoice_args)
+        result_text = result[0].text
+        print(result_text)
+        if "[FAIL]" in result_text:
+            return False
+        print()
+
+        # Test 4: List invoices again to see the new one
+        print("Test 4: Listing invoices after creation...")
+        result = await handle_list_invoices({"limit": 5})
+        result_text = result[0].text
+        print(result_text)
+        if "[FAIL]" in result_text:
+            return False
+
+        print("\n" + "="*60)
+        print("ALL TESTS COMPLETED SUCCESSFULLY")
+        print("="*60 + "\n")
+
+        return True
+
+    except Exception as e:
+        print(f"\n[FAIL] Test failed: {str(e)}\n")
+        import traceback
+        traceback.print_exc()
+        return False
 
 
 async def main():
     """
     Main entry point for the MCP server.
     """
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description="Odoo MCP Server")
+    parser.add_argument("--test", action="store_true", help="Run in test mode")
+    args = parser.parse_args()
+
+    print("Odoo MCP Server starting...")
     log_activity("Odoo MCP Server starting", "INFO")
 
-    async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
+    if args.test:
+        # Run test mode
+        success = await run_test_mode()
+        sys.exit(0 if success else 1)
+    else:
+        # Run as MCP server
+        print("Running as MCP stdio server (waiting for client connection)...")
+        print("To test the server, run: python server.py --test")
         log_activity("Odoo MCP Server running on stdio", "INFO")
-        await app.run(
-            read_stream,
-            write_stream,
-            app.create_initialization_options()
-        )
+
+        async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
+            await app.run(
+                read_stream,
+                write_stream,
+                app.create_initialization_options()
+            )
 
 
 if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
+        print("\nOdoo MCP Server stopped by user")
         log_activity("Odoo MCP Server stopped by user", "INFO")
     except Exception as e:
+        print(f"\nOdoo MCP Server error: {e}")
         log_activity(f"Odoo MCP Server error: {e}", "ERROR")
+        import traceback
+        traceback.print_exc()
         sys.exit(1)

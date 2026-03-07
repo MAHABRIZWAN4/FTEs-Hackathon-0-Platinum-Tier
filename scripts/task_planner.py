@@ -63,18 +63,18 @@ def log_action(message):
         # Colorful console output with rich
         if RICH_AVAILABLE:
             if "ERROR" in message or "Failed" in message:
-                console.print(f"[bold red]✗[/bold red] [red]{message}[/red]")
+                console.print(f"[bold red][X][/bold red] [red]{message}[/red]")
             elif "SUCCESS" in message or "created" in message.lower() or "completed" in message.lower():
-                console.print(f"[bold green]✓[/bold green] [green]{message}[/green]")
+                console.print(f"[bold green][OK][/bold green] [green]{message}[/green]")
             elif "WARNING" in message or "Skipping" in message:
-                console.print(f"[bold yellow]⚠[/bold yellow] [yellow]{message}[/yellow]")
+                console.print(f"[bold yellow][WARNING][/bold yellow] [yellow]{message}[/yellow]")
             else:
-                console.print(f"[bold cyan]ℹ[/bold cyan] [cyan]{message}[/cyan]")
+                console.print(f"[bold cyan][INFO][/bold cyan] [cyan]{message}[/cyan]")
         else:
             print(f"[LOG] {message}")
     except Exception as e:
         if RICH_AVAILABLE:
-            console.print(f"[bold red]✗ Failed to write to log: {e}[/bold red]")
+            console.print(f"[bold red][X] Failed to write to log: {e}[/bold red]")
         else:
             print(f"[ERROR] Failed to write to log: {e}")
 
@@ -490,9 +490,9 @@ def main():
     if RICH_AVAILABLE:
         console.print()
         console.print(Panel.fit(
-            "[bold cyan]🤖 TASK PLANNER AGENT[/bold cyan]\n"
+            "[bold cyan][AI] TASK PLANNER AGENT[/bold cyan]\n"
             "[dim]Silver Tier AI Employee[/dim]\n"
-            "[yellow]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/yellow]",
+            "[yellow]========================================[/yellow]",
             border_style="cyan",
             padding=(1, 2)
         ))
@@ -514,7 +514,7 @@ def main():
     if not os.path.exists(INBOX_FOLDER):
         log_action("Inbox folder does not exist")
         if RICH_AVAILABLE:
-            console.print("[yellow]⚠ Inbox folder not found. Nothing to process.[/yellow]")
+            console.print("[yellow][WARNING] Inbox folder not found. Nothing to process.[/yellow]")
         else:
             print("[INFO] Inbox folder not found. Nothing to process.")
         return
@@ -525,13 +525,13 @@ def main():
     if not md_files:
         log_action("No .md files found in Inbox")
         if RICH_AVAILABLE:
-            console.print("[yellow]📭 No markdown files found in Inbox.[/yellow]")
+            console.print("[yellow][INFO] No markdown files found in Inbox.[/yellow]")
         else:
             print("[INFO] No markdown files found in Inbox.")
         return
 
     if RICH_AVAILABLE:
-        console.print(f"[bold green]📂 Found {len(md_files)} markdown file(s) in Inbox[/bold green]")
+        console.print(f"[bold green][FILES] Found {len(md_files)} markdown file(s) in Inbox[/bold green]")
         console.print()
     else:
         print(f"[INFO] Found {len(md_files)} markdown file(s) in Inbox")
@@ -544,14 +544,14 @@ def main():
     for filename in md_files:
         if is_file_processed(filename, registry):
             if RICH_AVAILABLE:
-                console.print(f"[dim yellow]⏭  Skipping {filename} (already processed)[/dim yellow]")
+                console.print(f"[dim yellow][SKIP] Skipping {filename} (already processed)[/dim yellow]")
             else:
                 print(f"[SKIP] {filename} (already processed)")
             skipped_count += 1
             continue
 
         if RICH_AVAILABLE:
-            console.print(f"[bold blue]⚙  Processing {filename}...[/bold blue]")
+            console.print(f"[bold blue][PROCESSING] Processing {filename}...[/bold blue]")
         else:
             print(f"[PROCESSING] {filename}...")
 
@@ -561,12 +561,12 @@ def main():
             mark_file_processed(filename, plan_filename, registry)
             processed_count += 1
             if RICH_AVAILABLE:
-                console.print(f"[bold green]✓ Plan created: {plan_filename}[/bold green]")
+                console.print(f"[bold green][OK] Plan created: {plan_filename}[/bold green]")
             else:
                 print(f"[SUCCESS] Plan created: {plan_filename}")
         else:
             if RICH_AVAILABLE:
-                console.print(f"[bold red]✗ Could not process {filename}[/bold red]")
+                console.print(f"[bold red][X] Could not process {filename}[/bold red]")
             else:
                 print(f"[FAILED] Could not process {filename}")
 
@@ -578,20 +578,20 @@ def main():
     # Summary with beautiful table
     if RICH_AVAILABLE:
         console.print()
-        table = Table(title="📊 Processing Summary", border_style="cyan", show_header=True, header_style="bold magenta")
+        table = Table(title="[SUMMARY] Processing Summary", border_style="cyan", show_header=True, header_style="bold magenta")
         table.add_column("Metric", style="cyan", justify="left")
         table.add_column("Count", style="green", justify="center")
 
-        table.add_row("✓ Processed", f"[bold green]{processed_count}[/bold green]")
-        table.add_row("⏭ Skipped", f"[yellow]{skipped_count}[/yellow]")
-        table.add_row("📁 Total Files", f"[bold cyan]{len(md_files)}[/bold cyan]")
+        table.add_row("[OK] Processed", f"[bold green]{processed_count}[/bold green]")
+        table.add_row("[SKIP] Skipped", f"[yellow]{skipped_count}[/yellow]")
+        table.add_row("[FILES] Total Files", f"[bold cyan]{len(md_files)}[/bold cyan]")
 
         console.print(table)
         console.print()
 
         if processed_count > 0:
             console.print(Panel(
-                f"[bold green]✓ Successfully processed {processed_count} file(s)![/bold green]",
+                f"[bold green][OK] Successfully processed {processed_count} file(s)![/bold green]",
                 border_style="green"
             ))
         else:

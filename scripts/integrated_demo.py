@@ -1,10 +1,14 @@
 """
-Integrated Workflow Demo - AI Employee Agent Skills
+Integrated Workflow Demo - Gold Tier AI Employee
 
-This script demonstrates how all three agent skills work together:
+This script demonstrates how all Gold Tier agent skills work together:
 1. Task Planner - Analyzes tasks and creates plans
 2. Vault Watcher - Monitors for new tasks
-3. LinkedIn Post - Shares updates on social media
+3. Social Media - Twitter, Instagram, Facebook, LinkedIn posting
+4. Accounting Manager - Financial tracking and reporting
+5. CEO Briefing - Executive summaries and insights
+6. Ralph Loop - Autonomous task execution
+7. Error Recovery - Automatic error handling and retry logic
 
 Usage:
     python scripts/integrated_demo.py
@@ -20,7 +24,7 @@ def print_banner():
     """Print demo banner."""
     print("\n" + "=" * 60)
     print("  INTEGRATED WORKFLOW DEMO")
-    print("  AI Employee Agent Skills - Silver Tier")
+    print("  Gold Tier AI Employee - Advanced Automation")
     print("=" * 60 + "\n")
 
 
@@ -184,29 +188,119 @@ def demonstrate_watcher():
     print("   - Never process the same file twice\n")
 
 
-def demonstrate_linkedin():
-    """Demonstrate LinkedIn posting concept."""
-    print("[*] LinkedIn Auto-Post Demonstration")
+def demonstrate_social_media():
+    """Demonstrate social media posting capabilities."""
+    print("[*] Social Media Auto-Post Demonstration")
     print("-" * 60)
-    print("The LinkedIn Auto-Post agent can share updates about")
-    print("completed tasks or project milestones.\n")
+    print("The Gold Tier AI Employee can post to multiple platforms:\n")
 
-    print("Example usage:")
-    print('   python scripts/post_linkedin.py "Just completed 3 tasks!"\n')
+    print("[TWITTER]")
+    print("   python scripts/post_twitter.py \"Your tweet message\"")
+    print("   - Supports text, images, and threads")
+    print("   - Automatic rate limiting\n")
+
+    print("[INSTAGRAM]")
+    print("   python scripts/post_instagram.py \"Caption\" --image path/to/image.jpg")
+    print("   - Supports images and captions")
+    print("   - Hashtag optimization\n")
+
+    print("[FACEBOOK]")
+    print("   python scripts/post_facebook.py \"Your post message\"")
+    print("   - Supports text and media")
+    print("   - Page and profile posting\n")
+
+    print("[LINKEDIN]")
+    print("   python scripts/post_linkedin.py \"Professional update\"")
+    print("   - Professional networking")
+    print("   - Article sharing\n")
 
     print("Setup required:")
     print("   1. pip install playwright python-dotenv")
     print("   2. playwright install chromium")
-    print("   3. cp .env.example .env")
-    print("   4. Edit .env with LinkedIn credentials\n")
+    print("   3. Configure credentials in .env file\n")
 
-    print("[WARNING] Note: LinkedIn automation should be used responsibly")
-    print("   and in compliance with their Terms of Service.\n")
+    print("[WARNING] Note: Social media automation should be used responsibly")
+    print("   and in compliance with platform Terms of Service.\n")
+
+
+def demonstrate_accounting_manager():
+    """Demonstrate Accounting Manager capabilities."""
+    print("[*] Accounting Manager Demonstration")
+    print("-" * 60)
+    print("The Accounting Manager tracks financial data and generates reports.\n")
+
+    print("Features:")
+    print("   - Expense tracking and categorization")
+    print("   - Invoice management")
+    print("   - Financial report generation")
+    print("   - Budget monitoring and alerts")
+    print("   - Tax preparation assistance\n")
+
+    print("Example usage:")
+    print("   python scripts/accounting_manager.py --report monthly")
+    print("   python scripts/accounting_manager.py --add-expense 150.00 \"Office supplies\"\n")
+
+
+def demonstrate_ceo_briefing():
+    """Demonstrate CEO Briefing capabilities."""
+    print("[*] CEO Briefing Demonstration")
+    print("-" * 60)
+    print("The CEO Briefing agent generates executive summaries and insights.\n")
+
+    print("Features:")
+    print("   - Daily/weekly executive summaries")
+    print("   - Key metrics and KPI tracking")
+    print("   - Project status rollups")
+    print("   - Risk and opportunity identification")
+    print("   - Strategic recommendations\n")
+
+    print("Example usage:")
+    print("   python scripts/ceo_briefing.py --period weekly")
+    print("   python scripts/ceo_briefing.py --format pdf\n")
+
+
+def demonstrate_ralph_loop():
+    """Demonstrate Ralph Loop autonomous execution."""
+    print("[*] Ralph Loop Demonstration")
+    print("-" * 60)
+    print("The Ralph Loop provides autonomous task execution and monitoring.\n")
+
+    print("Features:")
+    print("   - Continuous task monitoring")
+    print("   - Automatic task execution")
+    print("   - Self-healing and error recovery")
+    print("   - Progress tracking and reporting")
+    print("   - Adaptive scheduling\n")
+
+    print("Example usage:")
+    print("   python scripts/ralph_loop.py --start")
+    print("   python scripts/ralph_loop.py --status\n")
+
+    print("[INFO] The Ralph Loop runs continuously in the background,")
+    print("   processing tasks and adapting to changing conditions.\n")
+
+
+def demonstrate_error_recovery():
+    """Demonstrate Error Recovery capabilities."""
+    print("[*] Error Recovery Demonstration")
+    print("-" * 60)
+    print("The Error Recovery agent handles failures and implements retry logic.\n")
+
+    print("Features:")
+    print("   - Automatic error detection")
+    print("   - Intelligent retry strategies")
+    print("   - Fallback mechanisms")
+    print("   - Error logging and analysis")
+    print("   - Alert notifications\n")
+
+    print("Example usage:")
+    print("   python scripts/error_recovery.py --monitor")
+    print("   python scripts/error_recovery.py --analyze-logs\n")
 
 
 def show_workflow_diagram():
     """Display the integrated workflow."""
-    print("[*] Integrated Workflow")
+    print("[*] Gold Tier Integrated Workflow")
     print("=" * 60)
     print("""
     ┌─────────────────────────────────────────────────────┐
@@ -225,12 +319,27 @@ def show_workflow_diagram():
                      │
                      ▼
     ┌─────────────────────────────────────────────────────┐
-    │  4. Plan appears in Needs_Action/                  │
+    │  4. Ralph Loop executes tasks autonomously         │
     └────────────────┬────────────────────────────────────┘
                      │
                      ▼
     ┌─────────────────────────────────────────────────────┐
-    │  5. (Optional) Post update to LinkedIn             │
+    │  5. Error Recovery handles any failures            │
+    └────────────────┬────────────────────────────────────┘
+                     │
+                     ▼
+    ┌─────────────────────────────────────────────────────┐
+    │  6. Accounting Manager tracks expenses             │
+    └────────────────┬────────────────────────────────────┘
+                     │
+                     ▼
+    ┌─────────────────────────────────────────────────────┐
+    │  7. Social Media posts updates (Twitter/Instagram) │
+    └────────────────┬────────────────────────────────────┘
+                     │
+                     ▼
+    ┌─────────────────────────────────────────────────────┐
+    │  8. CEO Briefing generates executive summary       │
     └─────────────────────────────────────────────────────┘
     """)
 
@@ -258,10 +367,14 @@ def main():
     """Run the integrated demo."""
     print_banner()
 
-    print("This demo shows how all three agent skills work together:\n")
+    print("This demo shows how all Gold Tier agent skills work together:\n")
     print("   [1] Task Planner Agent")
     print("   [2] Vault Watcher Agent")
-    print("   [3] LinkedIn Auto-Post Agent\n")
+    print("   [3] Social Media Auto-Post (Twitter, Instagram, Facebook, LinkedIn)")
+    print("   [4] Accounting Manager")
+    print("   [5] CEO Briefing")
+    print("   [6] Ralph Loop (Autonomous Execution)")
+    print("   [7] Error Recovery\n")
 
     input("Press Enter to start the demo...")
     print()
@@ -286,31 +399,56 @@ def main():
     input("Press Enter to continue...")
     print()
 
-    # Step 6: Demonstrate LinkedIn
-    demonstrate_linkedin()
+    # Step 6: Demonstrate Social Media
+    demonstrate_social_media()
+
+    input("Press Enter to continue...")
+    print()
+
+    # Step 7: Demonstrate Accounting Manager
+    demonstrate_accounting_manager()
+
+    input("Press Enter to continue...")
+    print()
+
+    # Step 8: Demonstrate CEO Briefing
+    demonstrate_ceo_briefing()
+
+    input("Press Enter to continue...")
+    print()
+
+    # Step 9: Demonstrate Ralph Loop
+    demonstrate_ralph_loop()
+
+    input("Press Enter to continue...")
+    print()
+
+    # Step 10: Demonstrate Error Recovery
+    demonstrate_error_recovery()
 
     input("Press Enter to see workflow diagram...")
     print()
 
-    # Step 7: Show workflow
+    # Step 11: Show workflow
     show_workflow_diagram()
 
     # Final summary
     print("\n" + "=" * 60)
     print("  DEMO COMPLETE")
     print("=" * 60)
-    print("\n[SUCCESS] All three agent skills demonstrated successfully!\n")
+    print("\n[SUCCESS] All Gold Tier agent skills demonstrated successfully!\n")
 
     print("Next steps:")
     print("   - Review generated plans in AI_Employee_Vault/Needs_Action/")
     print("   - Start the watcher: python scripts/watch_inbox.py")
-    print("   - Setup LinkedIn: See LINKEDIN_SETUP.md")
+    print("   - Configure social media: See .env.example")
+    print("   - Start Ralph Loop: python scripts/ralph_loop.py --start")
     print("   - Check logs: tail -f logs/actions.log\n")
 
     print("[*] Documentation:")
     print("   - README.md - Complete project overview")
     print("   - .claude/skills/*/SKILL.md - Individual skill docs")
-    print("   - LINKEDIN_SETUP.md - LinkedIn setup guide\n")
+    print("   - AI_Employee_Vault/Reports/ - Generated reports\n")
 
 
 if __name__ == "__main__":

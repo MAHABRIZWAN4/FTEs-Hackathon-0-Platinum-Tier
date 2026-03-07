@@ -94,13 +94,13 @@ def log_message(message: str, level: str = "INFO"):
     # Console output
     if RICH_AVAILABLE:
         if level == "ERROR":
-            console.print(f"[red]✗[/red] {message}")
+            console.print(f"[red][X][/red] {message}")
         elif level == "SUCCESS":
-            console.print(f"[green]✓[/green] {message}")
+            console.print(f"[green][OK][/green] {message}")
         elif level == "WARNING":
-            console.print(f"[yellow]⚠[/yellow] {message}")
+            console.print(f"[yellow][WARNING][/yellow] {message}")
         else:
-            console.print(f"[cyan]ℹ[/cyan] {message}")
+            console.print(f"[cyan][INFO][/cyan] {message}")
     else:
         print(f"[{level}] {message}")
 
@@ -201,7 +201,7 @@ def post_tweet(content: str, thread: bool = False) -> Dict:
             "status": "success",
             "tweet_id": tweet_id,
             "url": tweet_url,
-            "message": f"✓ Tweet posted successfully"
+            "message": f"[OK] Tweet posted successfully"
         }
 
     except tweepy.TweepyException as e:
@@ -315,7 +315,7 @@ def post_thread(client: tweepy.Client, content: str) -> Dict:
             "status": "success",
             "tweet_ids": tweet_ids,
             "url": thread_url,
-            "message": f"✓ Thread posted successfully ({len(chunks)} tweets)"
+            "message": f"[OK] Thread posted successfully ({len(chunks)} tweets)"
         }
 
     except Exception as e:
@@ -326,40 +326,93 @@ def post_thread(client: tweepy.Client, content: str) -> Dict:
         }
 
 
+def post_tweet_demo(content: str) -> Dict:
+    """
+    Simulate posting a tweet in demo mode (no real API calls).
+
+    Args:
+        content (str): Tweet content
+
+    Returns:
+        dict: Simulated result
+    """
+    log_message("DEMO MODE: Simulating tweet post", "INFO")
+    log_message(f"Content: {content[:100]}{'...' if len(content) > 100 else ''}", "INFO")
+
+    # Simulate success
+    import random
+    tweet_id = f"demo_{random.randint(1000000000000000000, 9999999999999999999)}"
+    tweet_url = f"https://twitter.com/demo_user/status/{tweet_id}"
+
+    log_message(f"DEMO: Tweet posted successfully: {tweet_id}", "SUCCESS")
+
+    # Save to Social_Log.md
+    social_log_path = VAULT_DIR / "Reports" / "Social_Log.md"
+    social_log_path.parent.mkdir(parents=True, exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_entry = f"\n## Twitter/X Post - {timestamp}\n"
+    log_entry += f"**Status:** [OK] SUCCESS (DEMO MODE)\n"
+    log_entry += f"**Content:** {content[:200]}{'...' if len(content) > 200 else ''}\n"
+    log_entry += f"**URL:** {tweet_url}\n"
+    log_entry += f"**Character Count:** {len(content)}\n"
+    log_entry += "---\n"
+
+    with open(social_log_path, 'a', encoding='utf-8') as f:
+        f.write(log_entry)
+
+    log_message(f"Logged to {social_log_path}", "INFO")
+
+    return {
+        "status": "success",
+        "tweet_id": tweet_id,
+        "url": tweet_url,
+        "message": "[OK] Tweet posted successfully (DEMO MODE)"
+    }
+
+
 def main():
     """Main entry point."""
     parser = argparse.ArgumentParser(description="Post tweets to Twitter/X")
     parser.add_argument("content", help="Tweet content")
     parser.add_argument("--thread", action="store_true", help="Create thread if content > 280 chars")
+    parser.add_argument("--demo", action="store_true", help="Demo mode: simulate posting without real API calls")
 
     args = parser.parse_args()
 
     if RICH_AVAILABLE:
         console.print(Panel.fit(
             "[bold cyan]Twitter/X Auto-Post Agent[/bold cyan]\n"
-            "[dim]Gold Tier AI Employee[/dim]",
+            "[dim]Gold Tier AI Employee[/dim]" +
+            ("\n[yellow][WARNING] DEMO MODE - No real API calls[/yellow]" if args.demo else ""),
             border_style="cyan"
         ))
     else:
         print("=" * 60)
         print("TWITTER/X AUTO-POST AGENT")
         print("Gold Tier AI Employee")
+        if args.demo:
+            print("[WARNING] DEMO MODE - No real API calls")
         print("=" * 60)
 
-    result = post_tweet(args.content, thread=args.thread)
+    # Use demo mode or real posting
+    if args.demo:
+        result = post_tweet_demo(args.content)
+    else:
+        result = post_tweet(args.content, thread=args.thread)
 
     if RICH_AVAILABLE:
         if result["status"] == "success":
             console.print(Panel(
                 f"[green]{result['message']}[/green]\n\n"
                 f"[dim]URL:[/dim] {result.get('url', 'N/A')}",
-                title="✓ Success",
+                title="[OK] Success",
                 border_style="green"
             ))
         else:
             console.print(Panel(
                 f"[red]{result['message']}[/red]",
-                title="✗ Error",
+                title="[X] Error",
                 border_style="red"
             ))
     else:
