@@ -93,10 +93,24 @@ def pull_latest_changes():
     """Pull latest changes from remote"""
     log_message("Pulling latest changes from remote...", "INFO")
 
+    # Stash any uncommitted changes first
+    success, output, _ = run_command("git status --porcelain")
+    has_local_changes = success and output.strip()
+
+    if has_local_changes:
+        log_message("Stashing local changes before pull...", "INFO")
+        success, _, error = run_command("git stash push -u -m 'Auto-stash before vault sync'")
+        if not success:
+            log_message(f"Failed to stash changes: {error}", "ERROR")
+            return False
+
     # Fetch first
     success, _, error = run_command("git fetch origin")
     if not success:
         log_message(f"Failed to fetch: {error}", "ERROR")
+        # Pop stash if we stashed
+        if has_local_changes:
+            run_command("git stash pop")
         return False
 
     # Check if we're behind
@@ -110,10 +124,26 @@ def pull_latest_changes():
     if not success:
         if "conflict" in error.lower() or "conflict" in output.lower():
             log_message("Merge conflict detected! Attempting auto-resolution...", "WARNING")
-            return handle_merge_conflict()
+            result = handle_merge_conflict()
+            # Pop stash after conflict resolution
+            if has_local_changes and result:
+                log_message("Restoring stashed changes...", "INFO")
+                run_command("git stash pop")
+            return result
         else:
             log_message(f"Pull failed: {error}", "ERROR")
+            # Pop stash on failure
+            if has_local_changes:
+                run_command("git stash pop")
             return False
+
+    # Pop stash after successful pull
+    if has_local_changes:
+        log_message("Restoring stashed changes...", "INFO")
+        success, _, error = run_command("git stash pop")
+        if not success:
+            log_message(f"Warning: Failed to restore stashed changes: {error}", "WARNING")
+            log_message("Your changes are still in the stash. Run 'git stash pop' manually.", "WARNING")
 
     log_message("Successfully pulled latest changes", "SUCCESS")
     return True
