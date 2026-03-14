@@ -19,7 +19,7 @@ jobs:
 
       - name: Create vault directories
         run: |
-          mkdir -p vault/Logs
+          mkdir -p AI_Employee_Vault/Logs
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -35,11 +35,16 @@ jobs:
         run: |
           python scripts/health_check.py || echo "Health check completed with warnings"
 
+      - name: Ensure health file exists
+        run: |
+          mkdir -p AI_Employee_Vault/Logs
+          touch AI_Employee_Vault/Logs/system_health.md
+
       - name: Commit health status
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "GitHub Actions Bot"
-          git add vault/Logs/system_health.md
+          git add AI_Employee_Vault/Logs/system_health.md
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
