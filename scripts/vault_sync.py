@@ -291,7 +291,7 @@ def main():
 
     if not has_changes:
         log_message("Sync complete: No changes to push", "SUCCESS")
-        print(f"\n{Colors.GREEN}✓ Vault is up to date{Colors.RESET}\n")
+        print(f"\n{Colors.GREEN}[OK] Vault is up to date{Colors.RESET}\n")
         return 0
 
     # Step 3: Verify no sensitive files
@@ -302,7 +302,7 @@ def main():
     # Step 4: Create commit
     if not create_commit():
         log_message("Sync complete: No changes to commit", "INFO")
-        print(f"\n{Colors.GREEN}✓ Vault is up to date{Colors.RESET}\n")
+        print(f"\n{Colors.GREEN}[OK] Vault is up to date{Colors.RESET}\n")
         return 0
 
     # Step 5: Push changes
@@ -311,7 +311,7 @@ def main():
         return 1
 
     log_message("Vault sync completed successfully!", "SUCCESS")
-    print(f"\n{Colors.GREEN}{Colors.BOLD}✓ Vault synced successfully!{Colors.RESET}\n")
+    print(f"\n{Colors.GREEN}{Colors.BOLD}[SUCCESS] Vault synced successfully!{Colors.RESET}\n")
 
     return 0
 
