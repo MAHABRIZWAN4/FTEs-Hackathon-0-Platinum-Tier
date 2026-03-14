@@ -43,13 +43,10 @@ jobs:
       - name: Commit health status
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "GitHub Actions Bot"
-          git add AI_Employee_Vault/Logs/system_health.md
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "📊 Health Monitor: System status update
-
-            Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
-            git push
-          fi
+          git config --local user.name "GitHub Actions"
+          mkdir -p AI_Employee_Vault/Logs
+          echo "# System Health" > AI_Employee_Vault/Logs/system_health.md
+          echo "Last check: $(date)" >> AI_Employee_Vault/Logs/system_health.md
+          git add -A
+          git diff --staged --quiet || git commit -m "Health check update"
+          git push
