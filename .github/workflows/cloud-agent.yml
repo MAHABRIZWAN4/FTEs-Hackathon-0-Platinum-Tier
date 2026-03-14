@@ -27,33 +27,30 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Create Needs_Action directories
+      - name: Create vault directories
         run: |
-          mkdir -p Needs_Action/email
-          mkdir -p Needs_Action/social
-          mkdir -p vault/Logs
+          mkdir -p AI_Employee_Vault/Needs_Action/email
+          mkdir -p AI_Employee_Vault/Needs_Action/social
+          mkdir -p AI_Employee_Vault/Pending_Approval/email
+          mkdir -p AI_Employee_Vault/Pending_Approval/social
+          mkdir -p AI_Employee_Vault/In_Progress/cloud
+          mkdir -p AI_Employee_Vault/Updates
+          mkdir -p AI_Employee_Vault/Logs
 
-      - name: Run email triage
+      - name: Run cloud agent
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GMAIL_CREDENTIALS: ${{ secrets.GMAIL_CREDENTIALS }}
           GMAIL_TOKEN: ${{ secrets.GMAIL_TOKEN }}
         run: |
-          python scripts/watch_gmail.py --cloud-mode
-        continue-on-error: true
-
-      - name: Generate social post drafts
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          python scripts/task_planner.py --generate-social-drafts
+          python scripts/cloud_agent.py
         continue-on-error: true
 
       - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "GitHub Actions Bot"
-          git add Needs_Action/ vault/Logs/
+          git add AI_Employee_Vault/
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
