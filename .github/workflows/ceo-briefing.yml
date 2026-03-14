@@ -36,20 +36,20 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          python scripts/ceo_briefing.py --source-dir Done --output-dir vault/Briefings
+          python scripts/platinum_ceo_briefing.py
 
       - name: Commit briefing
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "GitHub Actions Bot"
-          git add vault/Briefings/
+          git add AI_Employee_Vault/Briefings/
           if git diff --staged --quiet; then
             echo "No briefing generated"
           else
             WEEK_NUM=$(date -u +"%Y-W%V")
             git commit -m "📈 CEO Briefing: Weekly summary ${WEEK_NUM}
 
-            Generated from Done folder activities
+            Generated from Done folder, accounting, and system health
 
             Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
             git push

@@ -10,6 +10,9 @@ pillow>=10.0.0
 # Process monitoring for watchdog
 psutil>=5.9.0
 
+# Claude API for AI-powered features
+anthropic>=0.40.0
+
 # LinkedIn automation dependencies (optional)
 # Install with: pip install -r requirements_linkedin.txt
 # playwright>=1.40.0
