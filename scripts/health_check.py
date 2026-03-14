@@ -116,7 +116,7 @@ class HealthCheck:
 
     def display_workflows(self, workflows: dict):
         """Display GitHub Actions workflow status"""
-        table = Table(title="☁️ GitHub Actions Workflows", box=box.ROUNDED)
+        table = Table(title="[CLOUD] GitHub Actions Workflows", box=box.ROUNDED)
         table.add_column("Workflow", style="cyan")
         table.add_column("Status", style="white")
         table.add_column("Last Run", style="dim")
@@ -126,11 +126,11 @@ class HealthCheck:
             time_str = info["time"][:19] if info["time"] else "Unknown"
 
             if status == "success":
-                status_display = "[green]✓ Success[/green]"
+                status_display = "[green][OK] Success[/green]"
             elif status == "failure":
-                status_display = "[red]✗ Failed[/red]"
+                status_display = "[red][FAIL] Failed[/red]"
             elif status in ["in_progress", "queued"]:
-                status_display = "[yellow]⟳ Running[/yellow]"
+                status_display = "[yellow][RUN] Running[/yellow]"
             else:
                 status_display = f"[dim]{status}[/dim]"
 
@@ -140,7 +140,7 @@ class HealthCheck:
 
     def display_pending_tasks(self, counts: dict):
         """Display pending tasks"""
-        table = Table(title="📋 Pending Tasks", box=box.ROUNDED)
+        table = Table(title="[TASKS] Pending Tasks", box=box.ROUNDED)
         table.add_column("Category", style="cyan")
         table.add_column("Count", style="white", justify="right")
 
@@ -163,7 +163,7 @@ class HealthCheck:
 
     def display_system_info(self, last_sync: str):
         """Display system information"""
-        table = Table(title="🖥️ System Information", box=box.ROUNDED)
+        table = Table(title="[SYSTEM] System Information", box=box.ROUNDED)
         table.add_column("Metric", style="cyan")
         table.add_column("Value", style="white")
 
@@ -188,16 +188,16 @@ class HealthCheck:
         total_in_progress = counts["in_progress_cloud"] + counts["in_progress_local"]
 
         if total_pending > 20:
-            alerts.append("⚠️  HIGH PENDING APPROVALS: More than 20 items awaiting approval")
+            alerts.append("[!] HIGH PENDING APPROVALS: More than 20 items awaiting approval")
 
         if total_in_progress > 10:
-            alerts.append("⚠️  STUCK TASKS: More than 10 tasks in progress")
+            alerts.append("[!] STUCK TASKS: More than 10 tasks in progress")
 
         if total_pending == 0 and total_in_progress == 0:
-            alerts.append("✅ All clear - No pending tasks")
+            alerts.append("[OK] All clear - No pending tasks")
 
         if alerts:
-            console.print("\n[bold yellow]🚨 Alerts:[/bold yellow]")
+            console.print("\n[bold yellow][ALERTS][/bold yellow]")
             for alert in alerts:
                 console.print(f"  {alert}")
 
