@@ -31,6 +31,13 @@ env/
 .env.local
 .env.*.local
 
+# Authentication Tokens (CRITICAL - Contains Credentials)
+*.token
+token.json
+credentials.json
+*_session*
+session_*
+
 # IDE
 .vscode/
 .idea/
@@ -42,10 +49,15 @@ env/
 # Logs
 *.log
 logs/*.log
+logs/sync.log
 
 # Screenshots (may contain sensitive info)
 logs/screenshots/*.png
 logs/screenshots/*.jpg
+
+# Browser profiles (contains session data)
+logs/browser_profile/
+browser_profile/
 
 # Playwright
 .playwright/
