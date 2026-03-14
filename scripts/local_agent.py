@@ -366,9 +366,9 @@ class LocalAgent:
 
     def run(self):
         """Run local agent main loop"""
-        console.print("\n[bold blue]═══════════════════════════════════════════════════[/bold blue]")
+        console.print("\n[bold blue]====================================================[/bold blue]")
         console.print("[bold blue]  Local Agent - Approval & Execution System[/bold blue]")
-        console.print("[bold blue]═══════════════════════════════════════════════════[/bold blue]\n")
+        console.print("[bold blue]====================================================[/bold blue]\n")
 
         self.log("Local Agent starting")
 

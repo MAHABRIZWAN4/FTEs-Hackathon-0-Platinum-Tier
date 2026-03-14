@@ -203,9 +203,9 @@ class HealthCheck:
 
     def run(self):
         """Run health check"""
-        console.print("\n[bold blue]═══════════════════════════════════════════════════[/bold blue]")
+        console.print("\n[bold blue]====================================================[/bold blue]")
         console.print("[bold blue]  System Health Check - Platinum Tier AI Employee[/bold blue]")
-        console.print("[bold blue]═══════════════════════════════════════════════════[/bold blue]\n")
+        console.print("[bold blue]====================================================[/bold blue]\n")
 
         # Check GitHub workflows
         console.print("[cyan]Checking GitHub Actions...[/cyan]")
