@@ -1,0 +1,74 @@
+name: Vault Sync - Keep Repository Updated
+
+on:
+  schedule:
+    # Runs every 2 minutes
+    - cron: '*/2 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  sync-vault:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "GitHub Actions Bot"
+
+      - name: Pull latest changes
+        run: |
+          # Fetch all changes from remote
+          git fetch origin main
+
+          # Check if there are any changes to pull
+          LOCAL=$(git rev-parse HEAD)
+          REMOTE=$(git rev-parse origin/main)
+
+          if [ "$LOCAL" != "$REMOTE" ]; then
+            echo "Changes detected, pulling..."
+
+            # Stash any local changes (shouldn't be any, but just in case)
+            git stash --include-untracked
+
+            # Pull with rebase to avoid merge commits
+            git pull --rebase origin main
+
+            # Pop stash if there was anything
+            if git stash list | grep -q "stash@{0}"; then
+              git stash pop || echo "Stash pop had conflicts, keeping stashed"
+            fi
+
+            echo "Sync completed successfully"
+          else
+            echo "Already up to date"
+          fi
+
+      - name: Verify .env and tokens are not tracked
+        run: |
+          # Ensure sensitive files are never committed
+          if git ls-files | grep -E '\.env$|token\.json|credentials\.json'; then
+            echo "ERROR: Sensitive files detected in git tracking!"
+            git rm --cached .env token.json credentials.json 2>/dev/null || true
+            git commit -m "🔒 Remove sensitive files from tracking" || true
+          else
+            echo "✅ No sensitive files tracked"
+          fi
+
+      - name: Push if needed
+        run: |
+          if git status --porcelain | grep -q .; then
+            git add -A
+            git commit -m "🔄 Vault Sync: Auto-sync $(date -u +"%Y-%m-%d %H:%M UTC")
+
+            Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
+            git push
+          else
+            echo "Nothing to push"
+          fi

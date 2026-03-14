@@ -1,0 +1,56 @@
+name: CEO Briefing - Weekly Summary
+
+on:
+  schedule:
+    # Runs every Sunday at 9:00 AM UTC
+    - cron: '0 9 * * 0'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  generate-briefing:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create briefing directories
+        run: |
+          mkdir -p vault/Briefings
+          mkdir -p Done
+
+      - name: Generate CEO briefing
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python scripts/ceo_briefing.py --source-dir Done --output-dir vault/Briefings
+
+      - name: Commit briefing
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "GitHub Actions Bot"
+          git add vault/Briefings/
+          if git diff --staged --quiet; then
+            echo "No briefing generated"
+          else
+            WEEK_NUM=$(date -u +"%Y-W%V")
+            git commit -m "📈 CEO Briefing: Weekly summary ${WEEK_NUM}
+
+            Generated from Done folder activities
+
+            Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
+            git push
+          fi
