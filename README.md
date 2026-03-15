@@ -30,6 +30,10 @@ A comprehensive dual-agent AI employee system with 24/7 cloud automation via Git
 ## ⚡ Getting Started in 5 Minutes
 
 ```bash
+# 0. Test Platinum Tier System (Quick Demo - 1 minute)
+python scripts/platinum_integrated_demo.py
+# This runs a complete demo of the dual-agent system
+
 # 1. Install dependencies (30 seconds)
 pip install rich python-dotenv anthropic
 
@@ -50,6 +54,8 @@ python scripts/local_agent.py
 
 # 🎉 You now have a 24/7 dual-agent AI employee!
 ```
+
+**Quick Test**: Run `python scripts/platinum_integrated_demo.py` to see the complete Platinum Tier system in action!
 
 **Next Steps**: Configure email integration and start health monitoring (see [Quick Start](#-quick-start-platinum-tier))
 
