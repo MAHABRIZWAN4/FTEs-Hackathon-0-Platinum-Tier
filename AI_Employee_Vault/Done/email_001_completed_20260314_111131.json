@@ -1,0 +1,18 @@
+{
+  "type": "email_approval",
+  "created_at": "2026-03-14T11:11:22.115015",
+  "created_by": "cloud-agent",
+  "original_email": {
+    "id": "email_001",
+    "from": "client@example.com",
+    "to": "you@company.com",
+    "subject": "Urgent: Project Deadline Extension Request",
+    "body": "Hi,\n\nI hope this email finds you well. I'm writing to request a 2-week extension\non the current project deadline due to some unexpected technical challenges\nwe've encountered.\n\nCould we schedule a call to discuss this?\n\nBest regards,\nJohn Smith\nClient Success Manager",
+    "received_at": "2026-03-14T11:11:13.731828",
+    "priority": "high"
+  },
+  "draft_reply": "Hi John,\n\nThank you for reaching out regarding the project deadline extension.\n\nI understand that unexpected technical challenges can arise, and I appreciate\nyou communicating this proactively. A 2-week extension is certainly something\nwe can discuss.\n\nI'd be happy to schedule a call to review the situation in detail and work\nout a revised timeline that works for both teams.\n\nCould you share your availability for this week? I'm generally free on\nTuesday and Thursday afternoons.\n\nBest regards,\n[Your Name]",
+  "status": "completed",
+  "completed_at": "2026-03-14T11:11:31.381526",
+  "completed_by": "local-agent"
+}

@@ -1,53 +1,57 @@
-# AI Employee Agent Skills - Gold Tier
+# AI Employee Agent Skills - Platinum Tier
 
 ```
 ╔═══════════════════════════════════════════════════════════════════════╗
 ║                                                                       ║
-║     ██████╗  ██████╗ ██╗     ██████╗     ████████╗██╗███████╗██████╗ ║
-║    ██╔════╝ ██╔═══██╗██║     ██╔══██╗    ╚══██╔══╝██║██╔════╝██╔══██╗║
-║    ██║  ███╗██║   ██║██║     ██║  ██║       ██║   ██║█████╗  ██████╔╝║
-║    ██║   ██║██║   ██║██║     ██║  ██║       ██║   ██║██╔══╝  ██╔══██╗║
-║    ╚██████╔╝╚██████╔╝███████╗██████╔╝       ██║   ██║███████╗██║  ██║║
-║     ╚═════╝  ╚═════╝ ╚══════╝╚═════╝        ╚═╝   ╚═╝╚══════╝╚═╝  ╚═╝║
+║   ██████╗ ██╗      █████╗ ████████╗██╗███╗   ██╗██╗   ██╗███████╗   ║
+║   ██╔══██╗██║     ██╔══██╗╚══██╔══╝██║████╗  ██║██║   ██║██╔════╝   ║
+║   ██████╔╝██║     ███████║   ██║   ██║██╔██╗ ██║██║   ██║█████╗     ║
+║   ██╔═══╝ ██║     ██╔══██║   ██║   ██║██║╚██╗██║██║   ██║██╔══╝     ║
+║   ██║     ███████╗██║  ██║   ██║   ██║██║ ╚████║╚██████╔╝███████╗   ║
+║   ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ║
 ║                                                                       ║
 ║              🏆 AI EMPLOYEE AUTOMATION SYSTEM 🏆                      ║
-║         Production-Ready • Enterprise-Grade • 24/7 Operation         ║
+║      Production-Ready • Cloud + Local • 24/7 Dual-Agent System       ║
 ║                                                                       ║
 ╚═══════════════════════════════════════════════════════════════════════╝
 ```
 
 ![Status](https://img.shields.io/badge/Status-Production%20Ready-success)
-![Tier](https://img.shields.io/badge/Tier-Gold-gold)
+![Tier](https://img.shields.io/badge/Tier-Platinum-9cf)
 ![Python](https://img.shields.io/badge/Python-3.7%2B-blue)
-![Version](https://img.shields.io/badge/Version-2.0.0-brightgreen)
+![Version](https://img.shields.io/badge/Version-3.0.0-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-blue)
+![Cloud](https://img.shields.io/badge/Cloud-GitHub%20Actions-2088FF)
 
-A comprehensive collection of autonomous agent skills for task management, monitoring, human-in-the-loop approval, email automation, and social media automation. This Gold Tier implementation features advanced email processing, automated scheduling, and seamless integration between multiple AI agents.
+A comprehensive dual-agent AI employee system with 24/7 cloud automation via GitHub Actions and local control. This Platinum Tier implementation features cloud-based email triage, social media draft generation, vault synchronization, health monitoring, and human-in-the-loop approvals for final actions.
 
 ---
 
-## ⚡ Getting Started in 60 Seconds
+## ⚡ Getting Started in 5 Minutes
 
 ```bash
-# 1. Install core dependency (10 seconds)
-pip install rich
+# 1. Install dependencies (30 seconds)
+pip install rich python-dotenv anthropic
 
-# 2. Test the colorful UI (5 seconds)
-python scripts/task_planner.py
+# 2. Add ANTHROPIC_API_KEY to GitHub Secrets (2 minutes)
+# Go to: https://github.com/YOUR_USERNAME/YOUR_REPO/settings/secrets/actions
+# Add secret: ANTHROPIC_API_KEY = your_claude_api_key
 
-# 3. Create a test task (5 seconds)
-echo "# Test Task\nPriority: high\nTest the system" > "AI_Employee_Vault/Inbox/test.md"
+# 3. Enable GitHub Actions (1 minute)
+# Go to repository → Actions tab → Enable workflows
+# Settings → Actions → General → Enable "Read and write permissions"
 
-# 4. Watch it process (5 seconds)
-python scripts/task_planner.py
+# 4. Test cloud agent (30 seconds)
+gh workflow run cloud-agent.yml
+gh run list --workflow=cloud-agent.yml
 
-# 5. Check the result (5 seconds)
-cat "AI_Employee_Vault/Needs_Action/Plan_test.md"
+# 5. Run local agent (30 seconds)
+python scripts/local_agent.py
 
-# 🎉 You just experienced Gold Tier automation!
+# 🎉 You now have a 24/7 dual-agent AI employee!
 ```
 
-**Next Steps**: Set up Gmail integration (see [Quick Start](#-quick-start-5-minutes-to-gold-tier))
+**Next Steps**: Configure email integration and start health monitoring (see [Quick Start](#-quick-start-platinum-tier))
 
 ---
 
@@ -75,363 +79,736 @@ cat "AI_Employee_Vault/Needs_Action/Plan_test.md"
 
 ## 🎯 Overview
 
-This project contains production-ready agent skills that work together to create an autonomous AI employee system:
+This project is a **production-ready dual-agent AI employee system** with 24/7 cloud automation and local control:
 
-1. **Task Planner Agent** - Analyzes markdown files and generates actionable plans
-2. **Vault Watcher Agent** - Monitors inbox for new files and triggers processing
-3. **Human Approval Agent** - Synchronous approval workflow for critical decisions
-4. **Gmail Watcher Agent** - Monitors Gmail inbox, auto-replies, and saves emails to vault
-5. **Email Sender Agent** - Sends emails via SMTP with environment credentials
-6. **LinkedIn Auto-Post Agent** - Automates LinkedIn posting with browser automation
-7. **Twitter/X Post Agent** - Automated Twitter posting with thread support
-8. **Social Meta Agent** - Facebook and Instagram posting automation
-9. **Social Summary Agent** - Centralized social media activity tracking
-10. **Accounting Manager Agent** - Financial tracking and ledger management
-11. **CEO Briefing Agent** - Automated weekly executive summary reports
-12. **Error Recovery Agent** - Automated error handling and retry system
-13. **Ralph Loop Agent** - Autonomous task execution loop with safety features
-14. **MCP Executor Agent** - Executes external actions and integrations
-15. **Gold Scheduler Agent** - Orchestrates automated background execution
+### Dual-Agent Architecture
 
-## 🏆 Gold Tier Enhancements
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                  PLATINUM TIER AI EMPLOYEE                       │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  ┌──────────────────────┐         ┌──────────────────────┐     │
+│  │   CLOUD AGENT        │         │   LOCAL AGENT        │     │
+│  │   (GitHub Actions)   │◄───────►│   (Your Machine)     │     │
+│  │                      │   Git   │                      │     │
+│  │ • Runs every 15 min  │  Vault  │ • Manual execution   │     │
+│  │ • Email triage       │  Sync   │ • Approvals          │     │
+│  │ • Draft replies      │         │ • Final send/post    │     │
+│  │ • Draft social posts │         │ • WhatsApp           │     │
+│  │ • NEVER sends        │         │ • Payments           │     │
+│  └──────────────────────┘         └──────────────────────┘     │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+```
 
-What makes this Gold Tier:
+### Core Components
 
+**Cloud Automation (GitHub Actions):**
+1. **Cloud Agent** - Email triage, social drafts (every 15 min)
+2. **Health Monitor** - System health checks (every 5 min)
+3. **Vault Sync** - Repository synchronization (every 2 min)
+4. **CEO Briefing** - Weekly executive summaries (Sundays 9am)
+
+**Local Control:**
+5. **Local Agent** - Approval UI and final action execution
+6. **Dashboard Updater** - Merges cloud updates, prevents conflicts
+7. **Vault Sync** - Pull-before-push synchronization
+8. **Health Check** - On-demand system status
+9. **Watchdog** - Continuous process monitoring with auto-restart
+
+**Legacy Skills (Still Available):**
+10. Task Planner, Vault Watcher, Human Approval, Gmail Watcher
+11. Email Sender, LinkedIn Post, Twitter Post, Social Meta
+12. Accounting Manager, Error Recovery, Ralph Loop, MCP Executor
+
+## 🏆 Platinum Tier Enhancements
+
+What makes this Platinum Tier:
+
+### Cloud Automation (NEW)
+- **☁️ GitHub Actions Integration** - 24/7 cloud automation without local machine running
+- **🤖 Dual-Agent Architecture** - Cloud agent for automation, local agent for control
+- **🔄 Automatic Vault Sync** - Git-based synchronization every 2 minutes
+- **🏥 Health Monitoring** - System health checks every 5 minutes with auto-restart
+- **📊 Automated CEO Briefings** - Weekly executive summaries generated automatically
+
+### Architecture Patterns (NEW)
+- **📦 Claim-by-Move Pattern** - Atomic task claiming via file moves (no race conditions)
+- **✍️ Single-Writer Rule** - Prevents merge conflicts with dedicated write zones
+- **🔒 Draft-Only Cloud** - Cloud never sends/posts directly (security by design)
+- **🔐 Local Approval Gate** - All final actions require local human approval
+
+### Gold Tier Features (Retained)
 - **🎨 Beautiful Terminal UI** - Rich library integration with colorful output, progress bars, and styled panels
 - **📧 Advanced Email Processing** - Full Gmail integration with IMAP/SMTP, auto-replies, and email-to-task pipeline
 - **🐦 Multi-Platform Social Media** - Twitter/X, Facebook, Instagram, and LinkedIn automation
 - **📊 Social Media Tracking** - Centralized logging and analytics across all platforms
 - **💰 Financial Management** - Complete accounting system with ledger and reporting
-- **📈 Executive Reporting** - Automated weekly CEO briefings with key metrics
 - **🔄 Error Recovery System** - Automatic error detection, quarantine, and retry logic
 - **🤖 Autonomous Execution** - Ralph Loop for continuous task processing with safety features
-- **⚡ Production-Ready Scheduling** - Windows Task Scheduler and Cron integration for 24/7 operation
 - **🛡️ Enterprise Security** - App Password support, credential management, comprehensive logging
-- **📊 Enhanced Monitoring** - Heartbeat logging, status dashboards, and detailed activity tracking
-- **💪 Robust Error Handling** - Graceful degradation, retry logic, and comprehensive error recovery
 
 ### Feature Comparison
 
-| Feature | Bronze | Silver | Gold ✨ |
-|---------|--------|--------|---------|
-| Task Planning | ✅ | ✅ | ✅ |
-| Vault Monitoring | ✅ | ✅ | ✅ |
-| Human Approval | ❌ | ✅ | ✅ |
-| Email Integration | ❌ | ✅ | ✅ |
-| Gmail Auto-Reply | ❌ | ✅ | ✅ |
-| LinkedIn Posting | ❌ | ✅ | ✅ |
-| Twitter/X Posting | ❌ | ❌ | ✅ |
-| Facebook Posting | ❌ | ❌ | ✅ |
-| Instagram Posting | ❌ | ❌ | ✅ |
-| Social Media Tracking | ❌ | ❌ | ✅ |
-| Accounting Manager | ❌ | ❌ | ✅ |
-| CEO Briefing | ❌ | ❌ | ✅ |
-| Error Recovery System | ❌ | ❌ | ✅ |
-| Autonomous Loop (Ralph) | ❌ | ❌ | ✅ |
-| Colorful Terminal UI | ❌ | ❌ | ✅ |
-| Background Scheduling | ❌ | ✅ | ✅ |
-| Email-to-Task Pipeline | ❌ | ✅ | ✅ |
-| MCP Executor | ❌ | ✅ | ✅ |
-| Production Logging | Basic | Advanced | Enterprise |
-| Error Recovery | Basic | Good | Excellent |
-| Security Features | Basic | Good | Enterprise |
+| Feature | Bronze | Silver | Gold | Platinum ✨ |
+|---------|--------|--------|------|-------------|
+| Task Planning | ✅ | ✅ | ✅ | ✅ |
+| Vault Monitoring | ✅ | ✅ | ✅ | ✅ |
+| Human Approval | ❌ | ✅ | ✅ | ✅ |
+| Email Integration | ❌ | ✅ | ✅ | ✅ |
+| Social Media Automation | ❌ | ✅ | ✅ | ✅ |
+| Accounting & CEO Briefing | ❌ | ❌ | ✅ | ✅ |
+| Error Recovery | ❌ | ❌ | ✅ | ✅ |
+| **Cloud Automation** | ❌ | ❌ | ❌ | ✅ |
+| **GitHub Actions** | ❌ | ❌ | ❌ | ✅ |
+| **Dual-Agent System** | ❌ | ❌ | ❌ | ✅ |
+| **Auto Vault Sync** | ❌ | ❌ | ❌ | ✅ |
+| **Health Monitoring** | ❌ | ❌ | ❌ | ✅ |
+| **24/7 Operation** | Manual | Scheduled | Scheduled | Cloud |
+| **Deployment** | Local | Local | Local | Cloud + Local |
+| **Scalability** | Low | Medium | High | Enterprise |
 
 ### Performance Metrics
 
-Gold Tier is optimized for production use with minimal resource consumption:
+Platinum Tier is optimized for cloud-native operation with minimal resource consumption:
 
 | Metric | Value | Notes |
 |--------|-------|-------|
-| **Vault Watcher Polling** | 15 seconds | Configurable, minimal CPU usage |
-| **Gmail Watcher Polling** | 60 seconds | Configurable, IMAP efficient |
-| **Approval Polling** | 10 seconds | Only during active approval requests |
+| **Cloud Agent Execution** | Every 15 min | GitHub Actions, configurable |
+| **Health Monitor** | Every 5 min | Auto-restart on failures |
+| **Vault Sync** | Every 2 min | Automatic conflict resolution |
+| **CEO Briefing** | Sundays 9am UTC | Automated weekly reports |
 | **Task Processing Time** | < 2 seconds | Per markdown file |
-| **Email Processing Time** | < 5 seconds | Including auto-reply |
-| **LinkedIn Post Time** | 15-30 seconds | Browser automation overhead |
-| **Memory Footprint** | < 50 MB | Per watcher process |
-| **Log File Growth** | ~1 MB/day | With moderate activity |
-| **Startup Time** | < 1 second | All agents except LinkedIn |
+| **Email Triage Time** | < 5 seconds | Claude API processing |
+| **Approval Processing** | < 1 second | Local agent UI |
+| **Memory Footprint (Cloud)** | < 100 MB | Per workflow run |
+| **Memory Footprint (Local)** | < 50 MB | Per agent process |
+| **GitHub Actions Usage** | ~36,000 min/month | Requires Pro or public repo |
+| **Claude API Calls** | ~2,880/month | Estimated $50-100/month |
 
-## 🚀 Quick Start (5 Minutes to Gold Tier)
+## 🚀 Quick Start (Platinum Tier)
 
-Get the full Gold Tier experience running in 5 minutes:
+Get your dual-agent AI employee running in 10 minutes:
+
+### Step 1: Add GitHub Secrets (2 minutes)
+
+Go to: `https://github.com/YOUR_USERNAME/YOUR_REPO/settings/secrets/actions`
+
+**Required:**
+- `ANTHROPIC_API_KEY` - Your Claude API key
+
+**Optional (for email triage):**
+- `GMAIL_CREDENTIALS` - Base64 encoded Gmail OAuth credentials
+- `GMAIL_TOKEN` - Base64 encoded Gmail OAuth token
+
+### Step 2: Enable GitHub Actions (2 minutes)
+
+1. Go to repository → Actions tab
+2. Click "I understand my workflows, go ahead and enable them"
+3. Go to Settings → Actions → General
+4. Select "Read and write permissions"
+5. Click "Save"
+
+### Step 3: Test Cloud Agent (2 minutes)
 
 ```bash
-# 1. Install dependencies (30 seconds)
-pip install rich python-dotenv
+# Trigger cloud agent manually
+gh workflow run cloud-agent.yml
 
-# 2. Set up credentials (2 minutes)
-cp .env.example .env
-# Edit .env with your Gmail App Password and LinkedIn credentials
-
-# 3. Start the watchers (30 seconds)
-# Terminal 1: Gmail Watcher
-python scripts/watch_gmail.py
-
-# Terminal 2: Vault Watcher
-python scripts/watch_inbox.py
-
-# 4. Test the pipeline (1 minute)
-# Send yourself an email - watch it automatically:
-# → Get detected by Gmail Watcher
-# → Saved to Inbox/
-# → Processed by Vault Watcher
-# → Plan created in Needs_Action/
-
-# 5. Enjoy your AI Employee! 🎉
+# View logs
+gh run list --workflow=cloud-agent.yml --limit 5
+gh run view --log
 ```
+
+### Step 4: Run Local Agent (2 minutes)
+
+```bash
+# Install dependencies
+pip install rich python-dotenv anthropic
+
+# Run local agent
+python scripts/local_agent.py
+
+# Or double-click (Windows)
+scripts\run_local_agent.bat
+```
+
+### Step 5: Start Health Monitoring (2 minutes)
+
+```bash
+# Check system health
+python scripts/health_check.py
+
+# Start continuous monitoring
+python scripts/watchdog.py
+
+# Or double-click (Windows)
+scripts\run_watchdog.bat
+```
+
+### Step 6: Test Vault Sync (Optional)
+
+```bash
+# Sync vault manually
+python scripts/vault_sync.py
+
+# Or double-click (Windows)
+scripts\vault_push.bat
+```
+
+**🎉 Your 24/7 dual-agent AI employee is now running!**
 
 ## 📁 Project Structure
 
 ```
-F:\FTEs\Gold Tier\
+E:\FTEs\Platinium Tier\
+├── .github/
+│   └── workflows/
+│       ├── cloud-agent.yml          # Cloud agent (every 15 min)
+│       ├── health-monitor.yml       # Health checks (every 5 min)
+│       ├── vault-sync.yml           # Vault sync (every 2 min)
+│       └── ceo-briefing.yml         # CEO briefing (Sundays 9am)
 ├── .claude/
 │   └── skills/
-│       ├── task-planner/
-│       │   └── SKILL.md
-│       ├── vault-watcher/
-│       │   └── SKILL.md
-│       ├── human-approval/
-│       │   └── SKILL.md
-│       ├── gmail-watcher/
-│       │   └── SKILL.md
-│       ├── linkedin-post/
-│       │   └── SKILL.md
-│       ├── twitter-post/
-│       │   └── SKILL.md
-│       ├── social-meta/
-│       │   └── SKILL.md
-│       ├── social-summary/
-│       │   └── SKILL.md
-│       ├── accounting-manager/
-│       │   └── SKILL.md
-│       ├── ceo-briefing/
-│       │   └── SKILL.md
-│       ├── error-recovery/
-│       │   └── SKILL.md
-│       ├── ralph-loop/
-│       │   └── SKILL.md
-│       ├── mcp-executor/
-│       │   └── SKILL.md
-│       ├── gold-scheduler/
-│       │   └── SKILL.md
-│       └── personal-tasks/
-│           └── SKILL.md
+│       ├── task-planner/            # Task planning skill
+│       ├── vault-watcher/           # Vault monitoring skill
+│       ├── human-approval/          # Approval workflow skill
+│       ├── gmail-watcher/           # Gmail integration skill
+│       ├── linkedin-post/           # LinkedIn automation skill
+│       ├── twitter-post/            # Twitter/X automation skill
+│       ├── social-meta/             # Facebook/Instagram skill
+│       ├── social-summary/          # Social tracking skill
+│       ├── accounting-manager/      # Financial management skill
+│       ├── ceo-briefing/            # Executive reporting skill
+│       ├── error-recovery/          # Error handling skill
+│       ├── ralph-loop/              # Autonomous loop skill
+│       ├── mcp-executor/            # External actions skill
+│       ├── silver-scheduler/        # Scheduling skill
+│       └── personal-tasks/          # Personal task handler skill
 ├── scripts/
-│   ├── task_planner.py          # Analyzes files & creates plans
-│   ├── watch_inbox.py           # Monitors inbox & triggers planner
-│   ├── request_approval.py      # Human-in-the-loop approval workflow
-│   ├── watch_gmail.py           # Gmail inbox monitor with auto-reply
-│   ├── send_email.py            # Email sender via SMTP
-│   ├── post_linkedin.py         # LinkedIn automation
-│   ├── post_twitter.py          # Twitter/X posting (Gold Tier)
-│   ├── post_facebook.py         # Facebook posting (Gold Tier)
-│   ├── post_instagram.py        # Instagram posting (Gold Tier)
-│   ├── accounting_manager.py    # Financial tracking system
-│   ├── ceo_briefing.py          # Weekly executive reports
-│   ├── ceo_briefing_scheduler.py # CEO briefing automation
-│   ├── error_recovery.py        # Error handling & retry system
-│   ├── ralph_loop.py            # Autonomous task execution loop
-│   ├── mcp_executor.py          # External action executor
-│   ├── run_ai_employee.py       # Scheduler & orchestrator
-│   └── integrated_demo.py       # Full system demo
+│   ├── cloud_agent.py               # ⭐ Cloud agent (GitHub Actions)
+│   ├── local_agent.py               # ⭐ Local agent (approvals & execution)
+│   ├── dashboard_updater.py         # ⭐ Dashboard merger (prevents conflicts)
+│   ├── vault_sync.py                # ⭐ Vault synchronization
+│   ├── health_check.py              # ⭐ On-demand health check
+│   ├── watchdog.py                  # ⭐ Continuous monitoring
+│   ├── platinum_ceo_briefing.py     # ⭐ Automated CEO briefings
+│   ├── task_planner.py              # Task analysis & planning
+│   ├── watch_inbox.py               # Inbox monitoring
+│   ├── request_approval.py          # Approval workflow
+│   ├── watch_gmail.py               # Gmail monitoring
+│   ├── send_email.py                # Email sender
+│   ├── post_linkedin.py             # LinkedIn automation
+│   ├── post_twitter.py              # Twitter/X automation
+│   ├── post_facebook.py             # Facebook automation
+│   ├── post_instagram.py            # Instagram automation
+│   ├── accounting_manager.py        # Financial tracking
+│   ├── error_recovery.py            # Error handling
+│   ├── ralph_loop.py                # Autonomous execution
+│   ├── mcp_executor.py              # External actions
+│   ├── run_ai_employee.py           # Orchestrator
+│   ├── vault_push.bat               # ⭐ One-click vault sync
+│   ├── run_local_agent.bat          # ⭐ One-click local agent
+│   ├── run_health_check.bat         # ⭐ One-click health check
+│   └── run_watchdog.bat             # ⭐ One-click watchdog
 ├── AI_Employee_Vault/
-│   ├── Inbox/                   # Drop new tasks here
-│   ├── Needs_Action/            # Generated plans appear here
-│   ├── Needs_Approval/          # Approval requests
-│   ├── Done/                    # Completed tasks
-│   ├── Errors/                  # Failed/quarantined files
-│   ├── Plans/                   # Execution plans
-│   ├── Actions/                 # Action items
-│   ├── Accounting/              # Financial ledgers
-│   │   ├── Current_Month.md     # Active accounting ledger
-│   │   └── Archive/             # Historical ledgers
-│   ├── Reports/                 # Generated reports
-│   │   ├── CEO_Weekly.md        # Latest CEO briefing
-│   │   ├── Social_Log.md        # Social media activity log
-│   │   └── twitter_history.json # Twitter post history
-│   ├── Dashboard.md             # System status dashboard
-│   ├── System_Log.md            # System activity log
-│   └── Company_Handbook.md      # Policies & workflows
+│   ├── Inbox/                       # New items to process
+│   ├── Needs_Action/
+│   │   ├── email/                   # ⭐ Email drafts (no approval)
+│   │   └── social/                  # ⭐ Social drafts (no approval)
+│   ├── Pending_Approval/
+│   │   ├── email/                   # ⭐ Email drafts (needs approval)
+│   │   └── social/                  # ⭐ Social drafts (needs approval)
+│   ├── Approved/                    # ⭐ Approved items (temporary)
+│   ├── In_Progress/
+│   │   ├── cloud/                   # ⭐ Cloud agent working
+│   │   └── local/                   # ⭐ Local agent working
+│   ├── Done/                        # Completed tasks
+│   ├── Errors/                      # Failed/quarantined files
+│   ├── Updates/                     # ⭐ Cloud status updates
+│   ├── Signals/                     # ⭐ Inter-agent communication
+│   ├── Logs/                        # ⭐ Agent logs
+│   │   ├── cloud_agent.log          # ⭐ Cloud agent log
+│   │   ├── local_agent.log          # ⭐ Local agent log
+│   │   ├── watchdog.log             # ⭐ Watchdog log
+│   │   ├── ceo_briefing.log         # ⭐ CEO briefing log
+│   │   └── system_health.md         # ⭐ Health report
+│   ├── Briefings/                   # ⭐ CEO briefings
+│   ├── Plans/                       # Execution plans
+│   ├── Actions/                     # Action items
+│   ├── Accounting/                  # Financial ledgers
+│   │   ├── Current_Month.md         # Active ledger
+│   │   └── Archive/                 # Historical ledgers
+│   ├── Reports/                     # Generated reports
+│   │   ├── CEO_Weekly.md            # Latest CEO briefing
+│   │   ├── Social_Log.md            # Social media log
+│   │   └── twitter_history.json     # Twitter history
+│   ├── Dashboard.md                 # System status dashboard
+│   ├── System_Log.md                # System activity log
+│   └── Company_Handbook.md          # Policies & workflows
+├── docs/
+│   ├── GITHUB_ACTIONS_SETUP.md      # ⭐ Cloud automation guide
+│   ├── VAULT_SYNC_GUIDE.md          # ⭐ Vault sync guide
+│   ├── VAULT_SYNC_QUICK_REF.md      # ⭐ Sync quick reference
+│   ├── DUAL_AGENT_ARCHITECTURE.md   # ⭐ Architecture guide
+│   ├── DUAL_AGENT_QUICK_REF.md      # ⭐ Agent quick reference
+│   ├── HEALTH_MONITORING_GUIDE.md   # ⭐ Health monitoring guide
+│   ├── HEALTH_MONITORING_QUICK_REF.md # ⭐ Health quick reference
+│   ├── CEO_BRIEFING_GUIDE.md        # ⭐ CEO briefing guide
+│   └── CEO_BRIEFING_QUICK_REF.md    # ⭐ Briefing quick reference
 ├── logs/
-│   ├── actions.log              # All activity logs
-│   ├── errors.log               # Error tracking log
-│   ├── social.log               # Social media logs
-│   ├── processed.json           # Idempotency tracking
-│   ├── retry_queue.json         # Error recovery queue
-│   ├── page_source.html         # Debug HTML snapshots
-│   └── screenshots/             # Debug screenshots
-├── .env.example                 # Credentials template
-├── .gitignore                   # Security configuration
-├── requirements.txt             # Core dependencies (rich)
-├── requirements_linkedin.txt    # LinkedIn dependencies
-├── setup_scheduler.bat          # Windows Task Scheduler setup
-├── SCHEDULER_SETUP.md          # Scheduler configuration guide
-├── LINKEDIN_SETUP.md           # LinkedIn setup guide
-├── EMAIL_SETUP.md              # Email configuration guide
-└── COLORFUL_UI.md              # Terminal UI documentation
+│   ├── actions.log                  # All activity logs
+│   ├── errors.log                   # Error tracking
+│   ├── social.log                   # Social media logs
+│   ├── sync.log                     # ⭐ Vault sync log
+│   ├── processed.json               # Idempotency tracking
+│   ├── retry_queue.json             # Error recovery queue
+│   └── screenshots/                 # Debug screenshots
+├── .env.example                     # Credentials template
+├── .gitignore                       # Security configuration
+├── requirements.txt                 # Core dependencies
+├── requirements_linkedin.txt        # LinkedIn dependencies
+├── PLATINUM_TIER_COMPLETE.md        # ⭐ Complete system summary
+├── SYSTEM_OVERVIEW.md               # ⭐ System overview
+├── ACTIVATION_CHECKLIST.md          # ⭐ Activation checklist
+├── SCHEDULER_SETUP.md               # Scheduler configuration
+├── LINKEDIN_SETUP.md                # LinkedIn setup
+├── EMAIL_SETUP.md                   # Email configuration
+└── COLORFUL_UI.md                   # Terminal UI docs
+
+⭐ = New in Platinum Tier
 ```
 
-## 🚀 Production Deployment (Gold Tier)
+## 🚀 Production Deployment (Platinum Tier)
 
-### 24/7 Operation Setup
+### 24/7 Cloud Operation
 
-For production Gold Tier deployment, run all watchers as background services:
+Platinum Tier runs automatically in the cloud via GitHub Actions - no local machine required:
 
-**Windows (Recommended for Gold Tier)**:
-```cmd
-# 1. Set up automated scheduling
-setup_scheduler.bat
-
-# 2. Create background services for watchers
-# Gmail Watcher Service
-Start-Process python -ArgumentList "scripts/watch_gmail.py" -WindowStyle Hidden -RedirectStandardOutput "logs/gmail_watcher.log"
-
-# Vault Watcher Service
-Start-Process python -ArgumentList "scripts/watch_inbox.py" -WindowStyle Hidden -RedirectStandardOutput "logs/vault_watcher.log"
-
-# 3. Verify services are running
-Get-Process python
-
-# 4. Monitor logs
-Get-Content logs/actions.log -Wait -Tail 50
-```
-
-**Linux/Mac (Production)**:
+**Cloud Workflows (Automatic):**
 ```bash
-# 1. Create systemd services (recommended)
-sudo nano /etc/systemd/system/gmail-watcher.service
+# These run automatically in GitHub Actions:
+# - Cloud Agent: Every 15 minutes
+# - Health Monitor: Every 5 minutes
+# - Vault Sync: Every 2 minutes
+# - CEO Briefing: Sundays at 9am UTC
 
-# Service file content:
-[Unit]
-Description=Gold Tier Gmail Watcher
-After=network.target
+# View workflow status
+gh run list --limit 10
 
-[Service]
-Type=simple
-User=youruser
-WorkingDirectory=/path/to/Gold Tier
-ExecStart=/usr/bin/python3 scripts/watch_gmail.py
-Restart=always
-RestartSec=10
+# View specific workflow
+gh run list --workflow=cloud-agent.yml --limit 5
 
-[Install]
-WantedBy=multi-user.target
-
-# 2. Enable and start services
-sudo systemctl enable gmail-watcher
-sudo systemctl start gmail-watcher
-sudo systemctl status gmail-watcher
-
-# 3. Set up cron for scheduler
-crontab -e
-# Add: */5 * * * * cd "/path/to/Gold Tier" && python3 scripts/run_ai_employee.py >> logs/scheduler.log 2>&1
-
-# 4. Monitor with journalctl
-journalctl -u gmail-watcher -f
+# View logs
+gh run view --log
 ```
 
-### Health Monitoring
-
-Gold Tier includes comprehensive health monitoring:
-
+**Local Operations (On-Demand):**
 ```bash
-# Check all services status
+# Run local agent for approvals (daily)
+python scripts/local_agent.py
+
+# Check system health (as needed)
 python scripts/health_check.py
 
+# Start continuous monitoring (optional)
+python scripts/watchdog.py
+
+# Sync vault manually (optional, auto-syncs every 2 min)
+python scripts/vault_sync.py
+```
+
+### Windows Setup (Local Agent)
+
+For local approval processing on Windows:
+
+```cmd
+# 1. Install dependencies
+pip install rich python-dotenv anthropic
+
+# 2. Create desktop shortcuts
+# Right-click scripts\run_local_agent.bat → Send to → Desktop (create shortcut)
+# Right-click scripts\run_health_check.bat → Send to → Desktop (create shortcut)
+
+# 3. Run local agent when needed
+# Double-click "run_local_agent.bat" on desktop
+
+# 4. Monitor system health
+# Double-click "run_health_check.bat" on desktop
+```
+
+### Linux/Mac Setup (Local Agent)
+
+For local approval processing on Linux/Mac:
+
+```bash
+# 1. Install dependencies
+pip install rich python-dotenv anthropic
+
+# 2. Create aliases (add to ~/.bashrc or ~/.zshrc)
+alias local-agent='python ~/path/to/scripts/local_agent.py'
+alias health-check='python ~/path/to/scripts/health_check.py'
+alias vault-sync='python ~/path/to/scripts/vault_sync.py'
+
+# 3. Run local agent when needed
+local-agent
+
+# 4. Monitor system health
+health-check
+```
+
+### Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    PLATINUM TIER DEPLOYMENT                  │
+├─────────────────────────────────────────────────────────────┤
+│                                                               │
+│  CLOUD (GitHub Actions) - Runs 24/7 Automatically           │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ • Cloud Agent (every 15 min)                        │   │
+│  │ • Health Monitor (every 5 min)                      │   │
+│  │ • Vault Sync (every 2 min)                          │   │
+│  │ • CEO Briefing (Sundays 9am)                        │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                          ↕ Git Vault Sync                    │
+│  LOCAL (Your Machine) - Run On-Demand                       │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ • Local Agent (approvals & execution)               │   │
+│  │ • Health Check (system status)                      │   │
+│  │ • Watchdog (optional monitoring)                    │   │
+│  │ • Vault Sync (optional manual sync)                 │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Daily Workflow (Platinum Tier)
+
+**Morning Routine:**
+```bash
+# 1. Pull latest changes from cloud
+git pull origin main
+
+# 2. Check system health
+python scripts/health_check.py
+
+# 3. Run local agent (process approvals)
+python scripts/local_agent.py
+```
+
+**During the Day:**
+- Cloud agent runs automatically every 15 minutes
+- Health monitor checks system every 5 minutes
+- Vault syncs automatically every 2 minutes
+- No local machine needed!
+
+**End of Day:**
+```bash
+# 1. Final approval processing
+python scripts/local_agent.py
+
+# 2. Sync vault (optional, auto-syncs)
+python scripts/vault_sync.py
+
+# 3. Check logs
+cat AI_Employee_Vault/Logs/cloud_agent.log
+cat AI_Employee_Vault/Logs/local_agent.log
+```
+
+### Health Monitoring (Platinum Tier)
+
+Platinum Tier includes comprehensive cloud and local health monitoring:
+
+```bash
+# Quick health check (on-demand)
+python scripts/health_check.py
+
+# Start continuous monitoring (optional)
+python scripts/watchdog.py
+
+# View cloud workflow status
+gh run list --limit 10
+
+# View specific workflow logs
+gh run list --workflow=cloud-agent.yml --limit 5
+gh run view --log
+
+# Check system health report
+cat AI_Employee_Vault/Logs/system_health.md
+
 # Monitor real-time activity
-tail -f logs/actions.log | grep -E "SUCCESS|ERROR|HEARTBEAT"
-
-# Check processing statistics
-grep HEARTBEAT logs/actions.log | tail -5
-
-# Verify email processing
-grep GMAIL logs/actions.log | grep SUCCESS | wc -l
-
-# Check approval response times
-grep APPROVAL logs/actions.log | grep "approved in"
+tail -f AI_Employee_Vault/Logs/cloud_agent.log
+tail -f AI_Employee_Vault/Logs/local_agent.log
+tail -f AI_Employee_Vault/Logs/watchdog.log
 ```
 
 ## ⚙️ Setup Instructions
 
 ### Prerequisites
 - Python 3.7 or higher
-- Git (for cloning the repository)
-- Internet connection (for LinkedIn automation)
+- Git and GitHub account
+- GitHub CLI (`gh`) installed (optional but recommended)
+- Anthropic API key (Claude)
+- Internet connection
 
-### Basic Setup (Task Planner + Vault Watcher + Human Approval)
+### Platinum Tier Setup (Cloud + Local)
 
-**Step 1: Install Rich Library (for colorful terminal UI)**
+**Step 1: Add GitHub Secrets (2 minutes)**
+
+Go to: `https://github.com/YOUR_USERNAME/YOUR_REPO/settings/secrets/actions`
+
+Add the following secrets:
+
+**Required:**
+- `ANTHROPIC_API_KEY` - Your Claude API key from https://console.anthropic.com
+
+**Optional (for email triage):**
+- `GMAIL_CREDENTIALS` - Base64 encoded Gmail OAuth credentials
+- `GMAIL_TOKEN` - Base64 encoded Gmail OAuth token
 
 ```bash
-# Install rich for beautiful, colorful terminal output
-pip install rich
+# Encode credentials for GitHub Secrets
+base64 -w 0 < credentials.json
+base64 -w 0 < token.json
 ```
 
-**Step 2: Verify Installation**
+**Step 2: Enable GitHub Actions (2 minutes)**
+
+1. Go to repository → **Actions** tab
+2. Click "I understand my workflows, go ahead and enable them"
+3. Go to **Settings** → **Actions** → **General**
+4. Under "Workflow permissions", select **"Read and write permissions"**
+5. Click **"Save"**
+
+**Step 3: Install Local Dependencies (1 minute)**
 
 ```bash
-# 1. Clone or navigate to the project directory
-cd "F:\FTEs\Gold Tier"
+# Install core dependencies
+pip install rich python-dotenv anthropic
 
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Verify directory structure
-ls AI_Employee_Vault/
-
-# 4. Test Task Planner (with colorful output!)
-python scripts/task_planner.py
-
-# 5. Test Vault Watcher (with colorful output!)
-python scripts/watch_inbox.py
-
-# 6. Test Human Approval (in Python)
-python -c "from scripts.request_approval import request_approval; print('Import successful')"
+# Verify installation
+python -c "import rich; import anthropic; print('Dependencies installed successfully')"
 ```
 
-### LinkedIn Setup (Optional)
-
-LinkedIn automation requires additional dependencies:
+**Step 4: Test Cloud Agent (2 minutes)**
 
 ```bash
-# 1. Install Python dependencies
+# Trigger cloud agent manually
+gh workflow run cloud-agent.yml
+
+# View workflow runs
+gh run list --workflow=cloud-agent.yml --limit 5
+
+# View logs
+gh run view --log
+```
+
+**Step 5: Test Local Agent (2 minutes)**
+
+```bash
+# Run local agent
+python scripts/local_agent.py
+
+# Or use batch file (Windows)
+scripts\run_local_agent.bat
+```
+
+**Step 6: Verify System Health (1 minute)**
+
+```bash
+# Check system health
+python scripts/health_check.py
+
+# Or use batch file (Windows)
+scripts\run_health_check.bat
+```
+
+### Optional: Email Integration
+
+For email triage functionality:
+
+```bash
+# 1. Set up Gmail OAuth credentials
+# Follow: docs/GMAIL_SETUP.md
+
+# 2. Encode credentials
+base64 -w 0 < credentials.json > credentials_base64.txt
+base64 -w 0 < token.json > token_base64.txt
+
+# 3. Add to GitHub Secrets
+# GMAIL_CREDENTIALS = contents of credentials_base64.txt
+# GMAIL_TOKEN = contents of token_base64.txt
+```
+
+### Optional: Social Media Integration
+
+For social media posting (local only):
+
+```bash
+# 1. Install additional dependencies
 pip install playwright python-dotenv
 
-# 2. Install Chromium browser
+# 2. Install browsers
 playwright install chromium
 
-# 3. Configure credentials
+# 3. Configure credentials in .env
 cp .env.example .env
-
-# 4. Edit .env file with your LinkedIn credentials
-# LINKEDIN_EMAIL=your.email@example.com
-# LINKEDIN_PASSWORD=your_password_here
-
-# 5. Test LinkedIn posting
-python scripts/post_linkedin.py "Test post from AI Employee" --headless=false
+# Edit .env with your social media credentials
 ```
 
-### Verify Installation
+## 🚀 Agent Skills
+
+### Platinum Tier Core Agents
+
+#### 1. Cloud Agent (NEW - Platinum Tier)
+
+**Purpose**: 24/7 cloud automation via GitHub Actions - email triage, social drafts, never sends directly.
 
 ```bash
-# Check all scripts are accessible
-python scripts/task_planner.py --help 2>/dev/null || echo "Task Planner: OK"
-python scripts/watch_inbox.py --help 2>/dev/null || echo "Vault Watcher: OK"
-python scripts/request_approval.py --help
-python scripts/post_linkedin.py --help 2>/dev/null || echo "LinkedIn: Check if playwright installed"
+# Runs automatically every 15 minutes in GitHub Actions
+# Manual trigger:
+gh workflow run cloud-agent.yml
 
-# Check directory structure
-ls AI_Employee_Vault/Inbox/
-ls AI_Employee_Vault/Needs_Action/
-ls AI_Employee_Vault/Needs_Approval/
-ls AI_Employee_Vault/Done/
-ls logs/
+# View logs:
+gh run list --workflow=cloud-agent.yml --limit 5
+gh run view --log
 ```
 
-## 🚀 Quick Start
+**What it does:**
+- Monitors for new tasks in Inbox/
+- Triages emails using Claude AI
+- Generates draft email replies
+- Creates social media post drafts
+- Writes approval requests to Pending_Approval/
+- **Never sends emails or posts directly** (security)
+- Uses claim-by-move pattern (no race conditions)
+- Logs to AI_Employee_Vault/Logs/cloud_agent.log
 
-### 1. Task Planner Agent
+**Architecture:**
+- Runs in GitHub Actions (cloud)
+- Has ANTHROPIC_API_KEY
+- Has read-only Gmail access (optional)
+- No send/post permissions
+- Writes to Updates/ folder (single-writer rule)
+
+#### 2. Local Agent (NEW - Platinum Tier)
+
+**Purpose**: Local control center - approvals, final execution, sensitive operations.
+
+```bash
+# Run manually when needed
+python scripts/local_agent.py
+
+# Or double-click (Windows)
+scripts\run_local_agent.bat
+```
+
+**What it does:**
+- Shows approval requests with Rich UI
+- Allows approve/reject decisions
+- Executes approved email sends
+- Executes approved social posts
+- Handles WhatsApp (local session)
+- Manages payments (local credentials)
+- Updates Dashboard.md
+- Logs to AI_Employee_Vault/Logs/local_agent.log
+
+**Architecture:**
+- Runs on your machine (local)
+- Has all credentials
+- Has send/post permissions
+- Requires human approval for all actions
+- Writes to Dashboard.md (single-writer rule)
+
+#### 3. Health Monitor (NEW - Platinum Tier)
+
+**Purpose**: Continuous system health monitoring with auto-restart.
+
+```bash
+# Quick health check (on-demand)
+python scripts/health_check.py
+
+# Continuous monitoring (optional)
+python scripts/watchdog.py
+
+# Or double-click (Windows)
+scripts\run_health_check.bat
+scripts\run_watchdog.bat
+```
+
+**What it does:**
+- Monitors GitHub Actions workflows
+- Monitors local processes
+- Tracks vault metrics
+- Auto-restarts failed processes
+- Generates health reports
+- Alerts on issues
+- Logs to AI_Employee_Vault/Logs/watchdog.log
+
+**Health Check Features:**
+- Workflow status (cloud agent, health monitor, vault sync)
+- Pending task counts
+- System metrics
+- Rich UI with tables and alerts
+
+**Watchdog Features:**
+- Runs every 5 minutes in GitHub Actions
+- Continuous monitoring on local machine
+- Auto-restart capabilities
+- Comprehensive health reports
+
+#### 4. Vault Sync (NEW - Platinum Tier)
+
+**Purpose**: Git-based synchronization between cloud and local.
+
+```bash
+# Manual sync (optional, auto-syncs every 2 min)
+python scripts/vault_sync.py
+
+# Or double-click (Windows)
+scripts\vault_push.bat
+```
+
+**What it does:**
+- Pull-before-push strategy
+- Auto-stash uncommitted changes
+- Blocks sensitive files (.env, tokens)
+- Automatic conflict resolution
+- Logs to logs/sync.log
+
+**Architecture:**
+- Cloud: Pulls every 2 minutes (GitHub Actions)
+- Local: Manual or scheduled sync
+- Never syncs .env, tokens, sessions
+- Git-based (no custom protocols)
+
+#### 5. CEO Briefing (NEW - Platinum Tier)
+
+**Purpose**: Automated weekly executive summaries.
+
+```bash
+# Runs automatically Sundays at 9am UTC in GitHub Actions
+# Manual trigger:
+gh workflow run ceo-briefing.yml
+
+# Or run locally:
+python scripts/platinum_ceo_briefing.py
+```
+
+**What it does:**
+- Reads completed tasks from Done/
+- Reads accounting data
+- Reads system health
+- Uses Claude API for executive summary
+- Generates professional markdown report
+- Saves to Briefings/YYYY-MM-DD_CEO_Briefing.md
+- Logs to AI_Employee_Vault/Logs/ceo_briefing.log
+
+### Legacy Skills (Still Available)
+
+#### 6. Task Planner Agent
 
 **Purpose**: Automatically analyze task files and generate step-by-step plans.
 
@@ -457,7 +834,7 @@ python scripts/task_planner.py
 # Result: Plan_fix_login.md created in Needs_Action/
 ```
 
-### 2. Vault Watcher Agent
+#### 7. Vault Watcher Agent
 
 **Purpose**: Continuously monitor inbox and automatically trigger task planner.
 
@@ -472,16 +849,7 @@ python scripts/watch_inbox.py
 # - Logs all activity
 ```
 
-**Background operation**:
-```bash
-# Linux/Mac
-nohup python scripts/watch_inbox.py > logs/watcher.log 2>&1 &
-
-# Windows PowerShell
-Start-Process python -ArgumentList "scripts/watch_inbox.py" -WindowStyle Hidden
-```
-
-### 3. Human Approval Agent
+#### 8. Human Approval Agent
 
 **Purpose**: Synchronous human-in-the-loop approval workflow for critical decisions.
 
@@ -530,9 +898,11 @@ python scripts/request_approval.py \
 4. Save the file
 5. Script automatically detects and proceeds
 
-### 4. Gmail Watcher Agent
+#### 9. Gmail Watcher Agent (Legacy - Optional)
 
 **Purpose**: Continuously monitor Gmail inbox for new unread emails and automatically process them.
+
+**Note**: In Platinum Tier, email triage is handled by the Cloud Agent. This legacy watcher is optional for local-only setups.
 
 **Setup**:
 ```bash
@@ -603,9 +973,11 @@ Each email is saved as a markdown file in `AI_Employee_Vault/Inbox/`:
 **Processed:** 2026-03-02 14:30:16
 ```
 
-### 5. Email Sender Agent
+#### 10. Email Sender Agent (Legacy - Optional)
 
 **Purpose**: Send emails via SMTP using environment credentials.
+
+**Note**: In Platinum Tier, email sending is handled by the Local Agent after approval. This script is used internally by the Local Agent.
 
 **Setup**:
 ```bash
@@ -655,74 +1027,11 @@ For Gmail, use an App Password instead of your regular password:
 
 See `EMAIL_SETUP.md` for detailed configuration guide.
 
-### 5. Scheduler Setup (Automated Background Execution)
+#### 11. Social Media Agents (Legacy - Optional)
 
-**Purpose**: Run the AI Employee orchestrator automatically in the background.
+**Note**: In Platinum Tier, social media posting is handled by the Cloud Agent (drafts) and Local Agent (execution). These legacy scripts are used internally by the Local Agent.
 
-**Windows Setup (Automated)**:
-```cmd
-# Run the setup script as Administrator
-setup_scheduler.bat
-```
-
-This creates a Windows Task Scheduler task that runs `scripts/run_ai_employee.py` every 5 minutes automatically.
-
-**Linux/Mac Setup (Cron)**:
-```bash
-# Edit crontab
-crontab -e
-
-# Add this line (runs every 5 minutes)
-*/5 * * * * cd "/path/to/Gold Tier" && python3 scripts/run_ai_employee.py >> logs/scheduler.log 2>&1
-```
-
-**What the Scheduler Does**:
-- Runs vault monitoring and task planning every 5 minutes
-- Processes new files in Inbox/ automatically
-- Generates plans without manual intervention
-- Logs all activity to `logs/actions.log`
-- Runs in the background continuously
-
-**Management Commands**:
-```cmd
-# Windows - Check status
-schtasks /Query /TN "AI_Employee_Scheduler"
-
-# Windows - Run immediately
-schtasks /Run /TN "AI_Employee_Scheduler"
-
-# Windows - Disable
-schtasks /Change /TN "AI_Employee_Scheduler" /DISABLE
-
-# Windows - Delete
-schtasks /Delete /TN "AI_Employee_Scheduler" /F
-
-# Linux/Mac - List cron jobs
-crontab -l
-
-# Linux/Mac - Edit cron jobs
-crontab -e
-```
-
-See `SCHEDULER_SETUP.md` for detailed configuration, troubleshooting, and advanced options.
-
-### 6. Gmail Watcher Integration
-
-The Gmail Watcher can work alongside the Vault Watcher to create a complete email-to-task pipeline:
-
-```
-Incoming Email → Gmail Watcher → Saved to Inbox/ → Vault Watcher → Task Planner → Plan Created
-```
-
-**Example Workflow**:
-1. Client sends email: "Need help with website bug"
-2. Gmail Watcher detects email, saves to `AI_Employee_Vault/Inbox/email_20260302_143015.md`
-3. Sends auto-reply to client
-4. Vault Watcher detects new file in Inbox/
-5. Task Planner analyzes email content
-6. Creates action plan in `Needs_Action/`
-
-### 7. Twitter/X Auto-Post Agent (Gold Tier NEW!)
+##### Twitter/X Auto-Post Agent
 
 **Purpose**: Automate posting to Twitter/X using API v2.
 
@@ -987,16 +1296,113 @@ python scripts/post_linkedin.py "My post" --timeout 60000
 - Debug mode with HTML snapshots and screenshots
 - Retry logic with exponential backoff
 
-## 🔄 Integrated Workflow
+## 🔄 Integrated Workflow (Platinum Tier)
+
+### Cloud-to-Local Workflow
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    PLATINUM TIER WORKFLOW                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  1. CLOUD AGENT (GitHub Actions - Every 15 min)                 │
+│     ├─ Monitors Inbox/ for new tasks                            │
+│     ├─ Triages emails (if configured)                           │
+│     ├─ Generates draft email replies                            │
+│     ├─ Creates social media post drafts                         │
+│     ├─ Writes to Pending_Approval/email/ or /social/            │
+│     └─ Updates Updates/ folder with status                      │
+│                                                                   │
+│  2. VAULT SYNC (GitHub Actions - Every 2 min)                   │
+│     ├─ Pulls latest changes from remote                         │
+│     ├─ Automatic conflict resolution                            │
+│     └─ Syncs vault between cloud and local                      │
+│                                                                   │
+│  3. LOCAL AGENT (Your Machine - On-Demand)                      │
+│     ├─ Pulls latest vault changes                               │
+│     ├─ Scans Pending_Approval/ folders                          │
+│     ├─ Shows approval requests with Rich UI                     │
+│     ├─ User approves or rejects                                 │
+│     ├─ Executes approved actions (send email, post social)      │
+│     ├─ Moves completed to Done/                                 │
+│     └─ Updates Dashboard.md                                     │
+│                                                                   │
+│  4. HEALTH MONITOR (GitHub Actions - Every 5 min)               │
+│     ├─ Checks workflow status                                   │
+│     ├─ Monitors system health                                   │
+│     ├─ Auto-restarts failed processes                           │
+│     └─ Writes health report                                     │
+│                                                                   │
+│  5. CEO BRIEFING (GitHub Actions - Sundays 9am)                 │
+│     ├─ Reads completed tasks from Done/                         │
+│     ├─ Reads accounting data                                    │
+│     ├─ Generates executive summary with Claude                  │
+│     └─ Saves to Briefings/                                      │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Example: Email Triage Workflow
+
+**Step 1: Email Arrives (Cloud)**
+```
+New email → Cloud Agent detects → Analyzes with Claude AI
+```
+
+**Step 2: Draft Created (Cloud)**
+```
+Cloud Agent → Generates draft reply → Writes to Pending_Approval/email/
+```
+
+**Step 3: Vault Syncs (Automatic)**
+```
+Vault Sync → Pulls changes → Available on local machine
+```
+
+**Step 4: Human Approval (Local)**
+```
+Local Agent → Shows draft → User approves → Sends email
+```
+
+**Step 5: Completion (Local)**
+```
+Local Agent → Moves to Done/ → Updates Dashboard → Syncs vault
+```
+
+### Example: Social Media Workflow
+
+**Step 1: Content Idea (Cloud)**
+```
+Cloud Agent → Generates post draft → Writes to Pending_Approval/social/
+```
+
+**Step 2: Vault Syncs (Automatic)**
+```
+Vault Sync → Pulls changes → Available on local machine
+```
+
+**Step 3: Human Approval (Local)**
+```
+Local Agent → Shows draft → User approves → Posts to platform
+```
+
+**Step 4: Completion (Local)**
+```
+Local Agent → Moves to Done/ → Updates Dashboard → Syncs vault
+```
 
 Here's how all the skills work together:
 
 ### System Architecture
 
+### Legacy Workflow (Optional - Local Only)
+
+For users who want to run everything locally without cloud automation, the legacy workflow is still available:
+
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                        GOLD TIER AI EMPLOYEE                        │
-│                     Autonomous Agent Orchestration                  │
+│                     LEGACY LOCAL-ONLY WORKFLOW                       │
+│                    (Optional - Not Recommended)                      │
 └─────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -1088,113 +1494,48 @@ Here's how all the skills work together:
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-### Complete Workflow Example
+### Platinum Tier Workflow Example
 
-**Scenario**: Client emails a bug report, AI Employee processes it end-to-end
-
-```
-Step 1: Email Arrival (t=0s)
-├─ Client sends: "Website login broken for users with + in email"
-└─ Gmail receives email
-
-Step 2: Gmail Watcher Detection (t=0-60s)
-├─ IMAP polls inbox every 60s
-├─ Detects unread email
-├─ Extracts: From, Subject, Body, Date
-├─ Saves to: AI_Employee_Vault/Inbox/email_20260304_143022.md
-├─ Sends auto-reply: "Thank you, AI Employee received your message"
-└─ Marks email as read
-
-Step 3: Vault Watcher Detection (t=0-15s)
-├─ Polls Inbox/ every 15s
-├─ Detects new file: email_20260304_143022.md
-├─ Logs: [DETECTED] New file
-└─ Triggers Task Planner
-
-Step 4: Task Planning (t=1-2s)
-├─ Analyzes email content
-├─ Priority: HIGH (login issue)
-├─ Type: BUG_FIX
-├─ Generates plan with steps:
-│   1. Reproduce issue with + in email
-│   2. Check email validation regex
-│   3. Update validation to RFC 5322 standard
-│   4. Add unit tests
-│   5. Deploy fix
-└─ Saves: AI_Employee_Vault/Needs_Action/Plan_email_20260304_143022.md
-
-Step 5: Human Approval (HIGH priority)
-├─ Creates approval request
-├─ File: AI_Employee_Vault/Needs_Approval/approval_20260304_143025.md
-├─ Blocks execution, polls every 10s
-├─ Human reviews plan
-├─ Human adds: **YOUR DECISION**: APPROVED
-└─ Agent detects approval, proceeds
-
-Step 6: Execution (via MCP Executor)
-├─ Implements fix according to plan
-├─ Runs tests
-├─ Deploys to staging
-└─ Sends status email to client
-
-Step 7: LinkedIn Update (Optional)
-└─ Posts: "✅ Fixed critical login bug affecting email validation #bugfix"
-
-Step 8: Completion
-├─ Moves files to Done/
-├─ Updates Dashboard.md
-├─ Logs all activity
-└─ Total time: ~5-10 minutes (mostly waiting for human approval)
-```
-
-### Email-to-Task Pipeline
+**Scenario**: Cloud agent triages email, local agent executes approved action
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  Option A: Manual Task Creation                            │
-│  1. User drops task file in Inbox/                         │
-│     Example: "implement_feature.md"                         │
-└────────────────┬────────────────────────────────────────────┘
-                 │
-┌────────────────┴────────────────────────────────────────────┐
-│  Option B: Email-to-Task Pipeline                          │
-│  1. Client sends email to monitored Gmail account          │
-│  2. Gmail Watcher detects unread email                     │
-│  3. Saves to Inbox/ as email_<timestamp>.md                │
-│  4. Sends auto-reply to sender                             │
-└────────────────┬────────────────────────────────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────────────────────────────────┐
-│  2. Vault Watcher detects new file (within 15 seconds)     │
-│     Logs: [DETECTED] New file: implement_feature.md        │
-└────────────────┬────────────────────────────────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────────────────────────────────┐
-│  3. Task Planner automatically triggered                    │
-│     - Analyzes content                                      │
-│     - Extracts priority (high/medium/low)                   │
-│     - Identifies task type (feature/bug/research)           │
-│     - Generates step-by-step plan                           │
-└────────────────┬────────────────────────────────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────────────────────────────────┐
-│  4. Plan created in Needs_Action/                           │
-│     File: Plan_implement_feature.md                         │
-│     Contains: steps, risks, effort estimate                 │
-└────────────────┬────────────────────────────────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────────────────────────────────┐
-│  5. (If high priority) Request human approval               │
-│     - Creates approval request in Needs_Approval/           │
-│     - Blocks execution until human responds                 │
-│     - Human writes APPROVED or REJECTED in file             │
-└────────────────┬────────────────────────────────────────────┘
-                 │
-                 ▼
+Step 1: Cloud Agent Run (t=0s, GitHub Actions)
+├─ Runs every 15 minutes automatically
+├─ Scans Inbox/ for new tasks
+├─ Detects: email_20260315_143022.md
+├─ Analyzes with Claude AI
+├─ Priority: HIGH (urgent client request)
+├─ Generates draft email reply
+├─ Writes to: Pending_Approval/email/draft_20260315_143022.md
+└─ Logs to: AI_Employee_Vault/Logs/cloud_agent.log
+
+Step 2: Vault Sync (t=2min, GitHub Actions)
+├─ Runs every 2 minutes automatically
+├─ Pulls latest changes
+├─ Syncs vault to remote
+└─ Draft now available on local machine
+
+Step 3: Local Pull (t=morning, Your Machine)
+├─ User runs: git pull origin main
+├─ Downloads latest vault changes
+└─ Draft appears in Pending_Approval/email/
+
+Step 4: Local Agent Approval (t=morning, Your Machine)
+├─ User runs: python scripts/local_agent.py
+├─ Rich UI shows pending approval
+├─ User reviews draft email
+├─ User approves
+├─ Local agent sends email via SMTP
+├─ Moves to Done/
+└─ Updates Dashboard.md
+
+Step 5: Vault Sync (t=morning, Your Machine)
+├─ User runs: python scripts/vault_sync.py
+├─ Pushes changes to remote
+└─ Cloud agent sees completion
+
+Total time: 15 minutes (cloud processing) + user approval time
+```
 ┌─────────────────────────────────────────────────────────────┐
 │  6. (Optional) Post update to LinkedIn                      │
 │     "Working on exciting new feature! 🚀"                   │
@@ -1371,7 +1712,56 @@ poster.post(f"✅ Just completed: {title}\n\n#productivity #automation")
 
 ## 📊 Features
 
-### Task Planner
+### Platinum Tier Core Features
+
+#### Cloud Agent (NEW)
+- ✅ 24/7 automation via GitHub Actions
+- ✅ Runs every 15 minutes automatically
+- ✅ Email triage with Claude AI
+- ✅ Draft email reply generation
+- ✅ Social media post draft creation
+- ✅ Never sends/posts directly (security)
+- ✅ Claim-by-move pattern (no race conditions)
+- ✅ Comprehensive cloud logging
+
+#### Local Agent (NEW)
+- ✅ Rich UI for approval requests
+- ✅ Approve/reject workflow
+- ✅ Executes approved actions
+- ✅ Email sending via SMTP
+- ✅ Social media posting
+- ✅ WhatsApp integration (local session)
+- ✅ Payment processing (local credentials)
+- ✅ Dashboard updates
+
+#### Health Monitoring (NEW)
+- ✅ GitHub Actions workflow monitoring
+- ✅ Local process monitoring
+- ✅ Auto-restart failed processes
+- ✅ System health reports
+- ✅ Vault metrics tracking
+- ✅ Alert system
+- ✅ Rich UI with tables and alerts
+
+#### Vault Sync (NEW)
+- ✅ Automatic sync every 2 minutes (cloud)
+- ✅ Pull-before-push strategy
+- ✅ Auto-stash uncommitted changes
+- ✅ Blocks sensitive files (.env, tokens)
+- ✅ Automatic conflict resolution
+- ✅ Git-based synchronization
+
+#### CEO Briefing (NEW)
+- ✅ Automated weekly generation (Sundays 9am)
+- ✅ Claude AI-powered summaries
+- ✅ Task completion metrics
+- ✅ Financial summaries
+- ✅ System health status
+- ✅ Action items and recommendations
+
+### Legacy Features (Still Available)
+
+#### Task Planner
 - ✅ Smart priority detection (high/medium/low)
 - ✅ Task type classification (bug_fix, feature, research, etc.)
 - ✅ Step-by-step plan generation
@@ -1379,7 +1769,7 @@ poster.post(f"✅ Just completed: {title}\n\n#productivity #automation")
 - ✅ Effort estimation
 - ✅ Idempotent operation (no duplicates)
 
-### Vault Watcher
+#### Vault Watcher
 - ✅ Real-time monitoring (15s polling)
 - ✅ Automatic workflow triggering
 - ✅ Comprehensive logging
@@ -1387,61 +1777,67 @@ poster.post(f"✅ Just completed: {title}\n\n#productivity #automation")
 - ✅ Production-ready
 - ✅ Minimal resource usage
 
-### Human Approval Agent
+#### Human Approval Agent
 - ✅ Synchronous approval workflow
 - ✅ Blocking execution until decision
 - ✅ Configurable timeout (default: 1 hour)
 - ✅ Case-insensitive approval detection
 - ✅ Automatic file movement to Done/
 - ✅ Comprehensive logging
-- ✅ Priority levels (low/medium/high)
-- ✅ Detailed request context
-- ✅ Timeout handling with exceptions
-- ✅ Polling mechanism (10s intervals)
 
-### LinkedIn Auto-Post
-- ✅ Automated login with credential management
-- ✅ Text post creation and publishing
-- ✅ Retry logic with exponential backoff (max 2 retries)
-- ✅ CAPTCHA and 2FA detection with manual intervention
+#### Social Media Automation
+- ✅ LinkedIn, Twitter/X, Facebook, Instagram
+- ✅ Browser automation with Playwright
+- ✅ Retry logic with exponential backoff
+- ✅ CAPTCHA and 2FA detection
 - ✅ Screenshot debugging on errors
-- ✅ Headless and visible browser modes
-- ✅ Multiple selector strategies (5 methods)
-- ✅ Semantic locators (aria-label, role, text)
-- ✅ JavaScript evaluation fallback
-- ✅ Keyboard typing for natural input
-- ✅ HTML snapshot capture for debugging
 - ✅ Comprehensive error logging
 
-## 🏅 Gold Tier Best Practices
+## 🏅 Platinum Tier Best Practices
 
 ### Production Deployment Checklist
 
-Before deploying Gold Tier to production:
+Before deploying Platinum Tier to production:
 
-- [ ] **Credentials Setup**
-  - [ ] Gmail App Password configured (not regular password)
-  - [ ] LinkedIn credentials tested in visible mode first
-  - [ ] `.env` file secured with proper permissions (chmod 600 on Linux)
-  - [ ] All credentials rotated from defaults
+- [ ] **GitHub Actions Setup**
+  - [ ] ANTHROPIC_API_KEY added to GitHub Secrets
+  - [ ] GitHub Actions enabled in repository
+  - [ ] Workflow permissions set to "Read and write"
+  - [ ] All workflows tested manually
+  - [ ] Gmail credentials added (optional, for email triage)
 
-- [ ] **Monitoring Setup**
-  - [ ] Log rotation configured (logrotate on Linux)
-  - [ ] Disk space monitoring for logs/ directory
-  - [ ] Heartbeat monitoring enabled
-  - [ ] Alert system for ERROR logs
+- [ ] **Cloud Agent Verification**
+  - [ ] Cloud agent runs successfully every 15 minutes
+  - [ ] Email triage working (if configured)
+  - [ ] Draft generation working
+  - [ ] Logs accessible via `gh run view --log`
+  - [ ] No errors in cloud_agent.log
 
-- [ ] **Performance Tuning**
-  - [ ] Polling intervals adjusted for your workload
-  - [ ] Resource limits set (memory, CPU)
-  - [ ] Idempotency tracking verified
-  - [ ] Old files archived from Done/ folder
+- [ ] **Local Agent Setup**
+  - [ ] Dependencies installed (rich, python-dotenv, anthropic)
+  - [ ] Local agent runs without errors
+  - [ ] Approval UI displays correctly
+  - [ ] Email sending configured (SMTP credentials)
+  - [ ] Social media credentials configured (optional)
+
+- [ ] **Vault Sync Verification**
+  - [ ] Vault syncs automatically every 2 minutes
+  - [ ] No merge conflicts occurring
+  - [ ] Sensitive files blocked (.env, tokens)
+  - [ ] Sync logs clean (logs/sync.log)
+
+- [ ] **Health Monitoring**
+  - [ ] Health check runs successfully
+  - [ ] Watchdog monitoring active (optional)
+  - [ ] System health reports generated
+  - [ ] Alerts configured for failures
 
 - [ ] **Security Hardening**
   - [ ] `.env` in `.gitignore` verified
+  - [ ] No secrets committed to repository
+  - [ ] GitHub Secrets properly configured
+  - [ ] Credentials rotated from defaults
   - [ ] File permissions restricted
-  - [ ] Approval requests reviewed before committing
-  - [ ] Sensitive data sanitized from logs
 
 - [ ] **Backup & Recovery**
   - [ ] Vault directory backed up regularly
@@ -1449,137 +1845,440 @@ Before deploying Gold Tier to production:
   - [ ] Recovery procedures documented
   - [ ] Test restore process
 
-### Optimization Tips
+### Daily Operations
 
-**For High-Volume Email Processing**:
-```python
-# Adjust Gmail polling interval in watch_gmail.py
-POLL_INTERVAL = 30  # Check every 30 seconds instead of 60
+**Morning Routine (5 minutes):**
+```bash
+# 1. Pull latest changes
+git pull origin main
+
+# 2. Check system health
+python scripts/health_check.py
+
+# 3. Process approvals
+python scripts/local_agent.py
 ```
 
-**For Resource-Constrained Systems**:
-```python
-# Increase polling intervals to reduce CPU usage
-VAULT_POLL_INTERVAL = 30  # Instead of 15 seconds
-GMAIL_POLL_INTERVAL = 120  # Instead of 60 seconds
-```
+**During the Day:**
+- Cloud agent runs automatically every 15 minutes
+- Health monitor checks system every 5 minutes
+- Vault syncs automatically every 2 minutes
+- No manual intervention needed!
 
-**For Critical Approvals**:
-```python
-# Reduce approval polling for faster response
-APPROVAL_POLL_INTERVAL = 5  # Check every 5 seconds instead of 10
+**End of Day (5 minutes):**
+```bash
+# 1. Final approval processing
+python scripts/local_agent.py
+
+# 2. Check logs for errors
+cat AI_Employee_Vault/Logs/cloud_agent.log | grep ERROR
+cat AI_Employee_Vault/Logs/local_agent.log | grep ERROR
+
+# 3. Optional: Manual vault sync
+python scripts/vault_sync.py
 ```
 
 ### Maintenance Schedule
 
-**Daily**:
-- Monitor logs for errors: `grep ERROR logs/actions.log`
-- Check disk space: `df -h`
-- Verify watchers are running: `ps aux | grep watch`
+**Daily:**
+- Run local agent for approvals (morning and evening)
+- Check system health: `python scripts/health_check.py`
+- Monitor cloud agent logs: `gh run list --workflow=cloud-agent.yml --limit 5`
 
-**Weekly**:
-- Review processed files count: `wc -l logs/processed.json`
+**Weekly:**
+- Review CEO briefing (generated Sundays at 9am)
 - Archive old Done/ files
-- Rotate logs if needed
-- Test approval workflow
+- Check GitHub Actions usage: `gh api /repos/OWNER/REPO/actions/billing/usage`
+- Review and optimize workflows
 
-**Monthly**:
-- Rotate credentials
+**Monthly:**
+- Rotate API keys and credentials
 - Update dependencies: `pip install --upgrade -r requirements.txt`
-- Review and optimize polling intervals
-- Clean up old screenshots: `rm logs/screenshots/*.png`
+- Clean up old logs and briefings
+- Review system performance metrics
+
+**Quarterly:**
+- Review and optimize workflow schedules
+- Audit security settings
+- Update documentation
+- Review cost estimates vs actual usage
+
+### Cost Optimization
+
+**GitHub Actions:**
+```bash
+# Check current usage
+gh api /repos/OWNER/REPO/actions/billing/usage
+
+# Optimize workflow schedules if needed
+# Edit .github/workflows/*.yml to adjust cron schedules
+```
+
+**Claude API:**
+```bash
+# Monitor API usage in Anthropic Console
+# https://console.anthropic.com/settings/usage
+
+# Optimize prompts to reduce token usage
+# Use caching for repeated content
+```
+
+### Performance Tuning
+
+**For High-Volume Operations:**
+```yaml
+# Increase cloud agent frequency in .github/workflows/cloud-agent.yml
+schedule:
+  - cron: '*/10 * * * *'  # Every 10 minutes instead of 15
+```
+
+**For Resource-Constrained Environments:**
+```yaml
+# Decrease frequency to reduce costs
+schedule:
+  - cron: '*/30 * * * *'  # Every 30 minutes instead of 15
+```
+
+**For Critical Approvals:**
+```bash
+# Run local agent more frequently
+# Set up a cron job or scheduled task to run every hour
+```
 
 ## 🔒 Security
+
+### Platinum Tier Security Model
+
+**Cloud Environment (GitHub Actions):**
+- ✅ Has ANTHROPIC_API_KEY (for Claude AI)
+- ✅ Has GMAIL_CREDENTIALS (read-only, optional)
+- ❌ NO send permissions
+- ❌ NO social media tokens
+- ❌ NO payment credentials
+- ✅ Draft-only operations (never sends/posts)
+
+**Local Environment (Your Machine):**
+- ✅ Has all credentials
+- ✅ Has send/post permissions
+- ✅ Requires human approval for all actions
+- ✅ Sensitive operations stay local
 
 **Critical**: Never commit sensitive credentials!
 
 ```bash
 # .env file is in .gitignore
-# Always use .env for credentials
+# Always use .env for local credentials
+# Use GitHub Secrets for cloud credentials
 # Never hardcode passwords
 ```
 
-**Checklist**:
+**Security Checklist**:
 - ✅ `.env` in `.gitignore`
+- ✅ GitHub Secrets configured properly
 - ✅ Strong, unique passwords
-- ✅ Regular credential rotation
+- ✅ Regular credential rotation (every 90 days)
 - ✅ Logs excluded from git
-- ✅ Screenshots excluded from git
+- ✅ Sensitive files blocked from vault sync
+- ✅ Cloud agent can't send/post (draft only)
+- ✅ Local agent requires approval
+- ✅ No secrets in workflow files
+
+**Vault Sync Security:**
+```bash
+# These files are NEVER synced:
+.env
+*.token
+*.session
+credentials.json
+token.json
+*.key
+*.pem
+```
 
 ## 📝 Logging
 
-All activities are logged to `logs/actions.log`:
+### Platinum Tier Logging
 
+**Cloud Agent Logs** (AI_Employee_Vault/Logs/cloud_agent.log):
 ```
-[2026-02-28 10:30:00] [INFO] [WATCHER] Started monitoring
-[2026-02-28 10:30:15] [INFO] [DETECTED] New file: task.md
-[2026-02-28 10:30:16] [SUCCESS] Plan created: Plan_task.md
-[2026-02-28 10:30:20] [INFO] [APPROVAL] Request created: approval_20260228_103020
-[2026-02-28 10:30:30] [INFO] [APPROVAL] Waiting for human decision (timeout: 3600s)
-[2026-02-28 10:35:45] [SUCCESS] [APPROVAL] Request approved: approval_20260228_103020
-[2026-02-28 10:36:00] [INFO] [EMAIL] Preparing email to recipient@example.com
-[2026-02-28 10:36:01] [INFO] [EMAIL] Connecting to SMTP server: smtp.gmail.com:587
-[2026-02-28 10:36:02] [SUCCESS] [EMAIL] Email sent successfully to recipient@example.com
-[2026-02-28 10:36:10] [INFO] [LINKEDIN] Starting LinkedIn post automation
-[2026-02-28 10:36:25] [SUCCESS] [LINKEDIN] Post published successfully
-[2026-02-28 10:40:00] [INFO] [GMAIL] Started monitoring inbox (interval: 60s)
-[2026-02-28 10:41:15] [DETECTED] New email from: client@example.com
-[2026-02-28 10:41:15] [SUBJECT] Need help with website bug
-[2026-02-28 10:41:15] [SAVED] Email saved to: email_20260228_104115.md
-[2026-02-28 10:41:16] [REPLY] Auto-reply sent to: client@example.com
-[2026-02-28 10:41:16] [MARKED] Email marked as read
-[2026-02-28 10:41:16] [SUCCESS] Email processed successfully
-[2026-02-28 10:50:00] [HEARTBEAT] Gmail watcher active - 3 emails processed
+[2026-03-15 10:30:00] [INFO] [CLOUD] Cloud agent started
+[2026-03-15 10:30:01] [INFO] [CLOUD] Scanning Inbox/ for new tasks
+[2026-03-15 10:30:02] [DETECTED] New task: email_20260315_103000.md
+[2026-03-15 10:30:03] [INFO] [CLAUDE] Analyzing with Claude AI
+[2026-03-15 10:30:05] [SUCCESS] Draft created: Pending_Approval/email/draft_20260315_103000.md
+[2026-03-15 10:30:06] [INFO] [CLOUD] Updated Updates/cloud_status.md
+[2026-03-15 10:30:07] [SUCCESS] Cloud agent completed
 ```
 
-**View logs**:
+**Local Agent Logs** (AI_Employee_Vault/Logs/local_agent.log):
+```
+[2026-03-15 09:00:00] [INFO] [LOCAL] Local agent started
+[2026-03-15 09:00:01] [INFO] [LOCAL] Scanning Pending_Approval/ folders
+[2026-03-15 09:00:02] [FOUND] 2 email drafts, 1 social draft
+[2026-03-15 09:00:03] [APPROVAL] Showing draft: draft_20260315_103000.md
+[2026-03-15 09:00:45] [APPROVED] User approved draft
+[2026-03-15 09:00:46] [EMAIL] Sending email via SMTP
+[2026-03-15 09:00:47] [SUCCESS] Email sent successfully
+[2026-03-15 09:00:48] [INFO] [LOCAL] Moved to Done/
+[2026-03-15 09:00:49] [INFO] [LOCAL] Updated Dashboard.md
+```
+
+**Health Monitor Logs** (AI_Employee_Vault/Logs/watchdog.log):
+```
+[2026-03-15 10:00:00] [INFO] [WATCHDOG] Health check started
+[2026-03-15 10:00:01] [SUCCESS] Cloud agent: Running (last run: 5 min ago)
+[2026-03-15 10:00:02] [SUCCESS] Health monitor: Running
+[2026-03-15 10:00:03] [SUCCESS] Vault sync: Running (last sync: 1 min ago)
+[2026-03-15 10:00:04] [INFO] [WATCHDOG] System health: GOOD
+```
+
+**Vault Sync Logs** (logs/sync.log):
+```
+[2026-03-15 10:00:00] [INFO] Starting vault sync
+[2026-03-15 10:00:01] [INFO] Pulling latest changes
+[2026-03-15 10:00:02] [SUCCESS] Pull completed
+[2026-03-15 10:00:03] [INFO] Pushing local changes
+[2026-03-15 10:00:04] [SUCCESS] Push completed
+```
+
+**View Logs:**
 ```bash
-# Real-time monitoring
-tail -f logs/actions.log
+# Cloud agent logs
+cat AI_Employee_Vault/Logs/cloud_agent.log
+tail -f AI_Employee_Vault/Logs/cloud_agent.log
 
-# Last 50 lines
-tail -n 50 logs/actions.log
+# Local agent logs
+cat AI_Employee_Vault/Logs/local_agent.log
+tail -f AI_Employee_Vault/Logs/local_agent.log
 
-# Search for errors
-grep ERROR logs/actions.log
+# Health monitor logs
+cat AI_Employee_Vault/Logs/watchdog.log
 
-# Filter by agent type
-grep APPROVAL logs/actions.log
-grep EMAIL logs/actions.log
-grep GMAIL logs/actions.log
-grep LINKEDIN logs/actions.log
-grep WATCHER logs/actions.log
+# Vault sync logs
+cat logs/sync.log
+
+# System health report
+cat AI_Employee_Vault/Logs/system_health.md
+
+# GitHub Actions logs
+gh run list --workflow=cloud-agent.yml --limit 5
+gh run view --log
+
+# Search for errors across all logs
+grep ERROR AI_Employee_Vault/Logs/*.log
 
 # Check today's activity
-grep "$(date +%Y-%m-%d)" logs/actions.log
+grep "$(date +%Y-%m-%d)" AI_Employee_Vault/Logs/*.log
 ```
 
 ## 🛠️ Troubleshooting
 
-### Task Planner Issues
+### Cloud Agent Issues
+
+**Problem: Cloud agent not running**
 ```bash
-# No files processed
-# Check: Are there .md files in Inbox?
+# Check if GitHub Actions are enabled
+gh run list --workflow=cloud-agent.yml --limit 5
+
+# Check workflow status
+gh workflow view cloud-agent.yml
+
+# Trigger manually
+gh workflow run cloud-agent.yml
+
+# View logs
+gh run view --log
+```
+
+**Problem: Cloud agent failing**
+```bash
+# Check if ANTHROPIC_API_KEY is set
+gh secret list
+
+# View error logs
+gh run list --workflow=cloud-agent.yml --limit 1
+gh run view --log | grep ERROR
+
+# Check cloud agent log in vault
+cat AI_Employee_Vault/Logs/cloud_agent.log | grep ERROR
+```
+
+**Problem: No drafts being created**
+```bash
+# Check if there are tasks in Inbox/
+ls AI_Employee_Vault/Inbox/
+
+# Check cloud agent logs
+cat AI_Employee_Vault/Logs/cloud_agent.log
+
+# Verify ANTHROPIC_API_KEY is valid
+# Go to: https://console.anthropic.com/settings/keys
+```
+
+### Local Agent Issues
+
+**Problem: Local agent not showing approvals**
+```bash
+# Check if there are pending approvals
+ls AI_Employee_Vault/Pending_Approval/email/
+ls AI_Employee_Vault/Pending_Approval/social/
+
+# Pull latest changes
+git pull origin main
+
+# Check local agent logs
+cat AI_Employee_Vault/Logs/local_agent.log
+
+# Run with verbose output
+python scripts/local_agent.py
+```
+
+**Problem: Email sending fails**
+```bash
+# Check SMTP credentials in .env
+cat .env | grep EMAIL
+
+# Test SMTP connection
+python -c "import smtplib; smtplib.SMTP('smtp.gmail.com', 587).starttls()"
+
+# Check local agent logs
+cat AI_Employee_Vault/Logs/local_agent.log | grep EMAIL
+```
+
+### Vault Sync Issues
+
+**Problem: Vault not syncing**
+```bash
+# Check vault sync workflow
+gh run list --workflow=vault-sync.yml --limit 5
+
+# Check sync logs
+cat logs/sync.log
+
+# Manual sync
+python scripts/vault_sync.py
+
+# Check for merge conflicts
+git status
+```
+
+**Problem: Merge conflicts**
+```bash
+# View conflicts
+git status
+
+# Resolve conflicts manually
+git diff
+
+# Or reset to remote (WARNING: loses local changes)
+git fetch origin
+git reset --hard origin/main
+```
+
+**Problem: Sensitive files being synced**
+```bash
+# Check .gitignore
+cat .gitignore
+
+# Verify sensitive files are blocked
+git status
+
+# Remove accidentally committed files
+git rm --cached .env
+git commit -m "Remove sensitive file"
+git push
+```
+
+### Health Monitor Issues
+
+**Problem: Health check shows failures**
+```bash
+# Run health check
+python scripts/health_check.py
+
+# Check specific workflow
+gh run list --workflow=cloud-agent.yml --limit 1
+gh run view --log
+
+# View system health report
+cat AI_Employee_Vault/Logs/system_health.md
+```
+
+**Problem: Watchdog not running**
+```bash
+# Check if watchdog is running
+ps aux | grep watchdog
+
+# Start watchdog
+python scripts/watchdog.py
+
+# Check watchdog logs
+cat AI_Employee_Vault/Logs/watchdog.log
+```
+
+### GitHub Actions Issues
+
+**Problem: Workflows not running**
+```bash
+# Check if Actions are enabled
+# Go to: https://github.com/OWNER/REPO/settings/actions
+
+# Check workflow permissions
+# Settings → Actions → General → Workflow permissions
+# Should be: "Read and write permissions"
+
+# Check if workflows are disabled
+gh workflow list
+gh workflow enable cloud-agent.yml
+```
+
+**Problem: API rate limits**
+```bash
+# Check rate limit status
+gh api rate_limit
+
+# Wait for rate limit reset or upgrade plan
+```
+
+**Problem: Workflow runs failing**
+```bash
+# View recent failures
+gh run list --workflow=cloud-agent.yml --limit 10
+
+# View specific run
+gh run view RUN_ID --log
+
+# Check for common issues:
+# - Missing secrets
+# - Invalid credentials
+# - API quota exceeded
+```
+
+### Legacy Issues (Local-Only Mode)
+
+**Problem: Task Planner not processing files**
+```bash
+# Check if files exist in Inbox/
 ls AI_Employee_Vault/Inbox/*.md
 
 # Check processed registry
 cat logs/processed.json
+
+# Run manually
+python scripts/task_planner.py
 ```
 
-### Vault Watcher Issues
+**Problem: Vault Watcher not detecting files**
 ```bash
-# Watcher not detecting files
-# Check: Is watcher running?
+# Check if watcher is running
 ps aux | grep watch_inbox
 
 # Check logs
 tail -f logs/actions.log
-```
 
-### Human Approval Issues
-```bash
-# Approval not detected
-# Check: File contains APPROVED or REJECTED?
+# Restart watcher
+python scripts/watch_inbox.py
+```
 cat AI_Employee_Vault/Needs_Approval/approval_*.md
 
 # Check: Correct format?
@@ -1683,21 +2382,77 @@ python scripts/post_linkedin.py "Test" --headless=false
 grep "Method.*SUCCESS" logs/actions.log
 ```
 
-## ❓ Frequently Asked Questions (Gold Tier)
+## ❓ Frequently Asked Questions (Platinum Tier)
 
 ### General Questions
 
-**Q: What's the difference between Silver and Gold Tier?**
-A: Gold Tier adds:
-- Beautiful colorful terminal UI with Rich library
-- Full Gmail integration (IMAP/SMTP) with auto-reply (Silver had basic email)
-- Twitter/X posting with API v2 and thread support
-- Facebook and Instagram posting via Meta Graph API
-- Social media tracking and analytics across all platforms
-- Accounting Manager for financial tracking and ledger management
-- CEO Briefing system for automated weekly executive reports
-- Error Recovery system with automatic retry and quarantine
-- Ralph Loop for autonomous task execution with safety features
+**Q: What's the difference between Gold and Platinum Tier?**
+A: Platinum Tier adds:
+- 24/7 cloud automation via GitHub Actions (no local machine needed)
+- Dual-agent architecture (cloud agent + local agent)
+- Cloud agent for email triage and social media drafts
+- Local agent for approvals and final execution
+- Automatic vault synchronization every 2 minutes
+- Health monitoring with auto-restart capabilities
+- Automated weekly CEO briefings
+- Draft-only cloud (security by design)
+- Claim-by-move pattern (no race conditions)
+- Single-writer rule (no merge conflicts)
+
+**Q: Do I need to keep my computer running 24/7?**
+A: No! That's the main benefit of Platinum Tier. The cloud agent runs in GitHub Actions 24/7 automatically. You only need to run the local agent when you want to process approvals (typically once or twice a day).
+
+**Q: Is it safe to have the cloud agent access my emails?**
+A: Yes! The cloud agent only has read-only access and can only create drafts. It cannot send emails or post to social media. All final actions require local approval on your machine.
+
+**Q: How much does Platinum Tier cost?**
+A:
+- GitHub Actions: Free for public repos, or ~$4/month for GitHub Pro (private repos)
+- Claude API: ~$50-100/month depending on usage
+- Total: ~$50-104/month
+
+**Q: Can I use Platinum Tier without email integration?**
+A: Yes! Email integration is optional. The core dual-agent system works for any tasks you put in the Inbox/ folder.
+
+**Q: What happens if the cloud agent fails?**
+A: The health monitor checks every 5 minutes and can auto-restart failed processes. You'll also see alerts in the system health report.
+
+**Q: Can I run everything locally without GitHub Actions?**
+A: Yes! The legacy local-only mode is still available. Just use the vault watcher and task planner scripts directly.
+
+### Technical Questions
+
+**Q: How does the claim-by-move pattern work?**
+A: Tasks are claimed by moving files between folders (e.g., Inbox/ → In_Progress/cloud/). This is atomic and prevents race conditions between cloud and local agents.
+
+**Q: What is the single-writer rule?**
+A: Only one agent writes to each file. Cloud agent writes to Updates/, local agent writes to Dashboard.md. The dashboard updater merges them to prevent conflicts.
+
+**Q: How do I add more GitHub Secrets?**
+A: Go to your repository → Settings → Secrets and variables → Actions → New repository secret
+
+**Q: Can I customize the workflow schedules?**
+A: Yes! Edit the cron schedules in `.github/workflows/*.yml` files. For example, change `*/15 * * * *` to `*/30 * * * *` for every 30 minutes.
+
+**Q: How do I monitor GitHub Actions usage?**
+A: Run `gh api /repos/OWNER/REPO/actions/billing/usage` or check your GitHub billing settings.
+
+**Q: What if I hit GitHub Actions limits?**
+A: Either make your repository public (unlimited free Actions) or upgrade to GitHub Pro/Team for more minutes.
+
+### Security Questions
+
+**Q: Are my credentials safe in GitHub Secrets?**
+A: Yes! GitHub Secrets are encrypted and only accessible to workflow runs. They're never exposed in logs.
+
+**Q: Can the cloud agent send emails without my approval?**
+A: No! The cloud agent can only create drafts. All sending requires local approval.
+
+**Q: What files are never synced to the cloud?**
+A: `.env`, `*.token`, `*.session`, `credentials.json`, `token.json`, `*.key`, `*.pem` - all sensitive files are blocked.
+
+**Q: How do I rotate my API keys?**
+A: Update the key in GitHub Secrets and in your local `.env` file. Best practice: rotate every 90 days.
 - Enhanced error recovery and retry logic
 - Production-ready 24/7 operation features
 - Advanced monitoring and health checks
@@ -1836,60 +2591,118 @@ A: Yes! The Rich library is highly customizable. Edit the color schemes in each 
 
 ## 📚 Documentation
 
+### Platinum Tier Documentation
+
+**Core Guides:**
+- **Complete System Summary**: `PLATINUM_TIER_COMPLETE.md` ⭐
+- **System Overview**: `SYSTEM_OVERVIEW.md` ⭐
+- **Activation Checklist**: `ACTIVATION_CHECKLIST.md` ⭐
+
+**Cloud Automation:**
+- **GitHub Actions Setup**: `docs/GITHUB_ACTIONS_SETUP.md` ⭐
+- **Dual-Agent Architecture**: `docs/DUAL_AGENT_ARCHITECTURE.md` ⭐
+- **Dual-Agent Quick Reference**: `docs/DUAL_AGENT_QUICK_REF.md` ⭐
+
+**Vault Synchronization:**
+- **Vault Sync Guide**: `docs/VAULT_SYNC_GUIDE.md` ⭐
+- **Vault Sync Quick Reference**: `docs/VAULT_SYNC_QUICK_REF.md` ⭐
+
+**Health Monitoring:**
+- **Health Monitoring Guide**: `docs/HEALTH_MONITORING_GUIDE.md` ⭐
+- **Health Monitoring Quick Reference**: `docs/HEALTH_MONITORING_QUICK_REF.md` ⭐
+
+**CEO Briefing:**
+- **CEO Briefing Guide**: `docs/CEO_BRIEFING_GUIDE.md` ⭐
+- **CEO Briefing Quick Reference**: `docs/CEO_BRIEFING_QUICK_REF.md` ⭐
+
+**Legacy Skills (Still Available):**
 - **Task Planner**: `.claude/skills/task-planner/SKILL.md`
 - **Vault Watcher**: `.claude/skills/vault-watcher/SKILL.md`
 - **Human Approval**: `.claude/skills/human-approval/SKILL.md`
 - **Gmail Watcher**: `.claude/skills/gmail-watcher/SKILL.md`
 - **LinkedIn Post**: `.claude/skills/linkedin-post/SKILL.md`
-- **Twitter/X Post**: `.claude/skills/twitter-post/SKILL.md` ⭐ NEW
-- **Social Meta (Facebook/Instagram)**: `.claude/skills/social-meta/SKILL.md` ⭐ NEW
-- **Social Summary**: `.claude/skills/social-summary/SKILL.md` ⭐ NEW
-- **Accounting Manager**: `.claude/skills/accounting-manager/SKILL.md` ⭐ NEW
-- **CEO Briefing**: `.claude/skills/ceo-briefing/SKILL.md` ⭐ NEW
-- **Error Recovery**: `.claude/skills/error-recovery/SKILL.md` ⭐ NEW
-- **Ralph Loop**: `.claude/skills/ralph-loop/SKILL.md` ⭐ NEW
+- **Twitter/X Post**: `.claude/skills/twitter-post/SKILL.md`
+- **Social Meta**: `.claude/skills/social-meta/SKILL.md`
+- **Social Summary**: `.claude/skills/social-summary/SKILL.md`
+- **Accounting Manager**: `.claude/skills/accounting-manager/SKILL.md`
+- **CEO Briefing**: `.claude/skills/ceo-briefing/SKILL.md`
+- **Error Recovery**: `.claude/skills/error-recovery/SKILL.md`
+- **Ralph Loop**: `.claude/skills/ralph-loop/SKILL.md`
 - **MCP Executor**: `.claude/skills/mcp-executor/SKILL.md`
-- **Gold Scheduler**: `.claude/skills/gold-scheduler/SKILL.md`
-- **Personal Tasks**: `.claude/skills/personal-tasks/SKILL.md`
+
+**Setup Guides:**
 - **Scheduler Setup**: `SCHEDULER_SETUP.md`
 - **Email Setup**: `EMAIL_SETUP.md`
 - **LinkedIn Setup**: `LINKEDIN_SETUP.md`
 - **Colorful UI**: `COLORFUL_UI.md`
 - **Company Handbook**: `AI_Employee_Vault/Company_Handbook.md`
 
+⭐ = New in Platinum Tier
+
 ## ⚠️ Important Notes
 
-### LinkedIn Automation
+### Platinum Tier Considerations
+
+**GitHub Actions:**
+- Free tier: 2,000 minutes/month for private repos
+- Public repos: Unlimited free
+- Estimated usage: ~36,000 minutes/month
+- Recommendation: Use public repo or upgrade to GitHub Pro ($4/month)
+
+**Claude API:**
+- Required for cloud agent functionality
+- Estimated cost: $50-100/month
+- Monitor usage at: https://console.anthropic.com/settings/usage
+
+**Security:**
+- Cloud agent has draft-only permissions (cannot send/post)
+- Local agent requires human approval for all actions
+- Never commit .env or sensitive files
+- Use GitHub Secrets for cloud credentials
+- Rotate API keys every 90 days
+
+**Vault Sync:**
+- Automatic sync every 2 minutes (cloud)
+- Pull before running local agent
+- Sensitive files are automatically blocked
+- Manual sync available: `python scripts/vault_sync.py`
+
+### Legacy Considerations (Local-Only Mode)
+
+**LinkedIn Automation:**
 - LinkedIn's ToS generally prohibit automation
 - Use for authorized personal use only
 - Limit to 5-10 posts/day
 - May require updates if LinkedIn changes UI
 - Use at your own risk
 
-### Rate Limiting
+**Rate Limiting:**
 - Task Planner: No limits
 - Vault Watcher: 15s polling (configurable)
 - Gmail Watcher: 60s polling (configurable)
 - Human Approval: 10s polling (configurable)
 - LinkedIn: 5-10 posts/day recommended
 
-### Maintenance
-- Monitor logs regularly (`tail -f logs/actions.log`)
-- Update LinkedIn selectors if UI changes
-- Rotate credentials periodically
-- Review processed files registry (`logs/processed.json`)
-- Clean up old approval requests in Done/ folder
-- Check screenshot folder size (`logs/screenshots/`)
-- Verify HTML snapshots for debugging (`logs/page_source.html`)
-- Monitor Gmail watcher heartbeat messages
-- Check email storage in `AI_Employee_Vault/Inbox/`
-- Verify Gmail App Password validity
-- Review auto-reply message effectiveness
+**Maintenance:**
+- Run local agent daily for approvals
+- Check system health regularly
+- Monitor GitHub Actions usage
+- Review logs for errors
+- Archive old files monthly
+- Rotate credentials quarterly
 
 ## 🚦 Status
 
-| Skill | Status | Production Ready | External Dependencies |
-|-------|--------|------------------|----------------------|
+| Component | Status | Production Ready | Dependencies |
+|-----------|--------|------------------|--------------|
+| **Platinum Tier Core** | | | |
+| Cloud Agent | ✅ Complete | Yes | anthropic, GitHub Actions |
+| Local Agent | ✅ Complete | Yes | rich, python-dotenv, anthropic |
+| Health Monitor | ✅ Complete | Yes | rich, GitHub CLI (optional) |
+| Vault Sync | ✅ Complete | Yes | git, GitHub Actions |
+| CEO Briefing | ✅ Complete | Yes | anthropic, GitHub Actions |
+| Dashboard Updater | ✅ Complete | Yes | None |
+| **Legacy Skills** | | | |
 | Task Planner | ✅ Complete | Yes | None |
 | Vault Watcher | ✅ Complete | Yes | None |
 | Human Approval | ✅ Complete | Yes | None |
@@ -1900,15 +2713,63 @@ A: Yes! The Rich library is highly customizable. Edit the color schemes in each 
 | Social Meta (FB/IG) | ✅ Complete | Yes | requests, python-dotenv, pillow |
 | Social Summary | ✅ Complete | Yes | None |
 | Accounting Manager | ✅ Complete | Yes | None |
-| CEO Briefing | ✅ Complete | Yes | None |
 | Error Recovery | ✅ Complete | Yes | None |
 | Ralph Loop | ✅ Complete | Yes | None |
 | MCP Executor | ✅ Complete | Yes | python-dotenv |
-| Gold Scheduler | ✅ Complete | Yes | None |
 
 ## ✅ What's Working (Tested & Verified)
 
-### 🎨 Beautiful Terminal UI (Gold Tier)
+### 🌟 Platinum Tier Core Features
+
+#### Cloud Agent (GitHub Actions)
+- ✅ Runs automatically every 15 minutes
+- ✅ Email triage with Claude AI
+- ✅ Draft email reply generation
+- ✅ Social media post draft creation
+- ✅ Writes to Pending_Approval/ folders
+- ✅ Never sends/posts directly (security)
+- ✅ Comprehensive cloud logging
+- ✅ Claim-by-move pattern (atomic operations)
+- ✅ Updates/ folder for status updates
+
+#### Local Agent
+- ✅ Rich UI for approval requests
+- ✅ Shows pending email and social drafts
+- ✅ Approve/reject workflow
+- ✅ Executes approved email sends
+- ✅ Executes approved social posts
+- ✅ Updates Dashboard.md
+- ✅ Moves completed to Done/
+- ✅ Comprehensive local logging
+
+#### Health Monitor
+- ✅ GitHub Actions workflow monitoring
+- ✅ Local process monitoring
+- ✅ System health reports
+- ✅ Vault metrics tracking
+- ✅ Rich UI with tables and alerts
+- ✅ Auto-restart capabilities (watchdog)
+- ✅ Alert system for failures
+
+#### Vault Sync
+- ✅ Automatic sync every 2 minutes (cloud)
+- ✅ Pull-before-push strategy
+- ✅ Auto-stash uncommitted changes
+- ✅ Blocks sensitive files (.env, tokens)
+- ✅ Automatic conflict resolution
+- ✅ Git-based synchronization
+- ✅ Comprehensive sync logging
+
+#### CEO Briefing
+- ✅ Automated weekly generation (Sundays 9am)
+- ✅ Claude AI-powered summaries
+- ✅ Task completion metrics
+- ✅ Financial summaries
+- ✅ System health status
+- ✅ Action items and recommendations
+- ✅ Professional markdown format
+
+### 🎨 Beautiful Terminal UI
 - ✅ Colorful output with rich library
 - ✅ Eye-catching startup banners with borders
 - ✅ Color-coded messages (green=success, red=error, yellow=warning, cyan=info)
@@ -1918,16 +2779,18 @@ A: Yes! The Rich library is highly customizable. Edit the color schemes in each 
 - ✅ Panels for important messages
 - ✅ Graceful fallback to plain text if rich not installed
 
-### Task Planner Agent
+### Legacy Features (Still Working)
+
+#### Task Planner Agent
 - ✅ Scans Inbox/ for .md files
 - ✅ Extracts priority from content (high/medium/low keywords)
 - ✅ Identifies task type (bug_fix, feature, research, etc.)
 - ✅ Generates structured plans with steps, risks, effort
 - ✅ Saves to Needs_Action/ with Plan_ prefix
 - ✅ Idempotent processing (tracks in logs/processed.json)
-- ✅ Comprehensive logging to logs/actions.log
+- ✅ Comprehensive logging
 
-### Vault Watcher Agent
+#### Vault Watcher Agent
 - ✅ Continuous monitoring (15-second polling)
 - ✅ Detects new .md files in Inbox/
 - ✅ Automatically triggers Task Planner
@@ -1936,56 +2799,22 @@ A: Yes! The Rich library is highly customizable. Edit the color schemes in each 
 - ✅ Can run as background process
 - ✅ Minimal CPU/memory usage
 
-### Human Approval Agent
+#### Human Approval Agent
 - ✅ Creates approval request files in Needs_Approval/
 - ✅ Blocks execution until human responds
 - ✅ Detects "APPROVED" or "REJECTED" (case-insensitive)
-- ✅ Works with any format: `**YOUR DECISION**:APPROVED` or `**YOUR DECISION**: APPROVED`
 - ✅ Configurable timeout (default: 1 hour)
 - ✅ Polling mechanism (10-second intervals)
 - ✅ Moves completed requests to Done/
-- ✅ Timeout exception handling
 - ✅ Priority levels (low/medium/high)
-- ✅ Detailed request context with frontmatter
-- ✅ Command-line and Python API usage
 
-### Gmail Watcher Agent
-- ✅ Real-time Gmail inbox monitoring (60-second polling)
-- ✅ IMAP connection for reading emails (SSL encrypted)
-- ✅ Detects new unread emails automatically
-- ✅ Extracts email metadata (From, Subject, Date, Body)
-- ✅ Handles both plain text and HTML emails
-- ✅ Saves emails to vault as markdown files
-- ✅ Professional auto-reply via SMTP (TLS encrypted)
-- ✅ Marks processed emails as read
-- ✅ Gmail App Password authentication
-- ✅ Comprehensive error handling and recovery
-- ✅ Heartbeat logging every 10 cycles
-- ✅ Graceful shutdown on Ctrl+C
-- ✅ Production-ready 24/7 operation
-- ✅ Minimal resource usage
-- ✅ Integration with vault watcher for email-to-task pipeline
-
-### Email Sender Agent
-- ✅ SMTP email sending (Gmail, Outlook, Yahoo, custom servers)
-- ✅ Environment variable credential management (.env file)
-- ✅ Command-line interface with arguments
-- ✅ HTML and plain text email support
-- ✅ Gmail App Password support
-- ✅ Configurable SMTP server and port
-- ✅ Comprehensive error handling with helpful messages
-- ✅ Authentication error detection with tips
-- ✅ Colorful terminal UI with rich library
-- ✅ Detailed logging to logs/actions.log
-- ✅ Integration with MCP executor
-- ✅ Secure credential storage (never logged)
-
-### LinkedIn Auto-Post Agent
-- ✅ Automated login with credentials from .env
-- ✅ CAPTCHA detection with manual intervention prompt
-- ✅ Multiple selector strategies (5 methods)
-- ✅ Keyboard typing for natural content entry
-- ✅ Post button detection scoped to share dialog
+#### Social Media Automation
+- ✅ LinkedIn, Twitter/X, Facebook, Instagram
+- ✅ Browser automation with Playwright
+- ✅ Retry logic with exponential backoff
+- ✅ CAPTCHA and 2FA detection
+- ✅ Screenshot debugging on errors
+- ✅ Comprehensive error logging
 - ✅ Retry logic with exponential backoff (2 retries)
 - ✅ Screenshot capture on errors
 - ✅ HTML snapshot for debugging (logs/page_source.html)
@@ -2105,46 +2934,48 @@ Task Planner maintains a processed files registry:
 
 ## 📦 Dependencies
 
-**Core** (required for colorful terminal UI):
+**Platinum Tier Core** (required):
 ```bash
-pip install rich
+pip install rich python-dotenv anthropic
 ```
 
-**Basic Agents** (task_planner.py, watch_inbox.py, request_approval.py):
+**Core Components:**
 - `rich>=13.0.0` - Beautiful, colorful terminal output with panels, tables, and progress bars
+- `python-dotenv>=1.0.0` - Environment variable management
+- `anthropic>=0.18.0` - Claude API for cloud agent
 
-**Email Integration** (Gmail watcher, email sender):
+**GitHub Requirements:**
+- GitHub account with Actions enabled
+- GitHub CLI (`gh`) installed (optional but recommended)
+- Git configured with repository access
+
+**Legacy Skills** (optional):
 ```bash
+# Email integration
 pip install python-dotenv
-```
 
-**LinkedIn** (requires additional installation):
-```bash
+# LinkedIn automation
 pip install playwright python-dotenv
 playwright install chromium
-```
 
-**Twitter/X** (Gold Tier):
-```bash
+# Twitter/X automation
 pip install tweepy python-dotenv
-```
 
-**Facebook/Instagram** (Gold Tier):
-```bash
+# Facebook/Instagram automation
 pip install requests python-dotenv pillow
 ```
 
 **All dependencies**:
 ```bash
-# Install all at once
-pip install rich playwright python-dotenv tweepy requests pillow
+# Install everything at once
+pip install rich python-dotenv anthropic playwright tweepy requests pillow
 playwright install chromium
 ```
 
-**Optional** (for development):
+**From requirements file**:
 ```bash
 pip install -r requirements.txt
-pip install -r requirements_linkedin.txt
+pip install -r requirements_linkedin.txt  # Optional for LinkedIn
 ```
 
 ## 🎨 Terminal UI Features
@@ -2165,9 +2996,72 @@ If `rich` is not installed, all scripts gracefully fall back to plain text outpu
 
 ## 🎓 Learning Resources
 
+### Platinum Tier Resources
+- **GitHub Actions Documentation**: https://docs.github.com/en/actions
+- **Anthropic Claude API**: https://docs.anthropic.com/
+- **GitHub CLI**: https://cli.github.com/
+- **Git Documentation**: https://git-scm.com/doc
+
+### General Resources
 - **Playwright Documentation**: https://playwright.dev/python/
 - **Python dotenv**: https://pypi.org/project/python-dotenv/
+- **Rich Library**: https://rich.readthedocs.io/
 - **LinkedIn Automation Best Practices**: See LINKEDIN_SETUP.md
+- **Gmail App Passwords**: https://myaccount.google.com/apppasswords
+- **Email Setup Guide**: See EMAIL_SETUP.md
+- **Scheduler Setup Guide**: See SCHEDULER_SETUP.md
+
+---
+
+## 🎉 Summary
+
+### What You Have Now
+
+**Platinum Tier AI Employee** is a production-ready, dual-agent system with:
+
+✅ **24/7 Cloud Automation** - GitHub Actions runs your AI employee automatically
+✅ **Dual-Agent Architecture** - Cloud agent for automation, local agent for control
+✅ **Email Triage** - Automatic email analysis and draft reply generation
+✅ **Social Media Drafts** - Automated social post draft creation
+✅ **Human Approval Gate** - All final actions require your approval
+✅ **Vault Synchronization** - Automatic sync between cloud and local every 2 minutes
+✅ **Health Monitoring** - System health checks with auto-restart capabilities
+✅ **CEO Briefings** - Automated weekly executive summaries
+✅ **Security by Design** - Cloud can only draft, never send/post
+✅ **No Race Conditions** - Claim-by-move pattern for atomic operations
+✅ **No Merge Conflicts** - Single-writer rule for conflict prevention
+
+### Quick Start Reminder
+
+1. **Add ANTHROPIC_API_KEY to GitHub Secrets**
+2. **Enable GitHub Actions** in your repository
+3. **Enable workflow write permissions**
+4. **Test cloud agent**: `gh workflow run cloud-agent.yml`
+5. **Run local agent**: `python scripts/local_agent.py`
+6. **Check system health**: `python scripts/health_check.py`
+
+### Cost Estimate
+
+- **GitHub Actions**: Free (public repo) or $4/month (GitHub Pro)
+- **Claude API**: ~$50-100/month
+- **Total**: ~$50-104/month for 24/7 AI employee
+
+### Next Steps
+
+- Review complete documentation in `docs/` folder
+- Configure email integration (optional)
+- Set up social media credentials (optional)
+- Start health monitoring with watchdog
+- Review your first CEO briefing on Sunday
+
+---
+
+**🚀 Your Platinum Tier AI Employee is ready to work 24/7!**
+
+Built with Claude Sonnet 4.6 - Your AI Development Partner
+
+*Version 3.0.0 - Platinum Tier - Production Ready*
+*Last Updated: 2026-03-15*
 - **Markdown Task Format**: See example files in AI_Employee_Vault/Inbox/
 
 ## 🔐 Security Best Practices
